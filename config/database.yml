@@ -1,0 +1,29 @@
+defaults: &defaults
+    adapter: mysql
+    encoding: utf8
+
+development:
+    database: lookatrails_development
+    username: root
+    password: none
+    socket: /Applications/MAMP/tmp/mysql/mysql.sock
+    <<: *defaults
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+    database: lookatrails_test
+    username: root
+    password: none
+    socket: /Applications/MAMP/tmp/mysql/mysql.sock
+    <<: *defaults
+
+production:
+    #database: pis_production
+    #username: admin
+    #password: S3lfN3Tadm
+    #socket: /var/lib/mysql/mysql.sock
+    database: lookatrails_db
+    username: lookatrails_usr
+    password: Sql@Rails
+    <<: *defaults

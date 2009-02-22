@@ -1,0 +1,72 @@
+<!--
+/*-------------------------------------------------
+2 COLUMN LAYOUT: SMALL LEFT - LARGE RIGHT
+-------------------------------------------------*/
+div.layout_2colsl {
+}
+div.layout_2colsl table.layout {
+	clear: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+div.layout_2colsl table.layout td.left,
+div.layout_2colsl table.layout td.right {
+	vertical-align: top;
+	padding: 0;
+}
+div.layout_2colsl table.layout td.left {
+	width: 30%;
+}
+div.layout_2colsl table.layout td.right {
+	width: 70%;
+}
+div.layout_2colsl div.leftcontainer {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	width: 100%;
+	float: left;
+}
+div.layout_2colsl div.col {
+	padding: 0 20px;
+	text-align: left;
+}
+div.layout_2colsl div.rightcontainer div.col {
+	width: 100%;
+	padding: 0 8px 0 0;
+  	background: #fff url(/assets/media/images/layout/right-bg.gif) right repeat-y;
+  	position: relative;
+}
+div.layout_2colsl div.rightcontainer div.bottom {
+	width: 100%;
+	padding: 0 8px 0 0;
+  	background: url(/assets/media/images/layout/bottom-bg.gif) top right no-repeat;
+  	font-size: 8px;
+}
+div.layout_2colsl div.rightcontainer div.innercol {
+	padding: 8px 30px 15px 23px;
+	font-size:12px;
+	margin-top: -5px;
+}
+div.layout_2colsl div.leftcontainer {
+	margin: 0px;
+	padding: 0;
+	text-align: left;
+	float: left;
+	width: 30%;
+}
+div.layout_2colsl div.leftcontainer div.col {
+	min-width: 200px;
+	padding: 0 9px 0 0;
+}
+div.layout_2colsl table.layout td.left div.leftcontainer,
+div.layout_2colsl table.layout td.right div.rightcontainer {
+  	width: auto;
+  	float: none;
+}
+div.layout_2colsl div.leftcontainer div.innercol {
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-top: -5px;
+}
+-->

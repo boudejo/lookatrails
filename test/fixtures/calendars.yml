@@ -1,0 +1,14 @@
+DEFAULTS: &DEFAULTS
+  calendar_entries_count:   0
+  workday_count:            0
+  general_leave_count:      0
+  holiday_count:            0
+  postponed_holiday_count:  0
+  event_special_day_count:  0
+  creator_id:               <%= Fixtures.identify(:butsjoh) %>
+  updater_id:               <%= Fixtures.identify(:butsjoh) %>
+
+calendar_2009:
+  year:                     2009
+  description:              "Quasus global calendar for 2009"
+  <<: *DEFAULTS

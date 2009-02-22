@@ -1,0 +1,16 @@
+<div id="top_menu">
+	<div class="currentdatetime">
+		<%= Date.today.strftime('%a %d %b %Y week: %W'); %> - <span id="currentdatetime"></span><br/>
+		<div id="app_status">
+    	<span class="message">&nbsp;</span>
+    </div>
+	</div>
+	<div class="personal_links">
+		Welcome, <%= current_user.login %>
+		<span class="pipe">|</span><a href="<%= my_profile_path %>" title="Review and edit your personal information">My profile</a>
+	  <span class="pipe">|</span><%= link_to 'Log-out', logout_url  %>
+		<span class="pipe">|</span><a href="#" title="Help">Help</a><br/>
+		<% if s('session.timeout') > 0 then %>session timeout in:<div id="countdown"></div><% end %>
+	</div>	
+	<div class="clear">&nbsp;</div>		
+</div>

@@ -1,0 +1,27 @@
+DEFAULTS: &DEFAULTS
+  dkv:                  191
+  group_insurance_perc: 4.5            
+  creator_id:           <%= Fixtures.identify(:system) %>
+  updater_id:           <%= Fixtures.identify(:system) %>
+
+salary_default_emp_lorioga:
+  gross_salary:         2500
+  rep_allowance:        50
+  car_budget:           0
+  current:              false
+  grand_total:          5004.74
+  daily_cost:           305.85
+  notes:                'Basic startsalary for joblevel: senior'
+  employee_id:          <%= Fixtures.identify(:emp_lorioga) %>    
+  <<: *DEFAULTS
+  
+salary_emp_lorioga:
+  gross_salary:         3000
+  rep_allowance:        75
+  car_budget:           600
+  current:              true
+  grand_total:          5806.73
+  daily_cost:           354.86
+  notes:                'First start salary'
+  employee_id:          <%= Fixtures.identify(:emp_lorioga) %>    
+  <<: *DEFAULTS

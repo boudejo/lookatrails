@@ -1,0 +1,29 @@
+<% if is_edit? %>
+  <div class="subject_actionlinks">
+    <a href="#" class="button" id="show_new_<%= subject %>_resource">ADD RESOURCE</a>
+  </div>
+  <div class="clear">&nbsp;</div>
+  <%= ajax_block('new_'+subject.to_s+'_resource', {:hide => true}) %>
+<% end %>
+
+<% if is_edit? || is_readonly? %>
+  <div id="<%= subject %>_info">
+    <% if subject == :opportunity then %>
+      <% if object.is_option?(:option_1) then %>
+        OPTION 1: perc. work = <%= round object.perc_work %> % - FTE = <%= object.fte %> person(s)
+      <% elsif object.is_option?(:option_2) then %>
+        OPTION 2: max. days = <%= object.max_days %> day(s)
+      <% end %>
+    <% elsif subject == 'project' %>
+    
+    <% end %>
+  </div>
+<% end %>
+
+<% if is_edit? || is_readonly? %>
+  <div class="subject_actionlinks">
+    <% if is_edit? || is_readonly? %><a href="#" class="link" id="refresh_<%= subject %>_resources">Refresh resources</a><% end %>
+  </div>
+  <div class="clear">&nbsp;</div>
+  <%= ajax_block(subject.to_s+'_resources', :css_class => 'resources', :load_type => nil) %>
+<% end %>

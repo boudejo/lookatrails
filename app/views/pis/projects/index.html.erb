@@ -1,0 +1,62 @@
+<% title "Projects" %>
+
+<%= render_app_partial 'object/actionlinks', :locals => { :options => {:show_search => true} } %>
+
+<%= render :partial => "search" %>
+
+<%= display_flashes %>
+
+<% if @search %>
+	<h3 class="search_title">
+		Search results: 
+		<a href="<%= object_path %>" class="clear_search_link">show all</a>
+	</h3>
+<% end %>
+
+<% if @projects.size > 0 then %>
+	<% paging_section @projects do %>
+  	<table id="projects_grid" class="datagrid projects_grid">
+  		<thead>
+  			<tr class="heading">
+  				<th class="name">Name</th>
+  				<th class="account">Account</th>
+  				<th class="status">Status</th>
+  				<th class="actions">Actions</th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+  		<% for project in @projects %>
+  			<tr class="<%= cycle('row-odd', 'row-even')%>" id="pis_<%= dom_id(project) %>">
+  				<td class="name"><%= project.name %></td>
+  				<td class="account"><%= project.account %></td>
+  				<td class="status">TODO</td>
+  				<td class="actions norowlink">
+  				  <%= render_app_partial 'object/recordlinks', :locals => { :options => {:object => project, :ns => :pis, :title_key => 'name'}} %>
+  				</td>
+  			</tr>
+  		<% end %>
+  		</tbody>
+  	</table>
+	<% end %>
+<% else %>
+	<p class="noresults">
+		<% if @search %>
+			No <%= controller.controller_name %> could be found using your search criteria:<br/>
+			<table class="search_criteria">
+				<% @search.each do |field, value| %>
+					<tr>
+						<td class="field"><%= field.humanize %>:</td>						
+						<td class="value"><%= value %></td>						
+					</tr>
+				<% end %>
+			</table>
+			<br/>
+			<p align="center">
+				<input type="button" name="all" value="Show all" class="clear_search_btn" id="<%= controller.controller_name %>_clear_search_btn" />
+			</p>
+		<% else %>
+			There are currently no projects added in the system.
+			<% if @page then %><br/>(on page <%=@page%>)<% end %>
+		<% end %>
+	</p>
+<% end %>

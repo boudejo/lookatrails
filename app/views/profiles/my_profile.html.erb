@@ -1,0 +1,35 @@
+<% title "My Profile" %>
+
+  <%= display_flashes %>
+  
+	<table cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+	      <td colspan="2">
+	        <%= error_messages_for :profile, {:strip_object_name => true} %>
+	        
+	        <% tpl_form_for :profile, @object, :url => profile_path(current_user), :html => {:method => :put} do |f| %>
+        	  <% f.fieldset "My personal info" do %>
+        	      <% f.table do %>
+        	        <% @object.user_attributes.each do |column| -%>
+              	    <%= f.text_field column %>
+              	  <% end -%>
+            	  <% end -%>
+          	<% end-%>
+            <%= submit_tag "Save changes" %>
+        	<% end -%>
+	      </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">
+	     <%= error_messages_for :user, {:strip_object_name => true} %>
+	    </td>
+	  </tr>
+	  <tr>
+	      <td width="50%" style="vertical-align: top;">
+	        <%= render :partial => "edit_email" %>
+	      </td>
+	      <td width="50%" style="vertical-align: top;">
+	        <%= render :partial => "edit_password" %>
+	      </td>
+	  </tr>
+	</table>

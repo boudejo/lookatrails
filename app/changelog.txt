@@ -1,0 +1,26 @@
+20	Added: Recruitment workflow (recruitment => employee)
+		Added: Recruitment forecast (currently without filtering options)
+		Added: HR management for employees (work, personal, salary info)
+		Added: Timesheet concept (HR)
+		Added: Opportunity management
+		
+10 	Added: Basic CRM functionality (to refactor later) without contacts
+
+4		Added: Car Management (65%)
+		Added: Changelog functionality for change tracking
+		Design: Integrated PIS layout
+		
+3		Initial setup
+		Design: General layout
+
+0		Setup framework
+
+LEGEND
+------
+Upgraded:	Upgrade to a newer version
+Added: 		Extra functionality
+Removed: 	Removed functionality
+Design: 	Some design change
+Bugfix: 	A reported bug was fixed
+Changed: 	An existed item was changed
+Refactored: 	Code is refactored

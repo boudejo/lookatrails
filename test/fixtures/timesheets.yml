@@ -1,0 +1,12 @@
+DEFAULTS: &DEFAULTS
+  timesheet_entries_count:  0
+  creator_id:               <%= Fixtures.identify(:butsjoh) %>
+  updater_id:               <%= Fixtures.identify(:butsjoh) %>
+
+timesheet_emp_lorioga:
+  employee_id:              <%= Fixtures.identify(:emp_lorioga) %>
+  year:                     2009
+  default_leave_days:       20
+  extra_leave_days:         0
+  description:              "Timesheet calendar 2009 for employee: Loriot Gäetan"
+  <<: *DEFAULTS

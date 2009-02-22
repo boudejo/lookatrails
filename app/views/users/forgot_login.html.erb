@@ -1,0 +1,22 @@
+<% title "Login recovery" %>
+
+  <%= display_flashes %>
+  
+  <% unless @user.nil? %>
+  	<p>An email containing your <%= s('app.name') %> account's login has been dispatched to you at <em><%= @user.email %></em>.</p>
+	
+  	<div class="links" style="text-align: right;">
+    	<%= link_to "Login now &raquo;", login_url %>
+    </div>
+  <% else %>
+  	<p>Please enter the email address associated with your account. We will send you an email with your login shortly.</p>
+
+  	<% form_tag user_forgot_login_url, :method => :put, :id => 'forgot_login_form' do %>
+  		<%= text_field_tag :email, '', :label => {:text => 'Your email address', :partial => true} %>
+  		<p align="right"><%= submit_tag 'Send me my login &raquo;', :id => 'recover_login_button' %></p>
+  	<% end %>
+  <% end %>
+  
+  <div class="links" style="text-align: left;">
+  	<%= link_to("&laquo; Back", user_troubleshooting_path)%>
+  </div>

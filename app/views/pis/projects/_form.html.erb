@@ -1,0 +1,69 @@
+<% if is_edit? then %>
+  <%= render_app_partial "object/info", :locals => {:record => @project} %>
+<% end %>
+
+<%= error_messages_for :project, {:strip_object_name => true} %>
+
+<% tabs 'project_tabs', %w{info files}, { :default => 'info', :handler => 'handleProjectTabs', :files => {:disabled => (@editable) ? false : is_new?, :text => 'Files ('+@project.documents_count.to_s+')'}} do %>
+  <% tab "info" do %>
+    <% tpl_form_for @project, :url => object_path, :readonly => is_readonly? do |f| %>
+     	<% f.fieldset "Info", :html => {:class => "left info"} do %>
+     	  <% f.table do %>
+       	   <%= f.text_field :name, :label => 'Name' %>
+        <% end %>
+     	<% end %>
+     	<% f.fieldset "Accountinfo", :html => {:class => "right bankinfo"} do %>
+   	    <% f.table do %>
+    	    <%= f.filterlist :account, {:title => @object.account.to_s('name')} %>
+        <% end %>         
+     	<% end %>
+     	<div class="clear">&nbsp;</div>
+     	<p align="right">
+        <% if is_edit? then %>
+          <%= f.submit "Update" %>
+    		<% elsif is_new? then %>
+    			<%= f.submit "Create" %>
+    		<% end %>
+      </p>
+    <% end %>
+  <% end %>
+  <% if is_edit? || (is_readonly?) %>
+    <% tab "files" do %>
+      <%= render :partial => 'documents/container', :locals => {:subject => :project} %>
+    <% end %>
+    <%= object_identity_field(@project) %>
+  <% end %>
+<% end %>
+
+<p class="formbuttons">
+  <% if is_edit? then %>
+    <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %>
+	<% elsif is_new? then %>
+		<%= link_to 'Back', collection_path %>
+	<% else %>
+	  <%= link_to 'Edit', edit_object_path %> | <%= link_to 'Back', collection_path %>
+	<% end %>
+</p>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+		function handleProjectTabs(tabid, tabs, tabcontainer) {
+		  <% if is_edit? || is_readonly? %>
+	      Projects.setup(<%= @project.to_json %>);
+        Projects.handleTab(tabid, <%= (is_readonly?) ? true : false %>, <%= (@editable) ? true : false %>);
+      <% end %>
+      return true;
+    }
+    
+    $j(document).ready(function(){
+       $j('#project_account_id').filterlist(
+         {subject: 'project_account', subject_class: 'account', 
+         module: 'crm/accounts', status_empty_msg: 'No account selected', 
+         label_reset_type: 'element', label_reset: 'x',
+         label_choose_type: 'element'}
+       );
+    });
+	//]]>
+	</script>
+<% end %>

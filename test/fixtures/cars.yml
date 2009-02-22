@@ -1,0 +1,28 @@
+DEFAULTS: &DEFAULTS
+  creator_id:               <%= Fixtures.identify(:butsjoh) %>
+  updater_id:               <%= Fixtures.identify(:butsjoh) %>
+  status:                   unassigned
+
+BMW1:
+  license_plate:  XYZ-001
+  brand:          BMW 5 series
+  budget:         500
+  <<: *DEFAULTS
+  
+AUDI1:
+  license_plate:  XYZ-002
+  brand:          Audi A4
+  budget:         600
+  <<: *DEFAULTS
+  
+OPEL1:
+  license_plate:  XYZ-003
+  brand:          Astra Break
+  budget:         400
+  <<: *DEFAULTS
+
+RENAULT1:
+  license_plate:  XYZ-004
+  brand:          Clio
+  budget:         300
+  <<: *DEFAULTS

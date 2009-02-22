@@ -1,0 +1,10 @@
+<% @flash_id = dom_uuid %>
+<div class="flash <%= css_class %>" id="flash_<%= @flash_id %>">
+	<% if closeable then %><a href="<%= controller_path %>" class="close">X</a><% end %>
+	<p class="message"><%= msg %></p>
+</div>
+<% if timeout > 0 then %>
+	<% javascript_tag do -%>
+		setTimeout("$j('#flash_<%= @flash_id %>').fadeOut('slow');", <%= (timeout*1000) %>); 
+	<%end -%>
+<% end %>

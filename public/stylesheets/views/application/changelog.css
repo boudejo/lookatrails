@@ -1,0 +1,10 @@
+/* == CHANGELOG == */
+pre.changelog {
+  background-color: #F0F0F0;
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #6C757A;
+  margin: 10px 0px 5px 0px;
+  padding: 5px;
+  font-size: 0.85em;
+}

@@ -1,0 +1,10 @@
+<% options ||= {} %>
+<div class="actionlinks">
+	<% if options[:show_search] then %>
+		<a href="#" class="actlinksearch">Search</a>
+	<% end %>
+	<% if options[:add_url] then %>
+		<a href="<%= options[:add_url] %>">Add</a>
+	<% end %>
+</div>
+<div class="clear">&nbsp;</div>

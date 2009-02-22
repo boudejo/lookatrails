@@ -1,0 +1,54 @@
+dzzdezfzfzefez
+
+<% title "Access denied" %>
+
+<p align="center">
+  <strong>It seems you do not have the privileges to execute the request.</strong><br/>
+  OR <strong>You might have been logged out while processing your request.</strong>
+</p>
+
+<p align="center">
+  <strong>The changes you made or the data you requested cannot be processed.</strong>
+</p>
+
+<p align="center">
+  <% if logged_in? %>
+    <%= link_to 'Logout', logout_path %>
+    <%= link_to 'Back to dashboard', dashboard_path %>
+  <% else %>
+    <%= link_to 'Login', login_path %>
+  <% end %>
+</p>
+
+<% if !production? &&  controller.controller_name != 'application' %>
+  <% fieldset "Debug information" do %>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+          <td width="130">Controller:</td>
+          <td><strong><%= controller.controller_name %></strong></td>
+      </tr>
+      <tr>
+          <td>Action:</td>
+          <td><strong><%= controller.action_name %></strong></td>
+      </tr>
+      <tr>
+          <td>Request uri:</td>
+          <td><strong><%= request.request_uri %></strong></td>
+      </tr>
+      <tr>
+          <td style="vertical-align: top;">Request parameters:</td>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+               <% params.each do |key, val| -%>
+                  <tr>
+            	      <%= content_tag(:td, "#{key}:", :width => 130) %>
+            	      <%= content_tag(:td, "#{val}") %>
+            	    </tr>
+            	  <% end -%>
+            </table>
+          </td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
+

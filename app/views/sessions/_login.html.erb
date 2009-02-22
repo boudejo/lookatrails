@@ -1,0 +1,8 @@
+<div style="float: left">
+	<% form_tag session_path, :id => 'login_form' do -%>
+		<%= text_field_tag 'login', @login, :label => {:partial => true}, :size => 10 %>
+		<%= password_field_tag 'password', nil, :label => {:partial => true}, :size => 10 %>
+		<p align="right"><%= submit_tag 'Log in &raquo;', :id => 'login_button' %></p>
+		<p><%= link_to('Sign up &raquo;', signup_path)%></p>
+	<% end -%>
+</div>

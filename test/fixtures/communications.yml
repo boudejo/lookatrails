@@ -1,0 +1,154 @@
+DEFAULTS: &DEFAULTS
+  desc:           ''
+  deleteable:     0
+  editable:       1
+  created_at:     <%= 1.days.ago.to_s :db  %>
+
+# EMPLOYEES:
+emp_lorioga_phone:
+  kind:             'phone'
+  label:            'Work'
+  value:            '+32 458 00 67'
+  communicatable:   emp_lorioga (Employee) 
+  <<: *DEFAULTS
+
+emp_lorioga_cell:
+  kind:             'cell'
+  label:            'Work'
+  value:            '+32 479 90 06 20'
+  communicatable:   emp_lorioga (Employee)
+  <<: *DEFAULTS
+
+emp_lorioga_email:
+  kind:             'email'
+  label:            'Work'
+  value:            'lorioga@telenet.be'
+  communicatable:   emp_lorioga (Employee)
+  <<: *DEFAULTS
+    
+# PERSONS:
+lorioga_phone:
+  kind:             'phone'
+  label:            'Home'
+  value:            '+32 458 00 67'
+  communicatable:   prlorioga (Person) 
+  <<: *DEFAULTS
+
+lorioga_cell:
+  kind:             'cell'
+  label:            'Home'
+  value:            '+32 479 90 06 20'
+  communicatable:   prlorioga (Person)
+  <<: *DEFAULTS
+  
+lorioga_email:
+  kind:             'email'
+  label:            'Home'
+  value:            'lorioga@telenet.be'
+  communicatable:   prlorioga (Person)
+  <<: *DEFAULTS
+    
+butsjoh_phone:
+  kind:             'phone'
+  label:            'Home'
+  value:            '+32 458 00 68'
+  communicatable:   prbutsjoh (Person)
+  <<: *DEFAULTS
+
+butsjoh_cell:
+  kind:             'cell'
+  label:            'Home'
+  value:            '+32 479 90 06 21'
+  communicatable:   prbutsjoh (Person)
+  <<: *DEFAULTS
+    
+butsjoh_email:
+  kind:             'email'
+  label:            'Home'
+  value:            'johan.buts@telenet.be'
+  communicatable:   prbutsjoh (Person)
+  <<: *DEFAULTS
+    
+boudejo_phone:
+  kind:             'phone'
+  label:            'Home'
+  value:            '+32 458 00 69'
+  communicatable:   prboudejo (Person) 
+  <<: *DEFAULTS
+
+boudejo_cell:
+  kind:             'cell'
+  label:            'Home'
+  value:            '+32 479 90 06 22'
+  communicatable:   prboudejo (Person)
+  <<: *DEFAULTS
+  
+boudejo_email:
+  kind:             'email'
+  label:            'Home'
+  value:            'j.boudewijns@telenet.be'
+  communicatable:   prboudejo (Person)
+  <<: *DEFAULTS
+    
+01_phone:
+  kind:             'phone'
+  label:            'Home'
+  value:            '+32 458 00 70'
+  communicatable:   pr01 (Person) 
+  <<: *DEFAULTS
+
+01_cell:
+  kind:             'cell'
+  label:            'Home'
+  value:            '+32 479 90 06 23'
+  communicatable:   pr01 (Person)
+  <<: *DEFAULTS
+  
+01_email:
+  kind:             'email'
+  label:            'Home'
+  value:            '01@telenet.be'
+  communicatable:   pr01 (Person)
+  <<: *DEFAULTS
+    
+02_phone:
+  kind:             'phone'
+  label:            'Home'
+  value:            '+32 458 00 71'
+  communicatable:   pr02 (Person) 
+  <<: *DEFAULTS
+
+02_cell:
+  kind:             'cell'
+  label:            'Home'
+  value:            '+32 479 90 06 24'
+  communicatable:   pr02 (Person)
+  <<: *DEFAULTS
+  
+02_email:
+  kind:             'email'
+  label:            'Home'
+  value:            '02@telenet.be'
+  communicatable:   pr02 (Person)
+  <<: *DEFAULTS
+    
+03_phone:
+  kind:             'phone'
+  label:            'Home'
+  value:            '+32 458 00 72'
+  communicatable:   pr03 (Person) 
+  <<: *DEFAULTS
+
+03_cell:
+  kind:             'cell'
+  label:            'Home'
+  value:            '+32 479 90 06 25'
+  communicatable:   pr03 (Person)
+  <<: *DEFAULTS
+  
+03_email:
+  kind:             'email'
+  label:            'Home'
+  value:            '03@telenet.be'
+  communicatable:   pr03 (Person) 
+  <<: *DEFAULTS  

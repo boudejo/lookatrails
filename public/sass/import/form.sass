@@ -1,0 +1,102 @@
+/* == FORM ==
+
+/* ELEMENTS
+
+input
+  :border 1px solid #000
+  margin: 1px
+  &:focus
+    :background-color #FFF
+    :border 1px solid #9F1009
+  &.checkbox
+    :margin-bottom 4px
+  &.button
+    :padding 2px 7px
+  &.disabled
+    :background-color #DDD
+    &:hover
+      :background-color #DDD
+
+/* TYPE RELATED
+input  
+  &.date
+    :width 75px
+    :text-align center
+    
+  &.decimal, &.price, &.percentage, &.small_value
+    :width 65px
+    :text-align center
+
+textarea
+  margin: 1px
+  :border 1px solid #000
+  :width 100%
+
+select
+  margin: 1px
+  :background-color #FFF
+  :border 1px inset
+  
+textarea:focus, select:focus
+  :background-color #FFF
+  :border 1px solid #9F1009
+
+/* CONTAINERS
+
+table.form_table
+  :width 100%
+  td
+    :padding 3px 0px 3px 0px
+    :background-color transparent
+    &.label
+      :width 120px
+      :vertical-align top
+    &.divider
+      :vertical-align top
+      :width 50%
+
+fieldset, fieldset.form_fieldset
+  :border 1px solid #6C757A
+  :background-color #F0F0F0
+  :position relative
+  :margin 0px 0px 0px 0px
+  :padding 0px 3px 5px 0px
+  &.inline
+    :border 1px solid #6C757A
+    :background-color #E0E0E0
+    :position relative
+    :margin 0px
+    :padding 5px 3px 5px 5px
+  div.form_container, div.fieldset_container
+    :background-color transparent
+    :padding 3px 10px 3px 10px
+
+legend
+  :background-color transparent
+  :font-size 12px
+  :font-weight bold
+  :color #6C757A
+  :position absolute
+  :top -.5em
+  :left .5em
+  :margin 0px 0px 0px 2px
+  :padding 0px 3px 0px 3px
+  :z-index -1
+
+form.delete_form, form.delete_form div
+  :display inline
+  
+/* BUTTONS
+
+p.formbuttons
+  margin-top: 10px
+  
+input.button
+  padding: 2px 7px
+  width: auto
+
+input.disabled
+  background-color: #DDD
+
+input.disabled:hover
+  background-color: #DDD

@@ -1,0 +1,58 @@
+<% title "CRM Contacts" %>
+
+<%= render_app_partial 'object/actionlinks', :locals => { :options => {:add_url => new_object_path, :show_search => true }} %>
+
+<%= render :partial => "search" %>
+
+<%= display_flashes %>
+
+<% if @search %>
+	<h3 class="search_title">
+		Search results: 
+		<a href="<%= object_path %>" class="clear_search_link">show all</a>
+	</h3>
+<% end %>
+
+<% if @contacts.size > 0 then %>
+  <% paging_section @contacts do %>
+  	<table id="contacts_grid" class="datagrid contacts_grid">
+  		<thead>
+  			<tr class="heading">
+  				<th class="name">Name</th>
+  				<th class="actions">Actions</th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+  		<% for contact in @contacts %>
+  			<tr class="<%= cycle('row-odd', 'row-even')%>" id="crm_<%= dom_id(contact) %>">
+  				<td class="name"><%= contact.to_s('name') %></td>
+  				<td class="actions norowlink">
+  				  <%= render_app_partial 'object/recordlinks', :locals => { :options => {:object => contact, :ns => :crm}} %>
+  				</td>
+  			</tr>
+  		<% end %>
+  		</tbody>
+  	</table>
+	<% end %>
+<% else %>
+	<p class="noresults">
+		<% if @search %>
+			No <%= controller.controller_name %> could be found using your search criteria:<br/>
+			<table class="search_criteria">
+				<% @search.each do |field, value| %>
+					<tr>
+						<td class="field"><%= field.humanize %>:</td>						
+						<td class="value"><%= value %></td>						
+					</tr>
+				<% end %>
+			</table>
+			<br/>
+			<p align="center">
+				<input type="button" name="all" value="Show all" class="clear_search_btn" id="<%= controller.controller_name %>_clear_search_btn" />
+			</p>
+		<% else %>
+			There are currently no contacts added in the system.
+			<% if @page then %><br/>(on page <%=@page%>)<% end %>
+		<% end %>
+	</p>
+<% end %>

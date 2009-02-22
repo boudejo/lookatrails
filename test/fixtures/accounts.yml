@@ -1,0 +1,15 @@
+DEFAULTS: &DEFAULTS
+  contacts_count: 0
+  opportunities_count: 0
+  projects_count: 0
+  documents_count: 0
+  creator_id:               <%= Fixtures.identify(:system) %>
+  updater_id:               <%= Fixtures.identify(:system) %>
+
+selfnet:
+  notes: 'SelfNET BVBA fixture'
+  <<: *DEFAULTS
+  
+thinkweb:
+  notes: 'ThinkWeb fixture'
+  <<: *DEFAULTS

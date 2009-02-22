@@ -1,0 +1,27 @@
+DEFAULTS: &DEFAULTS
+  creator_id: <%= Fixtures.identify(:system) %>
+  updater_id: <%= Fixtures.identify(:system) %>
+  
+system_profile:
+  user_id: <%= Fixtures.identify(:system) %>
+  first_name: system
+  last_name:
+  <<: *DEFAULTS
+  
+butsjoh_profile:
+  user_id: <%= Fixtures.identify(:butsjoh) %>
+  first_name: Johan
+  last_name: Buts
+  <<: *DEFAULTS
+   
+boudejo_profile:
+  user_id: <%= Fixtures.identify(:boudejo) %>
+  first_name: Joeri
+  last_name: Boudewijns
+  <<: *DEFAULTS
+  
+quasus_profile:
+  user_id: <%= Fixtures.identify(:quasus) %>
+  first_name: Quasus
+  last_name: Quasus
+  <<: *DEFAULTS

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema/schema.rb
+END
+schema2.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema/schema2.rb
+END
+sqlite_specific_schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema/sqlite_specific_schema.rb
+END
+postgresql_specific_schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema/postgresql_specific_schema.rb
+END
+mysql_specific_schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema/mysql_specific_schema.rb
+END
+sqlserver_specific_schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/schema/sqlserver_specific_schema.rb
+END

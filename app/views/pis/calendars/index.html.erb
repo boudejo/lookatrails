@@ -1,0 +1,61 @@
+<% title "Calendars" %>
+<% if @calendars.size > 0 then %>
+	<% paging_section @calendars do %>
+  	<table id="calendars_grid" class="datagrid calendars_grid">
+  		<thead>
+  			<tr class="heading">
+  				<th class="year">Year</th>
+  				<th class="entries">Entries</th>
+  				<th class="workdays">Workdays</th>
+  				<th class="general_leave">General leave</th>
+  				<th class="holidays">Holidays</th>
+  				<th class="postponed_holidays">Postponed holidays</th>
+  				<th class="event_special_days">Event/Special days</th>
+  				<th class="actions">Actions</th>
+  		  </tr>
+  		</thead>
+  		<tbody>
+  		<% for calendar in @calendars %>
+  			<tr class="<%= cycle('row-odd', 'row-even')%> callback" id="pis_calendar_<%= calendar.year %>">
+  				<td class="year"><%= calendar.year %></td>
+  				<td class="entries"><%= calendar.calendar_entries_count %></td>
+  				<td class="workdays"><%= calendar.workday_count %></td>
+  				<td class="general_leave"><%= calendar.general_leave_count %></td>
+  				<td class="holidays"><%= calendar.holiday_count %></td>
+  				<td class="postponed_holidays"><%= calendar.postponed_holiday_count %></td>
+  				<td class="event_special_days"><%= calendar.event_special_day_count %></td>
+  				<td class="actions norowlink">
+  				  <%= render_app_partial 'object/recordlinks', :locals => { :options => {:url => pis_calendar_path(calendar.year), :ns => :pis, :delete => false}} %>
+   				</td>
+  			</tr>
+  		<% end %>
+  		</tbody>
+  	</table>
+	<% end %>
+<% else %>
+	<p class="noresults">
+	  There are currently no calendars added in the system.
+		<% if @page then %><br/>(on page <%=@page%>)<% end %>
+	</p>
+<% end %>
+
+<div class="calendar_window" id="calendar_window">
+	<div class="calendar_window_content">
+	  <%= ajax_block('pis_calendar_container', {:load_type => nil, :css_class => 'calendar_container'}) %>
+	</div>
+</div>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+		$j(document).bind('calendars_grid_rowclick', function(e, data){
+		  Calendars.show({url: data.path});
+		  return false;
+		});
+		$j('table.calendars_grid tr td.actions a').bind('click', function() {
+		  Calendars.show({url: $j(this).attr('href')});
+		  return false;
+		});
+	//]]>
+	</script>
+<% end %>

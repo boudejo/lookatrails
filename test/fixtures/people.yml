@@ -1,0 +1,58 @@
+DEFAULTS: &DEFAULTS
+  addresses_count:      1
+  communications_count: 3
+  marital_status:       'unspecified'
+  partner:              'unkown'
+  creator_id:           <%= Fixtures.identify(:system) %>
+  updater_id:           <%= Fixtures.identify(:system) %>
+
+# EMPLOYEES:
+# pelorioga:
+#   first_name: 'Gaëtan'
+#   last_name:  'Loriot'
+#   identity:   emp_lorioga (Employee)
+#   notes:      'person for employee lorioga'
+#   <<: *DEFAULTS
+
+# PERSONS:
+prlorioga:
+  first_name: 'Gaëtan'
+  last_name:  'Loriot'
+  identity:   rec_lorioga (Recruitment)
+  notes:      'person for recruitment lorioga'
+  <<: *DEFAULTS
+
+prbutsjoh:
+  first_name: 'Johan'
+  last_name:  'Buts'
+  identity:   rec_butsjoh (Recruitment)
+  notes:      'person for recruitment butsjoh'
+  <<: *DEFAULTS
+  
+prboudejo:
+  first_name: 'Joeri'
+  last_name:  'Boudewijns'
+  identity:   rec_boudejo (Recruitment)
+  notes:      'person for recruitment boudejo'
+  <<: *DEFAULTS
+  
+pr01:
+  first_name: 'REC01'
+  last_name:  'REC01'
+  identity:   rec_01 (Recruitment)
+  notes:      'person for recruitment rec_01'
+  <<: *DEFAULTS
+
+pr02:
+  first_name: 'REC02'
+  last_name:  'REC02'
+  identity:   rec_02 (Recruitment)
+  notes:      'person for recruitment rec_02'
+  <<: *DEFAULTS
+
+pr03:
+  first_name: 'REC03'
+  last_name:  'REC03'
+  identity:   rec_03 (Recruitment)
+  notes:      'person for recruitment rec_03'
+  <<: *DEFAULTS

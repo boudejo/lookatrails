@@ -1,0 +1,13 @@
+defaults: &defaults
+    section: admin
+    crumb_text: Admin Dashboard
+    crumb_url: /admin/dashboard
+
+development: &non_production_settings
+    <<: *defaults
+        
+test:
+    <<: *non_production_settings
+  
+production:
+    <<: *defaults

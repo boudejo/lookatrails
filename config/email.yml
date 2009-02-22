@@ -1,0 +1,40 @@
+defaults: &defaults
+    template_root:
+    logger: false
+    perform_deliveries: true
+    raise_delivery_errors: false
+    delivery_method: smtp
+    sendmail_settings:
+        location: /usr/sbin/sendmail
+        arguments: -i -t -f info@lookatrails.be
+    smtp_settings:
+        address: localhost
+        port: 25
+        domain: 
+        authentication: plain
+        user_name:
+        password:
+        tls: true
+    default_charset: UTF-8
+    default_content_type: text/plain
+    default_mime_version: '1.0'
+    default_implicit_parts_order: ["text/html", "text/enriched", "text/plain"]
+    default_url_options:
+        host: 127.0.0.1:3000
+    
+development: &non_production_settings
+    <<: *defaults
+    delivery_method: sendmail
+    logger: true
+    raise_delivery_errors: true
+       
+test:
+    <<: *non_production_settings
+      
+production:
+    <<: *defaults
+    smtp_settings:
+        address: 
+        domain: 
+    default_url_options:
+        host: www.lookatrails.be

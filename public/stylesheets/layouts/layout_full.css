@@ -1,0 +1,31 @@
+<!--
+/*-------------------------------------------------
+LAYOUT FULL
+-------------------------------------------------*/
+div.layout_full {
+}
+div.fullcontainer {
+	width: 100%;
+}
+div.layout_full div.col {
+	padding: 0 20px;
+	text-align: left;
+}
+div.layout_full div.fullcontainer div.col {
+	width: 100%;
+	padding: 0 8px 0 0;
+  	background: #fff url(/assets/media/images/layout/right-bg.gif) right repeat-y;
+	position: relative;
+}
+div.layout_full div.fullcontainer div.bottom {
+	width: 100%;
+	padding: 0 8px 0 0;
+  	background: url(/assets/media/images/layout/bottom-bg.gif) top right no-repeat;
+  	font-size: 8px;
+}
+div.layout_full div.fullcontainer div.innercol {
+	padding: 8px 30px 15px 23px;
+	font-size:12px;
+	margin-top: -5px;
+}
+-->

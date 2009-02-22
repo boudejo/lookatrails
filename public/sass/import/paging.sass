@@ -1,0 +1,75 @@
+/* == PAGING ==
+
+div
+  // DEFAULT STYLING
+  
+  &.paging
+    :width 100%
+    
+    table
+      :margin 0px
+      :padding 0px
+      :border-collapse collapse
+      td
+        :margin 0px
+        :padding 0px
+        
+    div.pagination
+      :text-align left
+      a
+        :text-decoration none
+        :color #000
+      span
+        &.current
+          :font-weight bolder
+          :text-decoration underline
+        &.disabled
+          :color #616B71
+          
+    div.paginginfo
+      :text-align right
+    
+  // CUSTOM STYLES
+  
+  &.default_pagination
+  
+    div.pagination
+      :background #A3221D
+      :height 19px
+      :padding-top 1px
+      
+    a, span
+      :width auto
+      :padding-right 4px
+      :padding-left 4px
+      :font-size 11px
+    span.disabled
+      :color #999
+      :border 1px solid #999
+      :background-color #FFFFFF
+    span.current
+      :font-weight bold
+      :background #DDDDDD
+      :color #003
+      :border 1px solid #616B71
+    a
+      :text-decoration none
+      :color #003
+      :border 1px solid #616B71
+      :background #DDDDDD
+      &:hover, &:focus
+        :color #003
+        :border-color #003
+    
+    div.paginginfo
+      :background #A3221D
+      :color white
+      :text-align right
+      :padding-right 5px
+      :height 19px
+      :padding-top 1px
+      b
+        :color #003
+        :background = #DDDDDD
+        :padding-left 3px
+        :padding-right 3px

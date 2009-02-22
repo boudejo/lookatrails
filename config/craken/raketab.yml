@@ -1,0 +1,6 @@
+pis_create_calendars:
+  hour: 1
+  minute: 0
+  day: 1
+  month: September
+  command: pis:create_calendars > /tmp/cron/pis_calendars.log 2>&1

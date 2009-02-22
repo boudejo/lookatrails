@@ -1,0 +1,15 @@
+system_is_system:
+  user_id: <%= Fixtures.identify(:system) %>
+  role_id: <%= Fixtures.identify(:system_role) %>
+
+butsjoh_is_support:
+  user_id: <%= Fixtures.identify(:butsjoh) %>
+  role_id: <%= Fixtures.identify(:support_role) %>
+  
+boudejo_is_support:
+  user_id: <%= Fixtures.identify(:boudejo) %>
+  role_id: <%= Fixtures.identify(:support_role) %>
+  
+quasus_is_support:
+  user_id: <%= Fixtures.identify(:quasus) %>
+  role_id: <%= Fixtures.identify(:support_role) %>

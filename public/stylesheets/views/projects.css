@@ -1,0 +1,23 @@
+/* SECTION: PROJECTS */
+fieldset.left {
+  float: left;
+  width: 375px;
+}
+
+fieldset.right {
+  float: right;
+  width: 375px;
+}
+
+fieldset table.form_table td.label {
+  width: 85px;
+}
+
+/* DOCUMENTS */
+table.project_documents_grid tr.not_exists td {
+  background-color: #DF9999;
+}
+table.project_documents_grid tr td.size, table.project_documents_grid tr th.size {
+  width: 100px;
+  text-align: right;
+}

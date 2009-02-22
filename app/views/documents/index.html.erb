@@ -1,0 +1,34 @@
+<% if parent_object.documents_count > 0 then %>
+  <% paging_section @collection, {:ajaxable => true} do %>
+    <table id="<%= parent_object.class.to_s.downcase %>_documents_grid" class="datagrid <%= parent_object.class.to_s.downcase %>_documents_grid">
+    	<thead>
+    		<tr class="heading">
+    			<th class="name">Documentname</th>
+    			<th class="size">Size</th>
+    			<th class="actions">Actions</th>
+    	  </tr>
+    	</thead>
+    	<tbody>
+    	<% for document in @collection %>
+    		<tr class="<%= cycle('row-odd', 'row-even')%><% if !document.document.exists? then %> not_exists<% end %> callback" id="<%= dom_id(document) %>">
+    			<td class="name">
+    			  <strong><%= document.document_file_name %></strong> (<%= document.document_content_type %>)
+    			  <br/><i><%= limit document.notes, 100 %></i>
+    			</td>
+    			<td class="size"><%= number_to_human_size(document.document_file_size) %></td>
+    			<td class="actions norowlink">
+    			  <% if document.document.exists? then %>
+    				  <%= link_to 'Download', document.document.url, :id => 'download_document_'+document.id.to_s, :class => 'show_link' %> |
+    				<% end %>
+    				<%= link_to 'Delete', nil, :href => object_path(document), :class => 'destroy_link document_delete_link', :title => document.to_s('subject') %>
+    			</td>
+    		</tr>
+    	<% end %>
+    	</tbody>
+    </table>
+  <% end %>
+<% else %>
+	<p class="noresults">
+			There are currently no documents attached for this <%= parent_object.class.to_s.downcase %>.
+	</p>
+<% end %>

@@ -1,0 +1,7 @@
+<% title "Delete Car: " + @object.to_s %>
+
+<%= render :partial => "form" %>
+
+<% form_for @object, :url => object_path, :html => { :method => :delete, :class => 'delete_form' } do |f| %>
+	- <strong>Are you sure you want to delete <%= @object.to_s('full') %> ?</strong> <%= submit_tag 'Delete' %>
+<% end %>

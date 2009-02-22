@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+	<head>
+		<%= title :site => s('app.name') %>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="/images/animated_favicon.gif" type="image/gif" />
+		<%= meta_tags %>
+		<%= stylesheet_link_tag :default_styles, :media => 'screen', :cache => "cache/all_login-signup" %>
+		<%= stylesheet_auto_include_tags if auto_include_styles? %>
+		<%= stylesheet_link_tag default_print_styles, :media => 'print', :cache => "cache/login-signup_print" if default_print_styles? %>
+		<%= yield :head %>
+	</head>
+	<body class="<%= controller_class %> <%= printmode %>">
+		<div class="centered_div <%= action_class %>">
+			<table cellpadding="0" cellspacing="0" width="100%" class="content_table">
+				<tr>
+					<td class="logo"><img id="company_logo" src="/images/logo.png" alt="<%= s('app.name') %> logo"/></td>			
+					<td class="content">
+						<%= yield :layout %>			
+					</td>			
+				</tr>
+			</table>
+		</div>
+		<div id="times">
+			<%= Date.today.strftime('%a %d %b %Y week: %W'); %> - <span id="currentdatetime"></span>
+			<% if s('session.timeout') > 0 then %>
+				- session timeout in:<div id="countdown"></div>
+			<% else %>
+				&nbsp;
+			<% end %>
+		</div>
+	  <%= render_app_partial 'inc/footer' %>
+		<%= render_app_partial 'inc/utils' %>
+		<%= javascript_before %>
+		<%= javascript_include_tag :default_scripts, :cache => "cache/all" %>
+		<%= javascript_app_config %>
+		<%= js_erb_auto_include_tag %>
+		<%= yield :javascript_before_auto_include %>
+		<%= javascript_auto_include_tags if auto_include_scripts? %>
+		<%= yield :javascript %>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/lib/commands/servers
+END
+lighttpd.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/lib/commands/servers/lighttpd.rb
+END
+mongrel.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/lib/commands/servers/mongrel.rb
+END
+webrick.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/lib/commands/servers/webrick.rb
+END
+base.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/lib/commands/servers/base.rb
+END
+new_mongrel.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/lib/commands/servers/new_mongrel.rb
+END

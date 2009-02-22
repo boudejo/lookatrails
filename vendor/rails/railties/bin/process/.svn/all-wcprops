@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/bin/process
+END
+spawner
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/bin/process/spawner
+END
+inspector
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/bin/process/inspector
+END
+reaper
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/railties/bin/process/reaper
+END

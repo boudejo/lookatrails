@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/core_ext/numeric
+END
+time.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/core_ext/numeric/time.rb
+END
+bytes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/core_ext/numeric/bytes.rb
+END
+conversions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/core_ext/numeric/conversions.rb
+END

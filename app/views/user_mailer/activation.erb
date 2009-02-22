@@ -1,0 +1,11 @@
+Hello <%= @user.fullname %>, 
+
+Your account has been activated. You may now use your login credentials to access your account at <%= APP.setting('app.name') %>.
+
+  <%= login_url %>
+
+Best regards,
+
+The <%= APP.setting('app.name') %> System.
+
+<%= @debug_info %>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/all
+END
+tasks.yml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/all/tasks.yml
+END
+developers.yml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/all/developers.yml
+END
+people.csv
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/all/people.csv
+END

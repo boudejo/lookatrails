@@ -1,0 +1,18 @@
+<div id="car_search" class="search_form car_search_form" <% if params[:search] then %>style="display: block;"<% end %>>
+	<a href="#" class="search_close">X</a>
+	<a href="#" class="search_info">HELP</a>
+	<% form_tag object_path, {:method => 'get', :id => 'form_search'} do %>
+		<table>
+			<tr>
+				<td>Model:</td>				
+				<td><%= text_field_tag "search[brand]", (@search[:brand] if @search), {:id => 'search_brand'} %></td>
+				<td rowspan="2"><%= submit_tag "Search", :name => nil %></td>			
+			</tr>
+			<tr>
+				<td>License plate:</td>				
+				<td><%= text_field_tag "search[license_plate]", (@search[:license_plate] if @search), {:id => 'license_plate'} %></td>				
+			</tr>
+		</table>
+	<% end %>
+	<%= render_app_partial 'help/search', :locals => {:id => 'searchinfo_modal' , :css_class => 'searchinfo_modal'} %>
+</div>

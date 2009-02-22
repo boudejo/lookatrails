@@ -1,0 +1,67 @@
+/* == PLUGIN: TABS ==
+
+div
+  &.tabcontainer
+    width: 100%
+
+  &.tabs
+    color: #111
+    width: 100%
+    
+  &.tabs ul
+    margin: 0px
+    padding: 0px
+    
+    li
+      list-style: none
+      float: left
+      margin: 0px
+      padding: 0px
+      
+      a
+        display: block
+        padding: 3px 8px
+        text-decoration: none!important
+        margin: 1px
+        margin-bottom: 0
+        margin-left: 0
+        color: #000
+        border: 0px solid #FFF
+        background: #DDD
+        
+        &.disabled
+          background-color: #f4f4f4
+          color: #CCC
+          
+          &:hover
+            background-color: #f4f4f4
+            color: #CCC
+          
+          &:hover 
+            color: #FFF
+            background: #111
+          
+        &.selected
+          margin-bottom: 0
+          color: #FFF
+          background-color = !link_hover_color
+          cursor: default
+            
+  &.tabcontent
+    padding: 0px 10px 0px 10px
+    clear: left
+    border: 1px solid
+    border-color = !link_hover_color
+    
+  &.tabs   
+    div.errorExplanation ul
+      margin: 0px
+      padding: 0px
+      margin-top: 8px
+      margin-bottom: 8px
+      
+      li
+        font-size: 11px
+        float: none
+        list-style: square
+        margin-left: 30px

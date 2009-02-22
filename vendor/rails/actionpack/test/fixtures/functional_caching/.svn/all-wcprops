@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionpack/test/fixtures/functional_caching
+END
+html_fragment_cached_with_partial.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionpack/test/fixtures/functional_caching/html_fragment_cached_with_partial.html.erb
+END
+_partial.erb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionpack/test/fixtures/functional_caching/_partial.erb
+END
+fragment_cached.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionpack/test/fixtures/functional_caching/fragment_cached.html.erb
+END
+js_fragment_cached_with_partial.js.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionpack/test/fixtures/functional_caching/js_fragment_cached_with_partial.js.rjs
+END

@@ -1,0 +1,48 @@
+DEFAULTS: &DEFAULTS
+  account_id:         <%= Fixtures.identify(:selfnet) %>
+  status:             pending
+  documents_count:    0
+  resources_count:    0
+  creator_id:         <%= Fixtures.identify(:butsjoh) %>
+  updater_id:         <%= Fixtures.identify(:butsjoh) %>
+
+opportunity_low:
+  name:           'LOW opportunity - SelfNET'
+  start_date:     <%= Date.today.to_s :db  %>
+  end_date:       <%= Date.today.advance(:days => 20).to_s :db  %>
+  daily_price:    200
+  probability:    '25%'
+  costcenter:     testing
+  billingmethod:  fp
+  budget:         20000
+  option:         option_1
+  perc_work:      100.00
+  fte:            1
+  <<: *DEFAULTS
+  
+opportunity_med:
+  name:           'MED opportunity - SelfNET'
+  start_date:     <%= Date.today.to_s :db  %>
+  end_date:       <%= Date.today.advance(:months => 4).to_s :db  %>
+  daily_price:    300
+  probability:    '25%'
+  costcenter:     validation
+  billingmethod:  fp
+  budget:         5000
+  option:         option_1
+  perc_work:      50.00
+  fte:            3
+  <<: *DEFAULTS
+  
+opportunity_high:
+  name:           'HIGH opportunity - SelfNET'
+  start_date:     <%= Date.today.to_s :db  %>
+  end_date:       <%= Date.today.advance(:years => 1).to_s :db  %>
+  daily_price:    400
+  probability:    '75%'
+  costcenter:     mapping
+  billingmethod:  tm
+  budget:         0
+  option:         option_2
+  max_days:       30
+  <<: *DEFAULTS

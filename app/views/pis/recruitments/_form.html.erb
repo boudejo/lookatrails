@@ -1,0 +1,128 @@
+<% if is_edit? then %>
+  <%= render_app_partial "object/info", :locals => {:record => @recruitment.recruitment} %>
+<% end %>
+
+<% if @recruitment.recruitment.status_is_joboffer_signed? %>
+  <div class="flash_notice" align="center">
+    <strong>
+      Recruitment can not be edited anymore because it has reached the status joboffer signed.<br/>
+      Make sure you activate (set to status active) the new employee if you just changed the status to joboffer signed.
+    </strong>
+  </div>
+<% end %>
+<% tabs 'recruitment_tabs', %w{info files}, { :default => 'info', :handler => 'handleRecruitmentTabs', :files => {:disabled => (@editable) ? false : is_new?, :text => 'Files ('+@recruitment.recruitment.documents_count.to_s+')'}} do %>
+  <% tab "info" do %>
+    <%= error_messages_for :recruitment, {:strip_object_name => true} %>
+    <% tpl_form_for :recruitment, @recruitment, :url => (@editable) ? pis_recruitment_path(@recruitment.recruitment) : object_path, :readonly => is_readonly?, :html => {:id => (is_new? ? 'new_recruitment' : 'edit_recruitment_'+@recruitment.recruitment.id.to_s), :method => (is_edit?) ? :put : :post} do |f| %>
+     	<table class="form_table">
+     	  <tr>
+     	      <td class="divider">
+     	        <% f.fieldset "Personal", :html => {:class => "personal"} do %>
+             	  <% f.table do %>
+               	    <%= f.text_field :person_first_name, :label => 'First name' %>
+                    <%= f.text_field :person_last_name, :label => 'Last name' %>
+                <% end %>
+             	<% end %>
+     	        <% f.fieldset @recruitment.address.to_s('label'), :html => {:class => "addressinfo"} do %>
+             	  <% f.table do %>
+             	    <%= render :partial => 'addresses/container', :locals => {:options => {:object => @recruitment.address, :subject => :address, :f => f}} %>
+        	      <% end %>
+        	    <% end %>
+     	      </td>
+     	      <td>&nbsp;</td>
+     	      <td class="divider">
+   	          <% f.fieldset "Contactinfo", :html => {:class => "contactinfo"} do %>
+            	  <%= render :partial => 'communications/container', :locals => {:options => {:object => @recruitment.person, :show_actions => false, :readonly => is_readonly?, :f => f}}%>
+            	<% end %>
+            	<% f.fieldset "Jobinfo", :html => {:class => "jobinfo"} do %>
+             	    <% f.table do %>
+          	        <%= f.enum_select :recruitment_joblevel, :label => 'Joblevel' %>
+          	         <% if is_edit? || is_readonly? %>
+                       <%= f.enum_select :recruitment_status, :label => 'Status', :append_field => "(#{@recruitment.recruitment.status_change_at})" %>
+                      <% end %>
+          	      <% end %>
+          	      <% if is_edit? || is_readonly? %>
+             	    <table class="form_table">
+                    <tr id="recruitment_rejected" <% if !@recruitment.recruitment.status_is_rejected? then %>style="display: none;"<% end %>>
+                      <td>
+                        <% f.table do %>
+                   	      <%= f.enum_select :recruitment_rejected_by, :label => 'Rejected by' %>
+                        <% end %>
+                      </td>
+                    </tr>
+                  </table>
+                  <% end %>
+             	<% end %>
+     	      </td>
+     	  </tr>
+     	</table>
+      <% f.fieldset "Extra" do %>
+     	  <%= f.text_area :recruitment_notes, :size => "80x5", :textile => true, :label => 'Notes' %>
+     	<% end %>
+     	<p align="right">
+        <% if is_edit? then %>
+          <%= f.submit "Update" %>
+    		<% elsif is_new? then %>
+    			<%= f.submit "Create" %>
+    		<% end %>
+      </p>
+    <% end %>
+  <% end %>
+  <% if is_edit? || is_readonly? %>
+    <% tab "files" do %>
+       <%= render :partial => 'documents/container', :locals => {:subject => :recruitment} %>
+    <% end %>
+    <%= object_identity_field(@recruitment.recruitment) %>
+  <% end %>
+  <p class="formbuttons">
+    <% if is_edit? then %>
+      <% if @editable then %>
+        <%= link_to 'Show', edit_pis_recruitment_path(@recruitment.recruitment)  %> | <%= link_to 'Back', pis_recruitments_path %>
+      <% else %>
+        <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %>
+      <% end %>
+  	<% elsif is_new? then %>
+  		<%= link_to 'Back', collection_path %>
+  	<% else %>
+  	  <% if !@recruitment.recruitment.status_is_joboffer_signed? %><%= link_to 'Edit', edit_object_path %> | <% end %> <%= link_to 'Back', collection_path %>
+  	<% end %>
+  	</p>
+<% end %>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+		function handleRecruitmentTabs(tabid, tabs, tabcontainer) {
+		  <% if is_edit? || is_readonly? %>
+	      Recruitments.setup(<%= @recruitment.recruitment.to_json %>);
+        Recruitments.handleTab(tabid, <%= (is_readonly?) ? true : false %>, <%= (@editable) ? true : false %>);
+      <% end %>
+      return true;
+    }
+    
+    <% if !is_readonly? %>
+    $j(document).ready(function(){
+      $j('#recruitment_recruitment_status').change(function() {
+        if ($j(this).val() == 'rejected') {
+          $j('#recruitment_rejected').show();
+        } else {
+          $j('#recruitment_rejected').hide();
+        }
+        if ($j(this).val() == 'joboffer_signed') {
+          var conf = APP.Utils.modal('confirm', 'Changing the status to "JOBOFFER SIGNED" means that a consultant will be created and can no longer be rejected. Are you sure ? \n\nAfter clicking "Yes" you also must confirm the status change by clicking the "Update" button.',{
+    				callback: function(res) {
+    					if (res == 'yes') {
+    						//alert('clicked');
+    					} else {
+    					  $j('#recruitment_recruitment_status').val('<%= @recruitment.recruitment.status %>');
+    					}
+    				}
+    			});
+        }
+      }); 
+    });
+    <% end %>
+	//]]>
+	</script>
+<% end %>
+

@@ -1,0 +1,35 @@
+<%
+  # OPTIONS:
+  options ||= {}
+  f = options.delete(:f) || nil
+  fields = Address.fields
+  object = options.delete(:object) || nil
+  subject = options.delete(:subject) || ''
+  subjectsuffix = (subject.blank?) ? '' : '_'
+  associated = options.delete(:associated) || nil
+  label = 'Addressinfo'
+  if !object.nil? && object.respond_to?(:label) then
+    label = object.send(:label).humanize
+  end
+%>
+
+<% 
+  if !associated.nil? then 
+    address_field = (subject.to_s+subjectsuffix+'id').to_sym
+    address_field_name = (associated) ? "#{associated.to_s}[#{subject}][id]" : nil
+    #address_id_field = f.hidden_field address_field, :name => address_field_name
+    address_id_field = ''
+  end 
+%>
+
+<% fields.each do |field|
+    address_field = (subject.to_s+subjectsuffix+field[:name].to_s).to_sym
+    address_field_name = (associated) ? "#{associated.to_s}[#{subject}][#{field[:name].to_s}]" : nil
+    if field[:type] == :text then
+    %>
+      <%= f.text_field address_field, :label => field[:label], :name => address_field_name %>
+    <% elsif field[:type] == :select then %>
+      <%= f.country_select address_field, :label => field[:label], :html => {:name => address_field_name}, :append_field => address_id_field %>
+    <% end %>
+<% end %>
+

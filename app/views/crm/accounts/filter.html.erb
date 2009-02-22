@@ -1,0 +1,29 @@
+<% if @accounts.size > 0 then %>
+  <% paging_section @accounts, :compact => true do %>
+    <table class="filtergrid <%= @subject %>_filtergrid" id="<%= @filterid %>_filtergrid">
+    	<thead>
+    		<tr class="heading">
+    			<th class="name last">Name</th>
+    	  </tr>
+    	</thead>
+    	<tbody>
+    	<% for account in @accounts %>
+    		<tr class="<%= cycle('row-odd', 'row-even')%> title_row" id="<%= dom_id(account) %>" title="<%= account.to_s('name') %>">
+    			<td class="name last"><%= account.to_s('name') %></td>
+    		</tr>
+    	<% end %>
+    	</tbody>
+    </table>  
+  <% end %>
+<% else %>
+  <p class="noresults">
+    <% if @search %>
+    	There are no <%= controller.controller_name %> added for<br/>
+    	search action on <% @search.each do |field, value| %><%= field.humanize %>: <%= value %><% end %>
+    <% else %>
+    	There are currently no accounts added in the system.
+    	<% if @page then %><br/>(on page <%=@page%>)<% end %>
+    <% end %>
+  </p>
+<% end %>
+

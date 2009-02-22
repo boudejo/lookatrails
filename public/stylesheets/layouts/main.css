@@ -1,0 +1,423 @@
+<!--
+/* GENERAL STYLES */
+
+/*-------------------------------------------------
+GLOBAL
+-------------------------------------------------*/
+body {
+	background-color:#E5E5E5;
+	color:#222222;
+	font-family:"Lucida Grande",verdana,arial,helvetica,sans-serif;
+	font-weight: normal;
+	margin:0pt auto;
+	padding:0pt;
+	text-align:center;
+}
+html, body {
+	background:#E5E5E5 none repeat scroll 0%;
+}
+td { font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif; }
+a {text-decoration: underline; padding: 1px; }
+a:link { color: #03c; }
+a:visited { color: #03c; }
+a:hover { color: #fff; background-color: #30c; text-decoration: none; }
+
+/*-------------------------------------------------
+PRELOADED IMAGES
+-------------------------------------------------*/
+#preloaded_images {
+	width: 0px;
+	height: 0px;
+	display: inline;
+}
+#preloaded_images {
+	background-image: url();
+}
+
+/*-------------------------------------------------
+HEADER
+-------------------------------------------------*/
+#header {
+	color: #cecece;
+	background-color: #195D00;
+	padding: 1px 0 0 0;
+	margin: 0;
+	text-align: left;
+  	position: relative;
+}
+#header h1 {
+	font-family: "Lucida Grande", arial, sans-serif;
+	border-bottom: 0;
+	padding: 0 0 10px 0;
+	margin: 0 0 0 30px;
+	font-size: 24px;
+	font-weight: normal;
+	color: #fff;
+	text-align: left;
+	margin-top: 7px;
+}
+#header h1 span {
+    color: #D1EEFF;
+    font-size: 16px;
+}
+#header h3 {
+	font-family:verdana;
+	font-size:10px;
+	float:right;
+	position:relative;
+	text-align:right;
+	width: 350px;
+	font-weight:normal;
+	margin:0pt;
+	padding:7px 20px 7px 25px;
+}
+#header h3 a {
+	padding: 7px 4px;
+}
+#header h3, #header h3 a:link, #header h3 a:visited {
+	color: #D1EEFF;
+}
+#header h3 a:hover {
+	color: #fff;
+	background-color: #054700;
+}
+#header h3 a.current:link, #header h3 a.current:visited {
+	color: #fff;
+}
+#header h3 a.current:hover {
+	color: #fff;
+	background-color: #195D00;
+	float: right;
+	width: 50px;
+	padding-top: 3px;
+	height: 1%;
+}
+#header h3 span.pipe {
+  	opacity: 0.6;
+  	filter: alpha(opacity=60);
+}
+
+/*-------------------------------------------------
+TABS
+-------------------------------------------------*/
+#tabs {
+	margin: 0 22px 0 30px;
+	height: 25px;
+	padding: 0;
+}
+#tabs ul {
+	margin: 0; padding: 0;
+}
+#tabs li {
+	margin: 0; padding: 0;
+	display: inline;
+	list-style: none;
+	border: none;
+	line-height:13px;
+}
+#tabs li.tabright {
+	float: right;
+}
+#tabs ul#maintabs {
+}
+
+#tabs a:link, #tabs a:visited {
+    background-color: #217A00;
+    color: #D1EEFF;
+    border: 1px solid #195D00;
+    border-bottom: 1px solid #217A00;
+}
+#tabs a:hover {
+	color: #fff;
+	background-color: #054700;
+	border-bottom: 1px solid #054700;
+}
+div#tabs a:link,
+div#tabs a:visited {
+  	text-decoration: none;
+}
+#tabs ul#maintabs a:link, #tabs ul#maintabs a:visited {
+  	float: left; /* for IE6 */
+	font-size: 12px;
+	font-weight: normal;
+	padding: 4px 8px 6px 8px;
+	margin: 0;
+}
+#tabs ul#maintabs a:link.current, #tabs ul#maintabs a:visited.current {
+	background: #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	color: #222;
+	font-weight: bold;
+	text-decoration: none;
+  	margin: 0;
+}
+
+/*-------------------------------------------------
+STUCTURES
+-------------------------------------------------*/
+div.container {
+	padding: 12px 23px 0 30px;
+	margin: 0 auto 0 auto;
+	text-align: center;
+	min-width: 750px;
+}
+
+/*-------------------------------------------------
+CONTENT STYLES
+-------------------------------------------------*/
+div#leftcontainer div.innercol p,
+div#rightcontainer div.innercol p,
+div#fullcontainer div.innercol p {
+	color:#222222;
+	font-size:12px;
+	line-height:16px;
+	line-height:1.3em;
+}
+div.innercol ul {
+}
+div.innercol ul li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+div.innercol h3 {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+/*-------------------------------------------------
+PAGE HEADER
+-------------------------------------------------*/
+div.page_header {
+	background: #edf3fe;
+	margin: 0px;
+	padding: 13px 30px 13px 24px;
+}
+div.page_header h1 {
+	padding: 0;
+  	margin: 0;
+	font-size: 14px;
+	color: #000;
+}
+div.page_header h1 span {
+	font-size: 12px;
+	color: #666;
+	font-weight: normal;
+}
+div.page_header h1 {
+  	font-size: 20px;
+}
+div.page_header p {
+  	margin: 5px 0 0 0;
+}
+div#sub_header {
+	background-color: #DFEBFF;
+}
+/* PRINT */
+#print {
+  line-height: 16px;
+  float: right;
+  display: block;
+  background: transparent url(/images/icons/16/printer.png) no-repeat;
+  background-position: 0px 0px;
+}
+#print a {
+  text-decoration: none;
+  color: #000;
+  text-align: right;
+  padding-left: 20px;
+}
+#print a:hover {
+  background: transparent;
+  color: #a3221d;
+  text-decoration: underline;
+}
+
+/*-------------------------------------------------
+PAGE LINKS
+-------------------------------------------------*/
+div.page_links {
+	float: right;
+	margin: 0px;
+	padding: 0px;
+	text-align: right;
+	background-color: #DFEBFF;
+	width: auto;
+	height: 23px;
+}
+div.page_links ul {
+	margin: 0px;
+	padding: 0px;
+	padding-right: 24px;
+	clear: both;
+}
+div.page_links ul li {
+	float: right;
+	font-size: 11px;
+	list-style-type: none;
+	line-height: 24px;
+}
+div.page_links ul li a:link,
+div.page_links ul li a:visited {
+	padding: 4px 7px;
+	color: #f00;
+	font-family: verdana;
+	font-size: 11px;
+	font-weight: normal;
+}
+div.page_links ul li a:hover {
+	color: #fff;
+	background: #f00;
+}
+
+/*-------------------------------------------------
+PAGE HEADER LINKS
+-------------------------------------------------*/
+div.page_header_links {
+	float: right;
+	width: 200px;
+	font-size: 11px;
+	margin-top: 0;
+	text-align: right;
+	color: #ccc;
+	line-height: 20px;
+	padding-right: 10px;
+}
+div.page_header_links strong {
+  	color: #000;
+}
+div.page_header_links a.active:link,
+div.page_header_links a.active:visited,
+div.page_header_links a.active:hover {
+	background: #999;
+	color: #000;
+	text-decoration: none;
+	font-weight: normal;
+}
+div.page_header_links a.edit {
+	text-decoration: none;
+	color: #777;
+}
+div.page_header_links a.edit:hover {
+  	color: #fff;
+}
+
+/*-------------------------------------------------
+FOOTER
+-------------------------------------------------*/
+div.footer {
+	clear: left;
+	font-size: 9px;
+	color: #666;
+	margin: 4px 0 20px 20px;
+	text-align: left;
+	padding-bottom: 15px;
+}
+div.footer a:link, div.footer a:visited {
+	color: #666;
+}
+div.footer a:hover {
+	color: #fff;
+	background: #666;
+}
+div.footer div.links {
+	width: 100%;
+	padding-bottom: 3px;
+}
+
+/*-------------------------------------------------
+SECTION HEADER
+-------------------------------------------------*/
+div.sectionheader {
+  	padding-top: 0px;
+}
+div.sectionheader h1 {
+	background-color:#EDF3FE;
+	border-bottom:1px solid #DCDCDC;
+	color:#333333;
+	font-size:13px;
+	margin: 0px;
+	padding:6px 8px;
+	font-weight:bold;
+	text-align:left;
+}
+
+
+
+/*-------------------------------------------------
+SECTIONS
+-------------------------------------------------*/
+
+/*-------------------------------------------------
+LOGIN SCREEN
+-------------------------------------------------*/
+.login div.container {
+	width: 500px;
+	margin: 60px auto 20px auto;
+	min-width: inherit;
+}
+.login h1 {
+	margin-bottom: 20px;
+}
+.login dl {
+	margin: 10px 0 0 0;
+}
+.login p {
+	margin: 10px 0 0 0;
+}
+.login dt {
+	float: left;
+	width: 80px;
+	font-size: 14px;
+	line-height: 24px;
+}
+.login dd {
+	margin: 0 0 5px 90px;
+	font-size: 11px;
+	line-height: 24px;
+	color: #666;
+	margin-left: 80px;
+}
+.login input {
+	font-size: 14px;
+}
+.login dd span {
+	color: #ccc;
+}
+.login input#username, input#identity_url {
+	width: 300px;
+}
+.login input#password {
+	width: 140px;
+	margin-right: 5px;
+}
+.login input#emailpassword {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.login div.AlertGood,
+.login div.AlertBad {
+	margin: 10px 0 20px 0;
+}
+.login div#Dialog {
+	border: 10px solid #ccc;
+	padding: 15px 20px 10px 20px;
+	text-align: left;
+	background: #fff;
+}
+body.login div#Dialog h2 {
+	margin: 0;
+	padding: 0;
+}
+body.login div.below {
+	font-size: 10px;
+	text-align: right;
+	padding: 5px 0 0 0;
+}
+body.login div.below a:link, body.login div.below a:visited {
+	color: #666;
+}
+body.login div.below a:hover {
+	color: #fff;
+	background-color: #666;
+}
+-->

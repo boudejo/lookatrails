@@ -1,0 +1,143 @@
+/* SECTION: EMPLOYEES */
+fieldset.left {
+  float: left;
+  width: 375px;
+}
+
+fieldset.right {
+  float: right;
+  width: 375px;
+}
+
+fieldset table.form_table td.label {
+  width: 85px;
+}
+fieldset table.form_table table.form_table {
+  margin: 0px;
+  padding: 0px;
+}
+fieldset table.form_table table.form_table td {
+  margin: 0px;
+  padding: 0px;
+}
+
+#employee_employee_code {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div.employee_load_tab {
+  min-height: 120px;
+}
+
+/* SECTION: SALARIES */
+input.salary_parameter, input.salary_calculation {
+  text-align: right;
+  width: 100px;
+  color: #000;
+}
+
+input.salary_calculation {
+  background-color: #BFBFBF;
+}
+
+input.total {
+  font-weight: bold;
+  font-style: italic;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+fieldset.current_salary {
+  background-color: #70DF6F;
+}
+
+fieldset.employee_salary table.form_table td {
+  margin: 0px;
+  padding: 0px;
+}
+fieldset.employee_salary table.form_table td.label {
+  width: 200px;
+  text-align: right;
+  font-size: 11px;
+}
+fieldset.employee_salary table.form_table td.total {
+  font-weight: bold;
+}
+fieldset.employee_salary table.form_table td.element {
+  text-align: right;
+}
+fieldset.employee_salary table.form_table td.spacer {
+  font-size: 1px;
+  height: 6px;
+}
+
+table.salaries_grid tr td {
+  margin: 0px;
+  padding: 2px;
+}
+table.salaries_grid tr td div {
+  float: left;
+  text-align: right;
+}
+table.salaries_grid tr td div.label {
+  width: 47px;
+}
+table.salaries_grid tr td div.value {
+  width: 77px;
+}
+table.salaries_grid tr td div.info {
+  font-size: 10px;
+  font-style: italic;
+  text-align: right;
+  width: 100%;
+}
+table.salaries_grid tr.current td {
+  background-color: #70DF6F;
+}
+table.salaries_grid th {
+  text-align: center;
+}
+
+/* SECTION: CAR */
+/* SECTION: TIMESHEET */
+div.timesheet_info {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+}
+div.timesheet_info table.info_table {
+  float: left;
+  width: 340px;
+}
+div.timesheet_info table.info_table td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+div.timesheet_info table.info_table td.empty {
+  border-top: none;
+  border-left: none;
+}
+div.timesheet_info table.info_table td.value {
+  width: 65px;
+  text-align: center;
+  font-weight: bold;
+}
+div.timesheet_info table.info_table td.description {
+  width: 140px;
+  text-align: center;
+}
+div.timesheet_info table.info_table td.save_leave {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+div.timesheet_legend {
+  margin-top: 10px;
+  width: 100%;
+}
+div.timesheet_legend table.legend_table td.label {
+  width: 60px;
+  text-align: right;
+  padding-right: 10px;
+}

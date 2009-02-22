@@ -1,0 +1,91 @@
+StylesheetAutoInclude
+=====================
+
+== Usage
+
+ Add the following to the head of your template file
+
+ <%= stylesheet_auto_include_tags %>
+ 
+ Now each time the template is loaded stylesheet files in the public/stylesheets/views
+ folder that correspond to the name of the current controller or view will be auto
+ loaded. It's also possible for the same stylesheet file to be loaded by multiple views
+ by adding the name of each view to the filename separated by the "-" character, e.g. to load
+ a stylesheet file in the new and edit views create a file named new-edit.css. Any number
+ of views can be strung together using this naming convention. For example:
+
+ /public
+   /stylesheets
+     /views
+       users.css
+       /users
+         edit.css
+       roles.css
+       /accounts
+         show-new-edit-create.css
+		 show.css
+
+ Assuming the above file structure loading each of the following urls would include:
+ 
+ mydomain.com/users             # includes users.css
+ mydomain.com/users/edit/1      # includes users.css and edit.css
+ mydomain.com/users/show/1      # includes users.css
+ mydomain.com/roles             # includes roles.css
+ mydomain.com/accounts          # no files included
+ mydomain.com/accounts/show/1   # includes show.css and show-new-edit-create.css
+ mydomain.com/accounts/new      # includes show-new-edit-create.css
+ mydomain.com/accounts/edit/1   # includes show-new-edit-create.css
+ mydomain.com/accounts/create   # includes show-new-edit-create.css
+
+== More
+
+== Acknowledgements 
+
+ Thanks to geoffgarside http://github.com/geoffgarside for also creating a version that can
+ include the same file in multiple views. Some of the code comments are from his version as
+ they are more concise than mine.
+ 
+ 
+Cascading Stylesheets
+=====================
+
+Cascading Stylesheets is a plugin that enhances the behaviour of the built-in
++stylesheet_link_tag+ macro to support a <code>:defaults</code> parameter. If <code>:defaults</code> is
+passed as a parameter, the +stylesheet_link_tag+ macro will load the following
+stylesheets (if present) in order:
+
+1. <code>application.css</code>;
+2. <code>#{RAILS_ENV}.css</code> (ie. <code>development.css</code>, <code>production.css</code>, <code>uat.css</code>, etc.);
+3. <code>layouts/#{layout_name}.css</code> (eg. <code>layouts/print.css</code>); and
+
+This allows you to define application-wide, environment-specific (such as
+different backgrounds for UAT and production) and page-specific styles without
+needing to manually link each one.
+
+To use, simply call +stylesheet_link_tag+ from <code>application.rhtml</code> (in much the same way
+as you would use +javascript_include_tag+) passing <code>:defaults</code> as a (or the only)
+parameter:
+
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+      ...
+      <%= stylesheet_link_tag :defaults %>
+      <%= javascript_include_tag :defaults %>
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+
+=== See Also
+
+* Cascading Javascripts (cascading_javascripts).
+
+=== License
+
+This plugin is copyright 2006 by RedHill Consulting, Pty. Ltd. and is released
+under the MIT license.
+ 
+ 

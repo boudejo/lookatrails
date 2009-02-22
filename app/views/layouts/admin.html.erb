@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+	<head>
+		<%= title :site => s('app.name') %>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="/images/animated_favicon.gif" type="image/gif" />
+		<%= meta_tags %>	
+		<%= stylesheet_link_tag :default_styles, :cache => "cache/all" %>
+		<%= stylesheet_auto_include_tags if auto_include_styles? %>
+		<%= stylesheet_link_tag default_print_styles, :media => 'print', :cache => "cache/print" if default_print_styles? %>
+		<%= yield :head %>
+	</head>
+	<body class="<%= controller_class %> <%= printmode %>">
+		<div id="container" class="<%= action_class %>">
+			<%= render_app_partial 'inc/header' %>
+			<%= render_app_partial 'inc/menu' %>
+			<div id="right_column">
+				<div class="container">
+					<h1 class="module_header"><%= @title %></h1>
+					<div id="breadcrumb">
+						<div class="links">
+							<%= render_crumbs %>
+						</div>
+						<% if printable? then %>
+							<div id="print"><a href="#">print</a></div>
+						<% end %>
+						<hr style="clear: both;" />
+					</div>
+					<div class="content">
+						<%= yield :layout %>
+					</div>
+				</div>
+				<div class="minheight"><img src="/images/layout/spacer.gif" height="350" width="1" alt="spacer"/></div>
+				<%= render_app_partial 'inc/footer' %>
+			</div>
+		</div>
+		<%= render_app_partial 'inc/utils' %>
+		<%= javascript_before %>
+		<%= javascript_include_tag :default_scripts, :cache => "cache/all" %>
+		<%= javascript_app_config %>
+		<%= js_erb_auto_include_tag %>
+		<%= yield :javascript_before_auto_include %>
+		<%= javascript_auto_include_tags if auto_include_scripts? %>
+		<%= yield :javascript %>
+	</body>
+</html>

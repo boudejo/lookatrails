@@ -1,0 +1,116 @@
+/* SECTION: OPPORTUNITIES */
+/* LIST */
+table.opportunities_grid td.info table td.details {
+  width: 125px;
+}
+table.opportunities_grid td.info table td.probability {
+  width: 70px;
+  text-align: center;
+  border: 1px solid #1B1E1F;
+}
+table.opportunities_grid td.info table td.probability_low {
+  font-size: 12px;
+}
+table.opportunities_grid td.info table td.probability_med {
+  font-size: 16px;
+}
+table.opportunities_grid td.info table td.status_pending {
+  border: 1px dashed #1B1E1F;
+}
+table.opportunities_grid td.info table td.status_at_client {
+  background-color: #EF7B1D;
+}
+table.opportunities_grid td.info table td.status_lost {
+  background-color: #EF1D1D;
+}
+table.opportunities_grid td.info table td.status_won {
+  background-color: #3CEF1D;
+}
+table.opportunities_grid td.info table td.status_closed {
+  background-color: #AFAFAF;
+}
+
+table.legend td.example {
+  width: 20px;
+  text-align: center;
+}
+
+div.example {
+  text-align: center;
+  width: 25px;
+  height: 15px;
+}
+
+.status_pending {
+  border: 1px dashed #1B1E1F;
+}
+
+.status_at_client {
+  border: 1px solid #1B1E1F;
+  background-color: #EF7B1D;
+}
+
+.status_lost {
+  border: 1px solid #1B1E1F;
+  background-color: #EF1D1D;
+}
+
+.status_won {
+  border: 1px solid #1B1E1F;
+  background-color: #3CEF1D;
+}
+
+.status_closed {
+  border: 1px solid #1B1E1F;
+  background-color: #AFAFAF;
+}
+
+/* FORM */
+fieldset.left {
+  float: left;
+  width: 375px;
+}
+
+fieldset.right {
+  float: right;
+  width: 375px;
+}
+
+fieldset table.form_table td.label {
+  width: 85px;
+}
+
+input#opportunity_name {
+  width: 100%;
+}
+
+div#option_parameters {
+  margin-top: 10px;
+}
+
+div.option_params_container {
+  margin-left: 85px;
+  height: 55px;
+}
+
+/* RESOURCES */
+table#resource_employee_filtergrid td.name table {
+  width: 100%;
+}
+table#resource_employee_filtergrid td.name table td.availability_status {
+  width: 50%;
+  text-align: left;
+}
+table#resource_employee_filtergrid td.name table td.days_available {
+  width: 50%;
+  text-align: right;
+}
+
+/* DOCUMENTS */
+table.opportunity_documents_grid tr.not_exists td {
+  background-color: #DF9999;
+}
+table.opportunity_documents_grid tr td.size, table.opportunity_documents_grid tr th.size {
+  width: 100px;
+  text-align: right;
+}

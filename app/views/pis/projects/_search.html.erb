@@ -1,0 +1,14 @@
+<div id="project_search" class="search_form project_search_form" <% if params[:search] then %>style="display: block;"<% end %>>
+	<a href="#" class="search_close">X</a>
+	<a href="#" class="search_info">HELP</a>
+	<% form_tag object_path, {:method => 'get', :id => 'form_search'} do %>
+		<table>
+			<tr>
+				<td>Name:</td>				
+				<td><%= text_field_tag "search[name]", (@search[:name] if @search), {:id => 'search_name'} %></td>
+				<td rowspan="2"><%= submit_tag "Search", :name => nil %></td>			
+			</tr>
+		</table>
+	<% end %>
+	<%= render_app_partial 'help/search', :locals => {:id => 'searchinfo_modal' , :css_class => 'searchinfo_modal'} %>
+</div>

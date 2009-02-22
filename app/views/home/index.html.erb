@@ -1,0 +1,10 @@
+Home Page
+
+<% #str_xml = render "fusioncharts/basic_factories_quantity",{:factory_data => @factory_data} %>
+
+<div id="chartdiv" align="center">Chart Container Pie 3D</div>
+<script type="text/javascript">
+	var myChart = new FusionCharts("../FusionCharts/Column3D.swf", "myChartId", "600", "600");
+    myChart.setDataURL('FusionCharts/Data/Single/Column3D.xml');
+    myChart.render("chartdiv");
+</script>

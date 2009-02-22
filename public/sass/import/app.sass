@@ -1,0 +1,63 @@
+div 
+  &#app_env
+    :background-color transparent
+    :text-align right
+    :padding 3px
+    :color #000
+    :position fixed
+    :bottom 0px
+    :right 0px
+
+  &#app_debugger
+    :display none
+    :position fixed
+    :bottom 0px
+    :left 0px
+    :background transparent
+    :width 100%
+       
+  &#app_status
+    display: inline
+    color: red
+    
+  &#app_search_info
+    display: none
+    
+  &.app_noscript
+    div.overlay
+      border: medium none
+      margin: 0pt
+      padding: 0pt 
+      z-index: 1000 
+      cursor: wait 
+      width: 100% 
+      height: 100% 
+      top: 0pt
+      left: 0pt 
+      background-color: #000
+      opacity: 0.6
+      position: fixed
+    div.message
+      border: 2px solid #A3221D
+      margin: 0pt
+      padding: 5px 
+      z-index: 1001
+      position: fixed 
+      width: 30%
+      top: 40%
+      left: 35% 
+      text-align: center
+      color: #000
+      background-color: #FFF
+      cursor: wait
+      
+#app_show_debugger
+  color = !link_hover_color
+  font-weight: bold
+ 
+#footnotes_holder
+  display: block
+  position: fixed
+  left: 0px
+  bottom: 0px
+  width: 100%

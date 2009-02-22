@@ -1,0 +1,45 @@
+<% fieldset "Salary history", :html => {:class => "personal"} do %>
+  <div class="subject_actionlinks">
+    <a href="#" class="link" id="refresh_salaries">Refresh salaries</a>
+  </div>
+  <div class="clear">&nbsp;</div>
+  <% if @salaries.size > 0 then %>
+  	<% paging_section @salaries, {:page_links => false} do %>
+    	<table id="salaries_grid" class="datagrid salaries_grid">
+    		<thead>
+    			<tr class="heading">
+    				<th class="salary">Salary details</th>
+    		  </tr>
+    		</thead>
+    		<tbody>
+    		<% for salary in @salaries %>
+    			<tr class="<%= cycle('row-odd', 'row-even')%><%= (salary.current?) ? ' current' : '' %> callback" id="pis_hr_<%= dom_id(parent_object) %>_<%= dom_id(salary) %>">
+    				<td class="salary">
+    				    <div class="label">Gross:</div>
+    				    <div class="value">&euro; <%= round salary.gross_salary %></div>
+                <div class="label">Car:</div>
+    				    <div class="value">&euro; <%= round salary.car_budget %></div>
+                <div class="label">GT:</div>
+    				    <div class="value"><strong>&euro; <%= round salary.grand_total %></strong></div>
+    				    <div class="clear">&nbsp;</div>
+    				    <div class="label">RA:</div>
+    				    <div class="value">&euro; <%= round salary.rep_allowance %></div>
+                <div class="label">DKV:</div>
+    				    <div class="value">&euro; <%= round salary.dkv %></div>
+                <div class="label">DC:</div>
+    				    <div class="value"><strong>&euro; <%= round salary.daily_cost %></strong></div>
+    				    <div class="clear">&nbsp;</div>
+    				    <div class="info">Created: <%= salary.created_at %> - Updated: <%= salary.updated_at %></div>
+    				</td>
+    			</tr>
+    		<% end %>
+    		</tbody>
+    	</table>
+  	<% end %>
+  <% else %>
+  	<p class="noresults">
+  			There is no salary history available for this employee.
+  			<% if @page then %><br/>(on page <%=@page%>)<% end %>
+  	</p>
+  <% end %>
+<% end %>

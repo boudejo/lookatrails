@@ -1,0 +1,27 @@
+<% if javascript_required? then %>
+<noscript>
+	<div class="app_noscript">
+		<div class="overlay"></div>
+		<div class="message">
+			<h1>
+				For some features to work, you need to enable javascript<br/>
+				or use a browser that support javascript !
+			</h1>
+		</div>
+	</div>
+</noscript>
+<% end %>
+
+<%= render_app_partial 'utils/modal', :locals => {:id => 'app_modaldialog', :css_class => ''} %>
+
+<% if !production? -%>
+	<div id="app_env">
+		<a href="#" id="app_show_debugger">
+			[<%= RAILS_ENV %> info]
+		</a>
+		<noscript><br/>Javascript is <p style="color: red; display: inline;">DISABLED</p></noscript>
+		<div id="app_debugger">
+			<div id="footnotes_holder"></div>			
+		</div>
+	</div>
+<% end -%>

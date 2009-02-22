@@ -1,0 +1,40 @@
+<%
+@fieldset_name = 'Resources'
+if parent_object.class == Opportunity then
+  @fieldset_name = 'Opportunity resources shortlist'
+  @subj_text = 'shortlisted'
+  @ns = 'crm:'
+elsif parent_object.class == Project then
+  @fieldset_name = 'Project selected resources'
+  @subj_text = 'selected'
+  @ns = 'pis:'
+end 
+%>
+
+<% fieldset @fieldset_name, :html => {:class => "resources"} do %>
+  <% if @resources.size > 0 then %>
+  	<% paging_section @resources, {:page_links => false} do %>
+    	<table id="resources_grid" class="datagrid resources_grid">
+    		<thead>
+    			<tr class="heading">
+    				<th class="employee">Employee</th>
+    		  </tr>
+    		</thead>
+    		<tbody>
+    		<% for resource in @resources %>
+    			<tr class="<%= cycle('row-odd', 'row-even')%> callback" id="<%= @ns %><%= dom_id(parent_object) %>_<%= dom_id(resource) %>">
+    				<td class="employee">
+    				  <%= resource.employee %>
+    				</td>
+    			</tr>
+    		<% end %>
+    		</tbody>
+    	</table>
+  	<% end %>
+  <% else %>
+  	<p class="noresults">
+  			There are no resources <%= @subj_text %> for this <%= parent_object.class.name.downcase %>.
+  			<% if @page then %><br/>(on page <%=@page%>)<% end %>
+  	</p>
+  <% end %>
+<% end %>

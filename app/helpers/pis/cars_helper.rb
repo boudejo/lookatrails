@@ -1,0 +1,2 @@
+module Pis::CarsHelper
+end

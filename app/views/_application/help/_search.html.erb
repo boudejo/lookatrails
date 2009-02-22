@@ -1,0 +1,29 @@
+<%= render_app_partial 'utils/modal', :locals => {:id => id, :css_class => css_class} %>
+
+<div id="app_search_info" class="app_search_info_content">
+	<ul>
+		<li>If the searchstring is less then 3 characters. The system wil only look for matches at te beginning of the name</li>
+		<li>When the searchstring is 5 or more characters then spaces will have no effect</li>
+		<li><strong>Examples:</strong>
+			<ul>
+				<li>'ad': <strong>Ad</strong>diers, <strong>Ad</strong>riaensen</li>
+				<li>'add': <strong>Add</strong>iers, De V<strong>add</strong>er</li>
+				<li>'van': <strong>Van</strong> Den Broeck, <strong>Van</strong>dessel, <strong>Van</strong>dyck, <strong>Van</strong>assche</li>
+				<li>'vand': <strong>Vand</strong>essel, <strong>Vand</strong>yck</li>
+				<li>'van d': <strong>Van D</strong>en Broeck</li>
+				<li>'vande': <strong>Van De</strong>n Broeck, <strong>Vande</strong>ssel</li>
+				<li>'van de': <strong>Van D</strong>en Broeck, <strong>Vande</strong>ssel</li>
+			</ul>
+		</li>
+		<li><strong>Wildcards:</strong>
+			<ul>
+				<li>?: Represents a single character</li>
+				<li>*: Represents none, one or multiple characters</li>
+			</ul>
+		<li><strong>Options:</strong>
+			<ul>
+				<li>@: Performs a strict search (e.g: '@denbus': Van<strong>denbus</strong>sche, <strong>Denbus</strong>schere)</li>
+			</ul>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,186 @@
+<% if is_edit? then %>
+  <%= render_app_partial "object/info", :locals => {:record => @opportunity} %>
+<% end %>
+
+<%= error_messages_for :opportunity, {:strip_object_name => true} %>
+
+<% tabs 'opportunity_tabs', %w{info resources planning files}, { :default => 'info', :handler => 'handleOpportunityTabs', 
+                                              :resources => {:disabled => (@editable) ? false : is_new?},
+                                              :planning => {:disabled => (@editable) ? false : is_new?},
+                                              :files => {:disabled => (@editable) ? false : is_new?, :text => 'Files ('+@opportunity.documents_count.to_s+')'}} do %>
+  <% tab "info" do %>
+    <% tpl_form_for @opportunity, :url => object_path, :readonly => is_readonly? do |f| %>
+     	<% f.fieldset "Info", :html => {:class => "left info"} do %>
+     	  <% f.table do %>
+     	      <% if is_edit? %>
+              <%= f.enum_select :status, :label => 'Status', :append_field => "(#{@opportunity.status_change_at})" %>
+            <% end %>
+            <%= f.text_field :name, :label => 'Name' %>
+       	    <% f.table_row :label => 'Period' do %>
+       	      <%= f.date_field :start_date, :label => 'from', :class => 'date' %>
+              <%= f.date_field :end_date, :label => 'to', :class => 'date' %>
+       	   <% end %>
+        <% end %>
+     	<% end %>
+     	<% f.fieldset "Relations", :html => {:class => "right accountinfo"} do %>
+   	    <% f.table do %>
+    	    <%= f.filterlist :account %>
+    	    <tr>
+            <td class="label">Contact:</td> 
+            <td class="element">TODO</td>
+          </tr>    	    
+          <tr>
+            <td class="label">BDM:</td> 
+            <td class="element">TODO</td>
+          </tr>
+        <% end %>         
+     	<% end %>
+     	<div class="clear">&nbsp;</div>
+     	<% f.fieldset "Details" do %>
+     	     <table class="form_table">
+             <tr>
+               <td width="50%" valign="top" style="vertical-align: top;">
+                  <% f.table do %>
+                    <%= f.text_field :daily_price, :class => 'floatvalue price', :append_field => '&euro;' %>
+                    <%= f.enum_select :probability %>
+                    <%= f.enum_select :costcenter %>
+                	  <%= f.enum_select :billingmethod %>
+                	  <%= f.text_field :budget, :class => 'floatvalue price', :append_field => '&euro;', :display => ((!@opportunity.is_billingmethod?(:fp)) ? :hidden : :show), :container => 'billingmethod_container' %>
+                 <% end %>
+               </td>
+               <td valign="top" style="vertical-align: top;">
+                  <% f.table do %>
+                    <%= f.enum_radio_group :option, :reverse_label => true %>
+                  <% end %>
+                  <div id="option_parameters">
+                    Option parameters:
+                    <div id="option1_container" class="option_params_container" <%= if !@opportunity.is_option?(:option_1) then 'style="display: none;"' end %>>
+                      <% f.table do %>
+                        <%= f.text_field :perc_work, :class => 'floatvalue percentage', :append_field => '%' %>
+                        <%= f.text_field :fte, :class => 'intvalue small_value defaultval1', :label => 'FTE', :append_field => 'person(s)' %>
+                       <% end %>
+                    </div>
+                    <div id="option2_container" class="option_params_container" <%= if !@opportunity.is_option?(:option_2) then 'style="display: none;"' end %>>
+                      <% f.table do %>
+                        <%= f.text_field :max_days, :class => 'intvalue small_value defaultval', :append_field => 'day(s)' %>
+                      <% end %>
+                    </div>
+                  </div>
+               </td>
+             </tr>
+           </table>
+     	<% end %>
+     	<div class="clear">&nbsp;</div>
+     	<% f.fieldset "Notes" do %>
+     	  <%= f.text_area :notes, :size => "80x10", :textile => true %>
+     	<% end %>
+     	<p align="right">
+        <% if is_edit? then %>
+          <%= f.submit "Update" %>
+    		<% elsif is_new? then %>
+    			<%= f.submit "Create" %>
+    		<% end %>
+      </p>
+    <% end %>
+  <% end %>
+  <% if is_edit? || (is_readonly?) %>
+    <% tab "resources" do %>
+      <%= render :partial => 'resources/container', :locals => {:subject => :opportunity, :object => @opportunity} %>
+    <% end %>
+  <% end %>
+  <% if is_edit? || (is_readonly?) %>
+    <% tab "planning" do %>
+      Here comes the calendar for this opportunity.
+    <% end %>
+  <% end %>
+  <% if is_edit? || (is_readonly?) %>
+    <% tab "files" do %>
+      <%= render :partial => 'documents/container', :locals => {:subject => :opportunity} %>
+    <% end %>
+    <%= object_identity_field(@opportunity) %>
+  <% end %>
+<% end %>
+
+<p class="formbuttons">
+  <% if is_edit? then %>
+    <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %>
+	<% elsif is_new? then %>
+		<%= link_to 'Back', collection_path %>
+	<% else %>
+	  <%= link_to 'Edit', edit_object_path %> | <%= link_to 'Back', collection_path %>
+	<% end %>
+</p>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+		function handleOpportunityTabs(tabid, tabs, tabcontainer) {
+		  <% if is_edit? || is_readonly? %>
+	      Opportunities.setup(<%= @opportunity.to_json %>, {
+	        resources: {
+	          collection_url: '<%= crm_opportunity_resources_path(@opportunity) %>',
+            new_url: '<%= new_crm_opportunity_resource_path(@opportunity) %>'
+	        }
+	      });
+        Opportunities.handleTab(tabid, <%= (is_readonly?) ? true : false %>, <%= (@editable) ? true : false %>);
+      <% end %>
+      return true;
+    }
+    
+    <% if !is_readonly? %>
+    function customRange(input) {
+        return {
+            minDate: (input.id == "opportunity_end_date" ? $j("#opportunity_start_date").datepicker("getDate") : null), 
+            maxDate: (input.id == "opportunity_start_date" ? $j("#opportunity_end_date").datepicker("getDate") : null)
+        }; 
+    }
+    
+    $j(document).ready(function(){
+       // FILTERLIST
+       $j('#opportunity_account_id').filterlist(
+         {subject: 'opportunity_account', subject_class: 'account', 
+         module: 'crm/accounts', status_empty_msg: 'No account selected', 
+         label_reset_type: 'element', label_reset: 'x', search: true,
+         label_choose_type: 'element', datacontainer_css: { width: '400px', "margin-left": '-120px'}}
+       );
+       // DATE PERIOD SELECT
+       $j('#opportunity_start_date,#opportunity_end_date').datepicker({
+         beforeShow: customRange,  showOn: "both", firstDay: 1, dateFormat: "dd/mm/yy"
+       });
+       // BILLINGMETHOD
+       $j('#opportunity_billingmethod').change(function() {
+         if ($j(this).val() == 'fp') {
+           $j('#billingmethod_container').show();
+         } else {
+           $j('#billingmethod_container').hide();
+         }
+        });
+        // OPTION
+        $j("input[@name='opportunity[option]']").change(function() {
+          if ($j(this).val() == 'option_1') {
+            $j('#option1_container').show();
+            $j('#option2_container').hide();
+          } else {
+            $j('#option2_container').show();
+            $j('#option1_container').hide();
+          }
+        });
+        // STATUS
+        $j('#opportunity_status').change(function() {
+          if ($j(this).val() == 'won') {
+            var conf = APP.Utils.modal('confirm', 'Changing the status to "WON" means that a project will be created and the opportunity cannot be edit anymore. Are you sure ? \n\nAfter clicking "Yes" you also must confirm the status change by clicking the "Update" button.',{
+      				callback: function(res) {
+      					if (res == 'yes') {
+      						//alert('clicked');
+      					} else {
+      					  $j('#opportunity_status').val('<%= @opportunity.status %>');
+      					}
+      				}
+      			});
+          }
+        }); 
+    });
+    <% end %>
+	//]]>
+	</script>
+<% end %>

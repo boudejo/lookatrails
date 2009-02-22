@@ -1,0 +1,51 @@
+/*== DATAGRID ==
+
+table.datagrid
+  :width 100%
+  :border-collapse collapse
+  :padding 0px
+  :margin 0px
+  td
+    :padding 4px 12px
+    :border-right 1px solid #404040
+    :color #000
+    :text-align left
+    :border-bottom 1px solid #DDD
+    :border-bottom 1px solid #e6e8ea
+    :cursor hand
+    :cursor pointer
+    &.last
+      :border-right none
+    table
+      :width 100%
+      :border-collapse collapse
+      :padding 0px
+      :margin 0px
+      tr
+        td
+          padding: 0px
+          border: none
+  th
+    :border-right 1px solid #404040
+    :color #000
+    :text-align left
+    :border-bottom 1px solid #DDD
+    :padding 2px 12px
+    &.last
+      :border-right none
+  tr
+    &.heading th
+      :font-weight bold
+    &.row-odd td
+      background-color = !row_odd_bg_color
+    &.row-even td
+      background-color = !row_even_bg_color
+    &.hover td
+      background-color = !row_hover_color
+  .actions
+    :text-align center
+    :width 110px
+
+p.noresults
+  :padding-top 10px
+  :text-align center

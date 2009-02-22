@@ -1,0 +1,27 @@
+<div id="header">
+	<div id="top_menu">
+		<div class="currentdatetime">
+			<%= Date.today.strftime('%a %d %b %Y week: %W'); %> - <span id="currentdatetime"></span><br/>
+		</div>
+		<%= render_app_partial 'inc/personal_user' unless !logged_in? %>
+		<%= render_partial 'sessions/login' unless logged_in? %>
+		<div class="clear">&nbsp;</div>	
+	</div>
+	<br />
+	<div>
+    	<h1>Look At Rails <span>rails developers site</span></h1>
+		<div id="tabs">
+		    <ul id="maintabs">
+		    	<li class="lefttab"><a href="#" class="current" title="Dashboard">Dashboard</a></li>
+		        <li class="lefttab"><a href="#" title="Tab 1">[Tab 1]</a></li>
+		        <li class="lefttab"><a href="#" title="Tab 2">[Tab 2]</a></li>
+		        <li class="lefttab"><a href="#" title="Tab 3">[Tab 3]</a></li>
+				<% if logged_in? then %>
+		        	<li class="tabright"><a href="#" title="Application configuration">Settings</a></li>
+		        	<li class="tabright"><a href="#" title="Tab 1">[Tab 1]</a></li>
+		        	<li class="tabright"><a href="#" title="Tab 2">[Tab 2]</a></li>
+				<% end %>
+	   		</ul>
+   		</div>
+	</div>
+</div>

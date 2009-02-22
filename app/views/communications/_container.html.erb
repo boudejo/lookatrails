@@ -1,0 +1,60 @@
+<%
+  # OPTIONS:
+  options ||= {}
+  object = options.delete(:object) || nil
+  f = options.delete(:f) || nil
+  create_items = nil
+  action = params[:action]
+  if !f.nil? && !object.nil? && object.respond_to?('communication_options') then
+    subject = options.delete(:subject) || object.class.name.downcase
+    current_action = options.delete(:action) || action_info.to_s
+    communication_options = object.send('communication_options')
+    if action == 'new' then
+      if object.respond_to?('default_communication_settings') then
+        communication_options = Communication.defaults_for(object, object.default_communication_settings)
+      elsif communication_options.blank? then
+        create_items = options.delete(:new) || 3
+      end
+    end
+    if object.respond_to?('default_communication_settings') then
+      Communication.apply_default_settings(communication_options, object.default_communication_settings)
+    end
+%>
+  <div id="<%= subject %>_communications" class="communications <%= subject %>_communications">
+    <table class="form_table communications">
+      <thead>
+          <tr>
+              <th class="label">Label</th>
+              <th class="type">Type</th>
+              <th class="value">Value</th>
+              <% if options[:show_actions] then %><th class="actions">&nbsp;</th><% end %>
+          </tr>
+      </thead>
+      <tbody id="communications_body">
+        <%= f.render_associated_form(communication_options, 
+                                    :partial => 'communications/form', 
+                                    :new => create_items,
+                                    :fields_for => {:name => subject+'_communication', :method_name => 'tpl_fields_for'},
+                                    :readonly => options[:readonly],
+                                    :locals => {:options => {
+                                      :show_actions => options[:show_actions]
+                                    }}) %>
+      </tbody>
+    </table>
+  </div>  
+  <% if !subject.blank? then %>
+    <% javascript('views/communications.js', true) %>
+    <% content_for :javascript do %>
+    	<script type="text/javascript">
+    	//<![CDATA[
+    	  Communications.setSubject('<%= subject %>');
+    	//]]>
+    	</script>
+    <% end %>
+  <% end %>
+  <% stylesheet('views/communications.css', 'screen') %>
+<% else %>
+  <p>The object has no assocation with communicaton options.
+<%end %>
+
+

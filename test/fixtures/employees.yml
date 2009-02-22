@@ -1,0 +1,22 @@
+DEFAULTS: &DEFAULTS
+  status_notes:         ''
+  addresses_count:      2
+  communications_count: 3
+  documents_count:      0
+  status_change_at:     <%= 1.days.ago.to_s :db  %>
+  creator_id:           <%= Fixtures.identify(:system) %>
+  updater_id:           <%= Fixtures.identify(:system) %>
+
+emp_lorioga:
+  identity_id:          <%= Fixtures.identify(:prlorioga) %>
+  code:                 'GAE'
+  fullcode:             'GAE[2650]'
+  function:             'consultant'
+  joblevel:             'senior'
+  date_in_service:      <%= 1.days.ago.to_s :db  %>
+  workshedule:          'fulltime'
+  bank_account_number:  '001-8998798-87'
+  status:               'not_active'
+  prev_status:          'not_active'
+  notes:                'senior consultant not_active'
+  <<: *DEFAULTS

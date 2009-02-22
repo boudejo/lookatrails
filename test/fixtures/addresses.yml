@@ -1,0 +1,91 @@
+DEFAULTS: &DEFAULTS
+  address_line2:  ''
+  address_bus:    ''
+  creator_id:     <%= Fixtures.identify(:system) %>
+  updater_id:     <%= Fixtures.identify(:system) %>
+
+# EMPLOYEES:
+emp_lorioga_address:
+  label:            'work'
+  main:             1
+  addressable:      emp_lorioga (Employee)
+  address_line1:    'Excelsiorlaan'
+  address_line2:    ''
+  address_nr:       '89'
+  address_postal:   '1930'
+  address_place:    'Zaventem'
+  address_country:  'Belgium'
+  <<: *DEFAULTS
+
+# PERSONS:
+lorioga_address:
+  label:            'home'
+  main:             1
+  addressable:      prlorioga (Person)
+  address_line1:    'Jan Ockegemstraat'
+  address_line2:    ''
+  address_nr:       '10'
+  address_postal:   '2650'
+  address_place:    'Edegem'
+  address_country:  'Belgium'
+  <<: *DEFAULTS
+
+butsjoh_address:
+  label:            'home'
+  main:             1
+  addressable:      prbutsjoh (Person)
+  address_line1:    'Mechelsesteenweg'
+  address_line2:    ''
+  address_nr:       '97'
+  address_postal:   '2550'
+  address_place:    'Kontich'
+  address_country:  'Belgium'
+  <<: *DEFAULTS  
+  
+boudejo_address:
+  label:            'home'
+  main:             1
+  addressable:      prboudejo (Person)
+  address_line1:    'Dillesstraat'
+  address_line2:    ''
+  address_nr:       '8'
+  address_postal:   '2660'
+  address_place:    'Hoboken'
+  address_country:  'Belgium'
+  <<: *DEFAULTS   
+
+01_address:
+  label:            'home'
+  main:             1
+  addressable:      pr01 (Person)
+  address_line1:    '01'
+  address_line2:    ''
+  address_nr:       ''
+  address_postal:   ''
+  address_place:    ''
+  address_country:  'Belgium'
+  <<: *DEFAULTS 
+
+02_address:
+  label:            'home'
+  main:             1
+  addressable:      pr02 (Person)
+  address_line1:    '02'
+  address_line2:    ''
+  address_nr:       ''
+  address_postal:   ''
+  address_place:    ''
+  address_country:  'Belgium'
+  <<: *DEFAULTS 
+  
+03_address:
+  label:            'home'
+  main:             1
+  addressable:      pr03 (Person)
+  address_line1:    '03'
+  address_line2:    ''
+  address_nr:       ''
+  address_postal:   ''
+  address_place:    ''
+  address_country:  'Belgium'
+  <<: *DEFAULTS

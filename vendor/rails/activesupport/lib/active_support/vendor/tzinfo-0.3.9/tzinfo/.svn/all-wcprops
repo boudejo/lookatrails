@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo
+END
+data_timezone_info.rb
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/data_timezone_info.rb
+END
+timezone_transition_info.rb
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/timezone_transition_info.rb
+END
+linked_timezone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/linked_timezone.rb
+END
+offset_rationals.rb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/offset_rationals.rb
+END
+timezone_definition.rb
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/timezone_definition.rb
+END
+data_timezone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/data_timezone.rb
+END
+info_timezone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/info_timezone.rb
+END
+timezone_info.rb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/timezone_info.rb
+END
+time_or_datetime.rb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/time_or_datetime.rb
+END
+timezone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/timezone.rb
+END
+linked_timezone_info.rb
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/linked_timezone_info.rb
+END
+timezone_offset_info.rb
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/timezone_offset_info.rb
+END
+timezone_period.rb
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor/tzinfo-0.3.9/tzinfo/timezone_period.rb
+END

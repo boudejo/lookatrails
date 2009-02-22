@@ -1,0 +1,47 @@
+<% fieldset "Timesheet history", :html => {:class => "personal"} do %>
+  <div class="subject_actionlinks">
+    <a href="#" class="link" id="refresh_timesheets">Refresh timesheets</a>
+  </div>
+  <div class="clear">&nbsp;</div>
+  <% if @timesheets.size > 0 then %>
+  	<% paging_section @timesheets, {:page_links => false} do %>
+    	<table id="timesheets_grid" class="datagrid timesheets_grid">
+    		<thead>
+    			<tr class="heading">
+    				<th class="year">Year</th>
+    				<th class="entries">Entries</th>
+    				<th class="leave_days">Leave days</th>
+    				<th class="extra_leave_days">Extra leave days</th>
+    				<th class="sick_days">Sickdays</th>
+    				<th class="actions">Actions</th>
+    		  </tr>
+    		</thead>
+    		<tbody>
+    		<% for timesheet in @timesheets %>
+    			<tr class="<%= cycle('row-odd', 'row-even')%> callback" id="pis_hr_<%= dom_id(parent_object) %>_timesheet_<%= timesheet.year %>">
+    				<td class="year"><%= timesheet.year %></td>
+    				<td class="entries">#</td>
+    				<td class="leave_days"><%= timesheet.default_leave_days %></td>
+    				<td class="extra_leave_days"><%= timesheet.extra_leave_days %></td>
+    				<td class="sick_days">#</td>
+    				<td class="actions norowlink">
+    				  <%= render_app_partial 'object/recordlinks', :locals => { :options => {:url => pis_employee_timesheet_path(parent_object, timesheet.year), :ns => :pis, :delete => false}} %>
+     				</td>
+    			</tr>
+    		<% end %>
+    		</tbody>
+    	</table>
+  	<% end %>
+  <% else %>
+  	<p class="noresults">
+  			There is no timesheet history available for this employee.
+  			<% if @page then %><br/>(on page <%=@page%>)<% end %>
+  	</p>
+  <% end %>
+<% end %>
+
+<div class="calendar_window" id="timesheet_window">
+	<div class="calendar_window_content">
+	  <%= ajax_block('employee_timesheet', {:load_type => nil, :css_class => 'calendar_container'}) %>
+	</div>
+</div>

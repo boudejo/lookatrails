@@ -1,0 +1,10 @@
+<div class="personal_message">
+	Welcome, <%= current_user.login %>
+	<span class="message"><%= @personal_message %></span>
+</div>
+<div class="personal_links">
+	<span class="pipe">|</span><a href="<%= my_profile_path %>" title="Review and edit your personal information">My profile</a>
+  	<span class="pipe">|</span><%= link_to 'Log-out', logout_url  %>
+	<span class="pipe">|</span><a href="#" title="Help">Help</a><br/>
+	<% if s('session.timeout') > 0 then %>session timeout in:<div id="countdown"></div><% end %>
+</div>

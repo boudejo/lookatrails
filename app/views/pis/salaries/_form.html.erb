@@ -1,0 +1,60 @@
+<%= error_messages_for :salary, {:strip_object_name => true, :id => parent_type.to_s+'_salary'} %>
+
+<% tpl_form_for :salary, @salary, :url => object_path, :readonly => is_readonly?, :html => {:id => 'edit_salary_'+@salary.id.to_s, :method => (is_edit?) ? :put : :post, :onsubmit => 'Salaries.update(this); return false;'} do |f| %>
+  <% f.fieldset @salary.to_s('current'), :html => {:class => parent_type.to_s+"_salary"+((@salary.current? ? ' current_salary' : '')), :id => parent_type.to_s+"_salary_fieldset"} do %>
+    <% f.table do %>
+      <% @salary.calculations.each do |calculation| %>
+        <% if calculation['param'] then %>
+           <%= f.text_field calculation['name'].to_sym, :label => calculation['label'], :class => calculation['class'], :prepend_field => '' %>
+        <% else %>
+          <tr>
+            <td class="label <%= calculation['class'] %>"><%= calculation['label'] %>: <a href="#" title="<%= calculation['calc_label'] %>">?</a></td>
+            <td class="element">
+              <%= text_field_tag calculation['name'], :value => calculation['result'], :class => calculation['class'], :disabled => true, :readonly => true %>
+              <% if calculation['saveable'] == true then %>
+                <%= f.hidden_field calculation['name'].to_sym %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      <tr>
+        <td colspan="2" style="text-align: right;"><a href="#" id="show_salary_note_container">Edit Note</a></td>
+      </tr>
+      <tr id="salary_note_container" style="display: none;">
+        <td colspan="2"><%= f.text_area :notes, :size => "5x5", :textile => true, :partial => 'PLAIN_FIELD' %></td>
+      </tr>
+    <% end %>
+   	<p align="center">
+   	    <% if @salary.current? %>
+          <%= f.submit "Update", :id => 'salary_submit_update' %>
+        <% end %>
+        <%= f.submit "Save as current (new copy)", :id => 'salary_submit_new', :onclick => 'Salaries.create(this.form); return false;' %>
+    </p>
+ 	<% end %>
+<% end %>
+<%= object_identity_field(@salary) %>
+
+<script type="text/javascript">
+  <% if !is_readonly? %>
+  $j(document).ready(function(){
+    Salaries.setup(<%= @salary.to_json %>, <%= @salary.calculations_json %>);
+  	
+  	$j('#salary_submit_new, #salary_submit_update').mousedown(function() {
+  	  $j('.salary_parameter').expire();
+  	});
+  	
+  	$j('#show_salary_note_container').expire();
+  	$j('#show_salary_note_container').livequery('click', function(event) {
+  	  if ($j('#salary_note_container').is(':visible')) {
+  	    $j('#show_salary_note_container').html('Edit note');
+  	    $j('#salary_note_container').hide();
+  	  } else {
+  	    $j('#show_salary_note_container').html('Hide note');
+  	    $j('#salary_note_container').show();
+  	  }
+  	  return false;
+  	});
+  });
+  <% end %>
+</script>

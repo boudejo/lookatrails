@@ -1,0 +1,87 @@
+/* == PRINT == */
+body {
+  font-size: 11px;
+}
+
+div#app_env, #top-menu, #left-column, #breadcrumb, #footer {
+  display: none;
+}
+
+div.paging, div.actionlinks {
+  display: none;
+}
+
+table.datagrid td.actions, table.datagrid th.actions {
+  display: none;
+}
+
+/* == APP RELATED == */
+div.currentdatetime {
+  width: 100%;
+  text-align: right;
+}
+
+div#left_column, div#top_menu, div#app_status, div#app_modaldialog, div.app_modaldialog {
+  display: none;
+}
+
+/* RECRUITMENTS */
+div.recruitment {
+  text-align: left;
+  font-size: 10px;
+  height: 18px;
+  padding: 0px;
+  margin: 0px;
+  padding-left: 5px;
+}
+div.recruitment span {
+  display: block;
+  padding-top: 2px;
+}
+
+table.recruitments_forecastgrid {
+  width: auto;
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+table.recruitments_forecastgrid tr {
+  border: 1px solid #000;
+}
+table.recruitments_forecastgrid tr th {
+  text-align: center;
+  width: 123px;
+  border: 1px solid #000;
+}
+table.recruitments_forecastgrid tr th.stage {
+  background-color: #9F1009;
+  color: #FFF;
+}
+table.recruitments_forecastgrid tr td {
+  text-align: center;
+  border: 1px solid #000;
+  vertical-align: top;
+  padding: 0px;
+  margin: 0px;
+}
+table.recruitments_forecastgrid tr .joblevel {
+  width: auto;
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: top;
+}
+table.recruitments_forecastgrid tr .joblevel div {
+  background-color: #9F1009;
+  color: #FFF;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 18px;
+  height: 18px;
+}
+table.recruitments_forecastgrid tr .jobleveltitle {
+  width: auto;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  vertical-align: middle;
+}

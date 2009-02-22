@@ -1,0 +1,17 @@
+<% options ||= {} %>
+<% id = options.delete(:id) || '' %>
+<% id = (id.blank?) ? '' : id+'_' %>
+<% timeout = options.delete(:timeout) || 0 %>
+<div class="errorExplanation" id="<%= id %>errorExplanation">
+  <h2><%= pluralize(errors.size, "error") %> <%= errors.size == 1 ? "needs" : "need" %> to be fixed.</h2>
+  <ul>
+    <% for error in errors -%>
+      <li><%= error %></li>
+    <% end -%>  
+  </ul>
+</div>
+<% if timeout.to_f > 0 then %>
+  <% javascript_tag do -%>
+    setTimeout("$j('#<%= id %>errorExplanation').fadeOut('slow');", <%= (timeout.to_f*1000) %>); 
+  <%end -%>
+<% end %>

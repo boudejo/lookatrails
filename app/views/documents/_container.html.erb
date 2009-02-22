@@ -1,0 +1,28 @@
+<% if is_edit? %>
+  <div class="subject_actionlinks">
+    <a href="#" class="button" id="show_<%= subject %>_document_upload">UPLOAD NEW DOCUMENT</a>
+  </div>
+  <div class="clear">&nbsp;</div>
+  <% if @editable %>
+    <% ajax_block subject.to_s+'_document_upload' do %>
+      <%= render :partial => "documents/form" %>
+    <% end %>
+  <% else %>
+    <%= ajax_block(subject.to_s+'_document_upload', {:hide => true}) %>
+  <% end %>
+<% end %>
+
+<% if is_edit? || is_readonly? %>
+  <div class="subject_actionlinks">
+    <% if is_edit? || is_readonly? %><a href="#" class="link" id="refresh_<%= subject %>_documents">Refresh documents</a><% end %>
+  </div>
+  <div class="clear">&nbsp;</div>
+  <%= ajax_block(subject.to_s+'_documents', :css_class => 'documents') %>
+<% end %>
+
+<% if @editable %>
+  <% javascript("views/#{subject.to_s.pluralize}.js", true) %>
+  <% stylesheet("views/#{subject.to_s.pluralize}.css", 'screen') %>
+<% end %>
+
+<br/>

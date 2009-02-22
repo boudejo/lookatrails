@@ -1,0 +1,41 @@
+<%= error_messages_for :resource, {:strip_object_name => true, :id => parent_type.to_s+'_resource'} %>
+
+<% tpl_form_for @resource, :url => object_path, :readonly => is_readonly?, :html => {:id => (is_edit?) ? 'edit_resource_'+@resource.id.to_s : 'new_resource'} do |f| %>
+  <% f.fieldset 'Resource', :html => {:class => parent_type.to_s+"_resource", :id => parent_type.to_s+"_resource_fieldset"} do %>
+    <% f.table do %>
+      <%= f.filterlist :employee, :attr => 'fullname', :label => 'Consultant' %>
+      <%= f.text_area :notes, :size => "80x4", :textile => true %>
+    <% end %>
+ 	<% end %>
+ 	<p align="right">
+ 	  <input type="hidden" id="resource_employee" value="" />
+ 	  <%= f.submit "Reset", :type => 'button', :onclick => 'Resources.clearForm(this.form);' %>
+    <% if is_edit? %>
+      <%= f.submit "Update", :id => 'resource_submit_update', :onclick => 'Resources.update(this.form); return false;' %>
+    <% elsif is_new? %>
+      <%= f.submit "Save", :id => 'resource_submit_new', :onclick => 'Resources.create(this.form); return false;' %>
+    <% end %>
+  </p>
+<% end %>
+<%= object_identity_field(@resource) %>
+
+<script type="text/javascript">
+//<![CDATA[
+  $j(document).ready(function(){
+     // FILTERLIST
+     $j('#resource_employee_id').filterlist(
+       {subject: 'resource_employee', subject_class: 'employee', subject_text: 'consultant', filter_action: 'filter_consultants.html',
+       module: 'pis/hr/employees', status_empty_msg: 'No consultant selected', 
+       label_reset_type: 'element', label_reset: 'x', search: true,
+       label_choose_type: 'element', datacontainer_css: { width: '400px'},
+       searchsettings: {
+   		  field: 'name_or_code',
+   		  field_label: 'Name/Code',
+   		  search_label: 'Search',
+   		  clear_label: 'Show all',
+   		  search_val: ''
+   		}}
+     );
+  });
+//]]>
+</script>

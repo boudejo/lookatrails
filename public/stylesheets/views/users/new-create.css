@@ -1,0 +1,5 @@
+/* SECTION: SIGNUP */
+form#signup_form input.text {
+  margin-right: 2px;
+  width: 368px;
+}

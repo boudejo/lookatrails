@@ -1,0 +1,13 @@
+defaults: &defaults
+    section: pis
+    crumb_text: PIS Dashboard
+    crumb_url: /pis/dashboard
+
+development: &non_production_settings
+    <<: *defaults
+        
+test:
+    <<: *non_production_settings
+  
+production:
+    <<: *defaults

@@ -1,0 +1,52 @@
+<table class="calendar_entry">
+  <tr>
+    <td class="title">Calendar entry</td>
+    <td class="close">
+      <a href="#" class="close_calendar_entry">X</a>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2">
+        <% if @start.nil? && @end.nil? %>
+          <p class="entry_select_error">
+            It seems a problem has occured while selecting dates on the calendar.<br/>
+            Please try again by closing this window and select an new date range or report this error to your application support staff.
+          </p>
+        <% else %>
+          <% tpl_form_for @calendar_entry, :url => object_path, :readonly => is_readonly?, :html => {:id => 'new_calendar_entry'} do |f| %>
+            <% f.fieldset 'Calendar entry', :html => {:class => parent_type.to_s+"_calendar_entry", :id => parent_type.to_s+"_calendar_entry_fieldset"} do %>
+              <% f.table do %>
+                <% if (@start != @end) then %>
+                  <tr>
+                    <td class="label"><label>Dates:</label></td> 
+                    <td class="element">
+                      <strong>from <%= Date.parse(@start).to_s(:date_with_day) %> to <%= Date.parse(@end).to_s(:date_with_day) %></strong>
+                      <%= hidden_field(:calendar_entry, :start, {:value => @start}) %>
+                      <%= hidden_field(:calendar_entry, :end, {:value => @end}) %>
+                    </td>
+                  </tr>
+                <% elsif !@start.nil? then %>
+                  <tr>
+                    <td class="label"><label>Date:</label></td> 
+                    <td class="element">
+                      <strong><%= Date.parse(@start).to_s(:date_with_day) %></strong>
+                      <%= hidden_field(:calendar_entry, :start, {:value => @start}) %>
+                      <%= hidden_field(:calendar_entry, :end, {:value => @start}) %>
+                    </td>
+                  </tr>
+                <% end %>
+                <%= f.text_field :summary, :label => 'Summary' %>
+                <%= f.enum2_select :kind, :label => 'Type' %>
+                <%= f.text_area :description, :size => "80x3", :textile => true, :label => 'Description' %>
+              <% end %>
+           	<% end %>
+           	<p align="right">
+              <%= f.submit "Save", :id => 'calendar_entry_submit_new', :onclick => 'Calendars.createEntries(this.form); return false;' %>
+            </p>
+          <% end %>
+        <% end %>
+      </td>
+  </tr>
+</table>
+
+

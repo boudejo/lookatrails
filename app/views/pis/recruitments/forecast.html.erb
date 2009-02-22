@@ -1,0 +1,56 @@
+<% title "HR Recruitment Forecast" %>
+
+<table class="recruitments_forecastgrid">
+  <thead>
+    <tr>
+        <th class="jobleveltitle">JOBLEVEL</th>
+        <th class="stage">1STE FASE</th>
+        <th class="stage">2ND FASE</th>
+        <th class="stage">JOBOFFER</th>
+        <th class="stage">JOBOFFER SIGNED</th>
+        <th class="stage">REJECTED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%
+    forecast_results = Recruitment.const_get('JOBLEVELS').inject({}) {|h, v| h[v] = {}; h }
+    @recruitments.each do |recruitment|
+      content = ''
+      forecast_results[recruitment.joblevel.to_sym][recruitment.status.to_sym] = '' if !forecast_results[recruitment.joblevel.to_sym][recruitment.status.to_sym]
+      case recruitment.status.to_sym
+        when :joboffer_signed
+          content = link_to recruitment.to_s('signed'), pis_recruitment_path(recruitment)
+        when :rejected
+          content = link_to recruitment.to_s('rejected'), pis_recruitment_path(recruitment)
+        else
+          content = link_to recruitment.to_s, pis_recruitment_path(recruitment)
+      end
+      forecast_results[recruitment.joblevel.to_sym][recruitment.status.to_sym] << %{<div class="recruitment"><span>#{content}</span></div>}
+    end 
+    %>
+    <tr>
+      <td class="joblevel"><div>UNSPECIFIED</div></td>
+      <% Recruitment.const_get('STATUSES').each do |status| %>
+        <td><%= forecast_results[:unspecified][status] || '-' %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td class="joblevel"><div>JUNIOR</div></td>
+      <% Recruitment.const_get('STATUSES').each do |status| %>
+        <td><%= forecast_results[:junior][status] || '-' %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td class="joblevel"><div>CONSULTANT</div></td>
+      <% Recruitment.const_get('STATUSES').each do |status| %>
+        <td><%= forecast_results[:consultant][status] || '-' %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td class="joblevel"><div>SENIOR</div></td>
+      <% Recruitment.const_get('STATUSES').each do |status| %>
+        <td><%= forecast_results[:senior][status] || '-' %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,2 @@
+module Crm::ResourcesHelper
+end

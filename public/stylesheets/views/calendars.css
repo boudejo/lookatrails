@@ -1,0 +1,93 @@
+/* CALENDAR */
+table.calendars_grid tr td {
+  text-align: center;
+}
+table.calendars_grid th {
+  text-align: center;
+}
+
+div.calendar_container {
+  min-height: 480px;
+}
+
+div.calendar_window {
+  top: 12%;
+}
+
+div.calendar_info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+}
+div.calendar_info table.info_table th {
+  border: 1px solid #000;
+  text-align: center;
+  width: 20%;
+}
+div.calendar_info table.info_table td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  text-align: center;
+}
+div.calendar_info table.info_table td span {
+  font-weight: bold;
+}
+
+table.timesheet_calendar td.period_select {
+  background-color: #E4FFCF;
+}
+
+/* CALENDAR ENTRIES */
+div.calendar_entry_window, div.calendar_help_window {
+  display: none;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  width: 100%;
+}
+div.calendar_entry_window_content, div.calendar_help_window_content {
+  height: auto;
+  width: auto;
+  margin: auto;
+  max-width: 400px;
+  padding: 10px;
+  background: #FFF;
+  border: 5px solid #A3221D;
+}
+div.calendar_entry_window_content div.calendar_entry_container, div.calendar_entry_window_content div.calendar_help_container, div.calendar_help_window_content div.calendar_entry_container, div.calendar_help_window_content div.calendar_help_container {
+  height: 200px;
+  width: 400px;
+  background: transparent;
+}
+
+table.calendar_entry td, table.calendar_help td {
+  margin: 0px;
+  padding: 0px;
+  background-color: none;
+  color: #000;
+}
+table.calendar_entry td.title, table.calendar_help td.title {
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+table.calendar_entry td.close, table.calendar_help td.close {
+  text-align: center;
+  vertical-align: middle;
+  width: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+table.calendar_entry td.close a, table.calendar_help td.close a {
+  text-decoration: none;
+}
+
+p.entry_select_error {
+  margin-top: 30px;
+  text-align: center;
+}
+
+input#calendar_entry_summary {
+  width: 100%;
+}

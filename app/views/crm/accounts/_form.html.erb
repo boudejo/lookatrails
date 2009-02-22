@@ -1,0 +1,108 @@
+<% if is_edit? then %>
+  <%= render_app_partial "object/info", :locals => {:record => @account.account} %>
+<% end %>
+
+<%= error_messages_for :account, {:strip_object_name => true, :labels => {:accountcontact_first_name => 'Account name'}} %>
+
+<% tabs 'account_tabs', %w{info contacts opportunities projects files}, {  
+                                                    :default => 'info', :handler => 'handleAccountTabs', 
+                                                    :contacts => {:disabled => (@editable) ? false : is_new?, :text => 'Contacts('+@account.account.contacts_count.to_s+')'}, 
+                                                    :opportunities => {:disabled => (@editable) ? false : is_new?, :text => 'Opportunities ('+@account.account.opportunities_count.to_s+')'}, 
+                                                    :projects => {:disabled => (@editable) ? false : is_new?, :text => 'Projects ('+@account.account.projects_count.to_s+')'}, 
+                                                    :files => {:disabled => (@editable) ? false : is_new?, :text => 'Files ('+@account.account.documents_count.to_s+')'}
+                                                 } do %>
+  <% tab "info" do %>
+    <% tpl_form_for :account, @account, :url => (@editable) ? crm_account_path(@account.account) : object_path, :readonly => is_readonly?, :html => {:id => (is_new? ? 'new_account' : 'edit_account_'+@account.account.id.to_s), :method => (is_edit?) ? :put : :post} do |f| %>
+     	<% f.fieldset "Info", :html => {:class => "left info"} do %>
+     	  <% f.table do %>
+       	   <%= f.text_field :accountcontactcard_first_name, :label => 'Name' %>
+           <%= f.text_field :account_vat_number, :label => 'VAT' %>
+           <%= f.text_field :account_kvk_number, :label => 'KVK' %>
+        <% end %>
+     	<% end %>
+     	<% f.fieldset "Bankinfo", :html => {:class => "right bankinfo"} do %>
+   	    <% f.table do %>
+    	   <%= f.text_field :account_bankaccount_number, :label => 'Bankaccount' %>
+        <%= f.text_field :account_iban_number, :label => 'IBAN' %>
+        <%= f.text_field :account_bic_number, :label => 'BIC' %>       	  
+        <% end %>         
+     	<% end %>
+     	<div class="clear">&nbsp;</div>
+     	<% f.fieldset "Addressinfo", :html => {:class => "left addressinfo"} do %>
+     	  <% f.table do %>
+          <%= f.text_field :accountcontactcard_address_line1, :label => 'Address' %>
+          <%= f.text_field :accountcontactcard_address_line2, :label => '' %>
+          <%= f.text_field :accountcontactcard_address_nr, :label => 'Nr.' %>
+          <%= f.text_field :accountcontactcard_address_bus, :label => 'Bus' %>
+          <%= f.text_field :accountcontactcard_address_postal, :label => 'Postal' %>
+          <%= f.text_field :accountcontactcard_address_place, :label => 'Place' %>
+          <%= f.country_select :accountcontactcard_address_country, :label => 'Country' %>
+        <% end %>
+     	<% end %>
+     	<% f.fieldset "Contactinfo", :html => {:class => "right contactinfo"} do %>
+          <% f.table do %>
+           <%= f.text_field :accountcontactcard_email, :label => 'Email' %>
+           <%= f.text_field :accountcontactcard_phone, :label => 'Phone' %>
+           <%= f.text_field :accountcontactcard_fax, :label => 'Fax' %>
+           <%= f.text_field :accountcontactcard_website, :label => 'Website' %>
+         <% end %>
+     	<% end %>
+     	<div class="clear">&nbsp;</div>
+      <p align="right">
+        <% if is_edit? then %>
+          <%= f.submit "Update" %>
+    		<% elsif is_new? then %>
+    			<%= f.submit "Create" %>
+    		<% end %>
+      	</p>
+    <% end %>
+  <% end %>
+  <% if is_edit? || is_readonly? %>
+    <% tab "contacts" do %>
+      contacts
+    <% end %>
+  <% end %>
+  <% if is_edit? || is_readonly? %>
+    <% tab "opportunities" do %>
+      opportunities
+    <% end %>
+  <% end %>
+  <% if is_edit? || is_readonly? %>
+    <% tab "projects" do %>
+      projects
+    <% end %>
+  <% end %>
+  <% if is_edit? || is_readonly? %>
+    <% tab "files" do %>
+      <%= render :partial => 'documents/container', :locals => {:subject => :account} %>
+    <% end %>
+    <%= object_identity_field(@account.account) %>
+  <% end %>
+  <p class="formbuttons">
+    <% if is_edit? then %>
+      <% if @editable then %>
+        <%= link_to 'Show', edit_crm_account_path(@account.account)  %> | <%= link_to 'Back', crm_accounts_path %>
+      <% else %>
+        <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %>
+      <% end %>
+		<% elsif is_new? then %>
+			<%= link_to 'Back', collection_path %>
+		<% else %>
+		  <%= link_to 'Edit', edit_object_path %> | <%= link_to 'Back', collection_path %>
+		<% end %>
+  	</p>
+<% end %>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+		function handleAccountTabs(tabid, tabs, tabcontainer) {
+	    <% if is_edit? || is_readonly? %>
+	      Accounts.setup(<%= @account.account.to_json %>);
+        Accounts.handleTab(tabid, <%= (is_readonly?) ? true : false %>, <%= (@editable) ? true : false %>);
+      <% end %>  
+      return true;
+    }
+	//]]>
+	</script>
+<% end %>

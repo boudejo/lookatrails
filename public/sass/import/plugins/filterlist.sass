@@ -1,0 +1,100 @@
+/* == PLUGIN: FILTERLIST ==
+
+.filterlist_statcontainer
+  :font-weight bold
+  :display block
+  :margin 1px
+
+.filterlist_status
+  :border 1px solid #000
+  :cursor hand
+  :cursor pointer
+  :padding 2px
+  
+.filter_reset_inline
+  :padding-left 10px
+
+div.filterlist_datacontainer
+  :position absolute
+  :z-index 999
+  :border 1px solid #000
+  :width 100%
+  :display none
+  :min-height 90px
+  :padding 0px
+  :margin 0px
+  :background-color #FFF
+  :margin-top 5px
+
+.filterlist_close
+  :position absolute
+  :right 0px
+  :top 0px
+  :margin-top 1px
+  :margin-right 2px
+  
+/* PAGING
+
+div.filterlist_datacontainer
+  div.paging
+    table
+      td
+        div.pagination
+          :text-align center
+
+/* SEARCH
+
+div.filter_search
+  height: 21px
+  background-color: #A7B6BF
+  width: 100%
+  div
+    margin-left: 10px
+    padding-top: 1px
+    
+/* RESULTS TABLE
+
+table
+  &.filtergrid
+    :width 100%
+    :border-collapse collapse
+    :padding 0px
+    :margin 0px
+    :margin-top 5px
+    td
+      :padding 4px 12px
+      :border-right 1px solid #404040
+      :color #000
+      :text-align left
+      :border-bottom 1px solid #DDD
+      :border-bottom 1px solid #e6e8ea
+      :cursor hand
+      :cursor pointer
+      &.last
+        :border-right none
+      table
+        :width 100%
+        :border-collapse collapse
+        :padding 0px
+        :margin 0px
+        tr
+          td
+            padding: 0px
+            border: none
+    th
+      :border-right 1px solid #404040
+      :color #000
+      :text-align left
+      :border-bottom 1px solid #DDD
+      :padding 2px 12px
+      &.last
+        :border-right none
+    tr
+      &.heading th
+        :font-weight bold
+      &.row-odd td
+        background-color = !row_odd_bg_color
+      &.row-even td
+        background-color = !row_even_bg_color
+      &.hover td
+        background-color = !row_hover_color

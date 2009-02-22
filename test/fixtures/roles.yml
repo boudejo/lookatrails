@@ -1,0 +1,11 @@
+system_role:
+  name: system
+  
+support_role:
+  name: support
+  
+admin_role:
+  name: admin
+  
+user_role:
+  name: user

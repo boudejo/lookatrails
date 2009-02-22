@@ -1,0 +1,77 @@
+<table class="calendar">
+  <tr>
+    <td class="title">Quasus PIS Calendar <%= @year %></td>
+    <td class="status" id="calendar_status_container">Selected period: <strong>none</strong></td>
+    <td class="links">
+      <input type="button" name="clear_period_selection" id="clear_period_selection" disabled="disabled" value="Clear period selection" onclick="Calendars.clearPeriodSelection();"> | 
+      <a href="#" class="help_window">help</a> | 
+      <a href="#" class="refresh_window">refresh</a>
+    </td>
+    <td class="close">
+      <a href="#" class="close_calendar">X</a>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="4">
+        <% if @year.to_i != @calendar.year %>
+          <div class="no_calendar">
+            <p>
+              There is no calendar available for year: <%= @year %>.<br/>
+              The most current calendar found is for year: <a href="<%= if is_edit? then edit_object_path(@calendar.year) else object_path(@calendar.year) end %>" class="current_calendar"><%= @calendar.year %></a>.
+            </p>
+            <p>Calendars will be automatically created 3 months before the end of the current year.</p>
+          </div>
+        <% else %>
+          <div class="calendar_info">
+            <table class="info_table">
+              <tr>
+                <th># Workdays (W)</th>
+                <th># General leave (Lg)</th>
+                <th># Holidays (H)</th>
+                <th># Postponed Holiday (Hp)</th>
+                <th># Events/Special days (E)</th>
+              </tr>
+              <tr>
+                <td><span id="workday_total">0</span> day(s)</td>
+                <td><span id="general_leave_total">0</span> day(s)</td>
+                <td><span id="holiday_total">0</span> day(s)</td>
+                <td><span id="postponed_holiday_total">0</span> day(s)</td>
+                <td><span id="postponed_holiday_total">0</span> day(s)</td>
+              </tr>
+            </table>
+          </div>
+          <%= timesheet_calendar({:table_id       => 'quasus_pis_calendar',
+                                  :year           => @calendar.year, 
+                                  :min_prev_year  => APP.setting('app.startyear'), 
+                                  :max_next_year  => (Date.today.year+1),
+                                  :year_nav_url   => (is_edit? ? edit_object_path('ID') : object_path('ID'))}) do |d, id, w|
+              day_dom_id = "pis_calendar-entrie_"+id.gsub(/_/, '-')
+              if w == true then
+                ['', {:id => day_dom_id}]
+              else
+                ['W', {:id => day_dom_id}]
+              end
+          end  
+          %>
+        <% end %>
+      </td>
+  </tr>
+</table>
+
+<div class="calendar_entry_window" id="calendar_entry_window">
+	<div class="calendar_entry_window_content">
+	  <%= ajax_block('pis_calendar_entry_container', {:load_type => nil, :css_class => 'calendar_entry_container'}) %>
+	</div>
+</div>
+
+<%= render :partial => "help" %>
+
+<script type="text/javascript">
+//<![CDATA[
+  $j(document).ready(function(){
+    <% if is_edit? || is_readonly? %>
+    	Calendars.setup(<%= @calendar.to_json %>, <%= s('data.calendar').to_json %>, "<%= is_edit? ? 'edit' : 'show' %>");
+    <% end %>
+  });
+//]]>
+</script>

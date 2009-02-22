@@ -1,0 +1,12 @@
+/* $Id: ruby_xml_parser_context.h 711 2009-01-20 07:17:15Z cfis $ */
+
+/* Please see the LICENSE file for copyright and distribution information */
+
+#ifndef __RXML_PARSER_CONTEXT__
+#define __RXML_PARSER_CONTEXT__
+
+extern VALUE cXMLParserContext;
+
+void ruby_init_xml_parser_context(void);
+
+#endif

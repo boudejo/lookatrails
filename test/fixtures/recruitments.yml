@@ -1,0 +1,55 @@
+DEFAULTS: &DEFAULTS
+  documents_count:      0
+  status_change_at:     <%= 1.days.ago.to_s :db  %>
+  creator_id:           <%= Fixtures.identify(:system) %>
+  updater_id:           <%= Fixtures.identify(:system) %>
+
+rec_lorioga:
+  joblevel:     'senior'
+  status:       'joboffer_signed'
+  prev_status:  'joboffer'
+  rejected_by:  'unspecified'
+  notes:        'senior - joboffer signed'
+  employee_id:  <%= Fixtures.identify(:emp_lorioga) %>    
+  <<: *DEFAULTS
+
+rec_butsjoh:
+  joblevel:     'junior'
+  status:       'joboffer'
+  prev_status:  'second_stage' 
+  rejected_by:  'unspecified'
+  notes:        'junior - joboffer'
+  <<: *DEFAULTS
+  
+rec_boudejo:
+  joblevel:     'consultant'
+  status:       'joboffer'
+  prev_status:  'second_stage' 
+  rejected_by:  'unspecified'
+  notes:        'consultant - joboffer'
+  <<: *DEFAULTS
+  
+rec_01:
+  joblevel:     'senior'
+  status:       'first_stage'
+  prev_status:  '' 
+  rejected_by:  'unspecified'
+  notes:        'senior - 1st fase'  
+  <<: *DEFAULTS
+
+rec_02:
+  joblevel:     'junior'
+  status:       'second_stage'
+  prev_status:  'first_stage' 
+  rejected_by:  'unspecified'
+  notes:        'junior - 2nd stage'  
+  <<: *DEFAULTS
+  
+rec_03:
+  joblevel:     'consultant'
+  status:       'rejected'
+  prev_status:  'first_stage' 
+  rejected_by:  'quasus'
+  notes:        'consultant - rejected'  
+  <<: *DEFAULTS
+  

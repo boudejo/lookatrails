@@ -1,0 +1,38 @@
+<% if @cars.size > 0 then %>
+	<div class="paging">
+		<%= will_paginate @cars %>
+		<div class="paginginfo">
+			<%= page_entries_info @cars %>
+		</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+	<table class="filtergrid <%= @subject %>_filtergrid" id="<%= @filterid %>_filtergrid">
+		<thead>
+			<tr class="heading">
+				<th class="license_plate">License plate</th>
+				<th class="model">Model</th>
+		  	</tr>
+		</thead>
+		<tbody>
+		<% for car in @cars %>
+			<tr class="<%= cycle('row-odd', 'row-even')%>" id="<%= dom_id(car, @subject) %>" title="<%= car.to_s %>">
+				<td class="license_plate"><%= car.license_plate %></td>
+				<td class="model"><%= car.brand %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+	<br/>
+	<div class="paging">
+		<%= will_paginate @cars %>
+		<div class="paginginfo">
+			<%= page_entries_info @cars %>
+		</div>
+		<div class="clear">&nbsp;</div>
+	</div>
+<% else %>
+	<p class="noresults">
+		There are currently no cars added in the system.
+		<% if @page then %><br/>(on page <%=@page%>)<% end %>
+	</p>
+<% end %>

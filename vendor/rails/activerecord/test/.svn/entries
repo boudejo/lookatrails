@@ -1,0 +1,117 @@
+9
+
+dir
+5
+https://boudejo@thinkweb.springloops.com/source/selfnetactivity/trunk/vendor/rails/activerecord/test
+https://boudejo@thinkweb.springloops.com/source/selfnetactivity
+
+
+
+2009-01-27T14:34:17.328821Z
+5
+boudejo
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+29200649-ea8c-4b32-8023-4ddf32b3df29
+
+schema
+dir
+
+assets
+dir
+
+connections
+dir
+
+models
+dir
+
+debug.log
+file
+
+
+
+
+2009-01-27T14:38:45.000000Z
+db732baca13098bf21022b5e6c1f792f
+2009-01-27T14:34:17.328821Z
+5
+boudejo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+31672
+
+config.rb
+file
+
+
+
+
+2009-01-27T14:38:45.000000Z
+2cec417ec9966c979e5314731c20060f
+2009-01-27T14:34:17.328821Z
+5
+boudejo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+225
+
+fixtures
+dir
+
+migrations
+dir
+
+cases
+dir
+

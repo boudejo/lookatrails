@@ -1,0 +1,235 @@
+@import constants.sass
+
+/* == LAYOUT: APPLICATION ==
+
+
+/* TYPOGRAPHY
+p
+  color: #222222
+  line-height: 16px
+  line-height: 1.3em
+  padding-top: 0px
+  margin-top: 0px
+
+h1
+  font-size: 1.3em
+	
+/* LAYOUT
+div
+  &#container
+    background:
+      color: #FFF 
+      image: url(/images/logo2.jpg) 
+      repeat: no-repeat
+      position: 0px 0px
+    width: 1000px
+    margin: 0 auto
+    height: 100%
+    color: #000
+    margin-left: auto
+    margin-right: auto
+  &.content
+    font-size: 0.92em
+
+#left_column
+  :position absolute
+  :width 160px
+  :margin-top 68px
+  h2
+    :font-size 1.1em
+    :font-weight bold
+    :border-bottom 1px solid #9F1009
+    :margin-bottom 10px
+    :margin-right 10px
+    :text-align left
+    :width 180px
+    :clear both
+    color = !link_hover_color
+
+#right_column
+  :left 150px
+  :top 40px
+  :width 800px
+  :margin-left 40px
+  :position relative
+  div
+    &.container
+      :float left
+      :width 799px
+    &.content
+      :padding 0px
+      :margin 0px
+      :padding-left 12px
+      :border-left 1px solid #A3221D
+      :width 786px
+      :min-height 500px
+  h1
+    :padding 3px 5px
+    :color #FFF
+    :background-color #616b71
+    :font-size 1.15em
+    :margin-left 12px
+    :margin-top 3px
+    :margin-bottom 0px
+    &.errorhandler
+      :margin-top 10px
+      :margin-bottom 0px
+
+#footer
+  clear: both
+  margin-top: 5px
+  margin-bottom: 5px
+  width: 780px
+  margin-left: 12px
+  text-align: right
+
+/* TOP MENU
+
+div
+  &#top_menu
+    position: absolute
+    width: 990px
+    margin-top: 10px
+    font-size: 0.9em
+    a
+      color: #737373
+      margin: 4px
+      &:hover
+        color = !link_hover_color
+        background-color: #DDDDDD
+    div.currentdatetime
+      float: left
+      width: 250px 
+      margin-left: 205px
+    div.personal_links
+      float: right 
+      width: 400px
+      text-align: right
+
+/* LEFT MENU
+
+ul
+  &.left_menu
+    :width 180px
+    :margin 0 auto
+    :margin-bottom 30px
+    :clear both
+    li
+      :margin-bottom 3px
+      :clear both
+      a
+        :text-decoration none
+        :font-size 1.1em
+        :float left
+        :width 155px
+        :display block
+        :margin-bottom 3px
+        color = !link_hover_color
+        &.addshortcutbtn
+          :padding 0px
+          :margin 0px
+          :background-color #9F1009
+          :border 1px solid #616B71
+          :color #FFF
+          :font-size 8px
+          :float right
+          :width 14px
+          :height 14px
+          :display block
+          :margin-top 3px
+          :text-align center
+  &.single
+    :margin-bottom 40px
+
+/* BREADCRUMB
+
+#breadcrumb
+  :width 785px
+  :margin 0px
+  :padding 0px
+  :margin-top 3px
+  :margin-left 12px
+  :font-size 0.9em
+  a
+    :text-decoration none
+    :padding 0 4px
+    color = !link_color
+    &:hover
+      color = !link_hover_color
+      :text-decoration underline
+  .links
+    :float left
+    :margin-bottom 4px
+
+/* PRINT
+
+#print
+  :float right
+  :display block
+  :background #FFF url(/images/icons/16/printer.png) no-repeat
+  :background-position 0px 0px
+  a
+    :text-align right
+    :padding-left 20px
+    &:hover
+      color = !link_hover_color
+      :text-decoration underline
+
+/* MISC
+
+.minheight
+  width: 1px
+  height: 550px
+  float: right
+
+.clear
+  clear: both
+  font-size: 0px
+  height: 1px
+
+/* CUSTOMIZATIONS
+
+#right_column div.app_modaldialog
+  :position absolute
+  
+#right_column div
+  &.app_modaldialogwindow
+    :height auto
+    :width auto
+    :margin auto
+    :max-width 400px
+    :padding 0 10px 10px
+    :background #FFF
+    :border 2px solid #A3221D
+
+  &.app_modaldialogwindowtitle h1
+    :margin 0px
+    :margin 5px 2px
+    :padding 0
+    :padding-left 5px
+    :font-size 14px
+    :text-transform capitalize
+    :letter-spacing -1px
+    :font-weight bold
+    :color #000
+    :float left
+    :height 16px
+    :background-color #FFF
+    
+#searchinfo_modal .app_modaldialogwindow 
+  ul
+    margin-bottom: 0px
+    padding-bottom: 0px
+    li
+      font-size: 1.05em
+    
+/* TIMES
+
+div
+  &#countdown
+    display: inline
+    font-size: 0.9em
+    font-weight: bold
+  .countdown_amount
+    display: inline
+    padding-right: 2px

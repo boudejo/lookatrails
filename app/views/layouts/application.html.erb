@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+	<head>
+		<%= title :site => s('app.name') %>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="/images/animated_favicon.gif" type="image/gif" />
+		<%= meta_tags %>
+		<%= javascript_include_tag "lib/FusionCharts" %>
+		<%= stylesheet_link_tag :default_styles, :cache => "cache/all" %>
+		<%= stylesheet_link_tag 'layouts/main', :cache => "cache/all" %>
+		<%= stylesheet_link_tag 'layouts/layout_2colls', :cache => "cache/all" %>
+		<%= stylesheet_auto_include_tags if auto_include_styles? %>
+		<%= stylesheet_link_tag default_print_styles, :media => 'print', :cache => "cache/print" if default_print_styles? %>
+		
+	</head>
+	<body class="<%= controller_class %> <%= printmode %>">
+		<%= render_app_partial 'inc/header_new' %>
+		<div id="screen_body" class="layout_2colls container" >
+			<table class="layout">
+		  		<tr>
+		    		<td class="left"> <!-- use inline style to override default width (70%) -->
+						<div id="leftcontainer" class="leftcontainer">
+							<div class="col">
+								<div class="page_header">
+									<% if printable? then %>
+										<div id="print"><a href="#">print</a></div>
+									<% end %>
+								 	<div class="page_header_links">
+								    	LINK 1 OR TEXT
+								  	</div>
+							   		<h1 class="module_header"><%= @title %></h1>
+							  	</div>
+								<div id="sub_header">
+									<div id="breadcrumb">
+										<div class="links">
+											<%= render_crumbs %>
+										</div>
+									</div>
+								  	<div class="page_links">
+										<ul>
+											<li><a href="#">Page action link 1</a></li>
+											<li><span class="pipe">|</span></li>
+											<li><a href="#">Page action link 2</a></li>
+											<li><span class="pipe">|</span></li>
+											<li><a href="#">Page action link 3</a></li>
+										</ul>
+						   			</div>
+									<br style="clear: both" />
+								</div>
+							  	<div class="innercol">
+									<%= yield :layout %>
+<%
+=begin %>
+									<p>
+							  			- Ook nog mogelijkheid om icon naast paginatitel te zetten
+							  		</p>
+							  		<h3>Layout structures:</h3>
+									<ul>
+										<li><a href="2column_left_right.php">2 columns, large left (70%), small right (30%)</a></li>
+										<li><a href="2column_left_right2.php">2 columns, small left (30%), large right (70%)</a></li>
+										<li><a href="full.php">Fullsize (1 column 100%)</a></li>
+									</ul>
+									<h3>General layouting:</h3>
+									<ul>
+										<li><a href="#">TODO: Form example (fieldset + input elements + buttons)</a></li>
+										<li><a href="#">TODO: Tabs on page</a></li>
+										<li><a href="#">TODO: Table + data overview (search + filter(list) + paging + sorting)</a></li>
+										<li><a href="#">TODO: Settings page (see basecamp => centered links)</a></li>
+										<li><a href="#">TODO: JS components (filterlist, date)</a></li>
+										<li><a href="#">TODO: Inline code (look at libs)</a></li>
+									</ul>
+<%
+=end %>
+							   	</div>
+							</div>
+							<div class="bottom">&nbsp;</div>
+								<%= render_app_partial 'inc/footer_new' %>
+						</div>
+		    		</td>
+		    		<% if logged_in? then %>
+					<td class="right"> <!-- use inline style to override default width (30%) -->
+						<div id="rightcontainer" class="rightcontainer">
+							<div class="col">
+								<div class="sectionheader">
+									<h1>[Section title]</h1>
+								</div>
+								<div class="innercol">
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <em>Duis at nisi et libero porta lacinia.</em> Integer a enim nec diam viverra placerat. Etiam varius, felis non pellentesque ultrices, neque tellus sagittis velit, eu sagittis elit enim sed lorem. Etiam ut tortor. Cras bibendum est posuere sem. Duis tempor consectetuer neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sollicitudin justo nec tellus. Donec at metus.</p>
+									<p align="justify">Maecenas in orci. <strong>Sed quis quam nec ante cursus laoreet.</strong> Vivamus ante. Vivamus ac pede. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas dapibus facilisis nulla. Aenean tincidunt ipsum condimentum eros. Curabitur a erat. Sed ultricies sodales nulla. Nulla imperdiet vehicula sapien. Ut condimentum facilisis nunc. Vivamus eu lectus eget ante placerat imperdiet. Mauris pulvinar rutrum velit. Ut elementum. Quisque cursus velit ac urna. Sed nulla. Nunc orci sem, auctor at, consectetuer id, venenatis vitae, velit. Integer aliquet.</p>
+								</div>
+							</div>
+						</div>
+					</td>
+					<% end %>
+				</tr>
+			</table>
+		</div>
+		<%= render_app_partial 'inc/bottom_new' %>
+<%
+=begin %>
+		<div id="container" class="<%= action_class %>">
+			<%= render_app_partial 'inc/header' %>
+			<%= render_app_partial 'inc/menu' %>
+			<div id="right_column">
+				<div class="container">
+					<h1 class="module_header"><%= @title %></h1>
+					<div id="breadcrumb">
+						<div class="links">
+							<%= render_crumbs %>
+						</div>
+						<% if printable? then %>
+							<div id="print"><a href="#">print</a></div>
+						<% end %>
+						<hr style="clear: both;" />
+					</div>
+					<div class="content">
+						<%= yield :layout %>
+					</div>
+				</div>
+				<div class="minheight"><img src="/images/layout/spacer.gif" height="350" width="1" alt="spacer"/></div>
+				<%= render_app_partial 'inc/footer' %>
+			</div>
+		</div>
+<%
+=end %>
+		<%= render_app_partial 'inc/utils' %>
+		<%= javascript_before %>
+		<%= javascript_include_tag :default_scripts, :cache => "cache/all" %>
+		<%= javascript_app_config %>
+		<%= js_erb_auto_include_tag %>
+		<%= yield :javascript_before_auto_include %>
+		<%= javascript_auto_include_tags if auto_include_scripts? %>
+		<%= yield :javascript %>
+	</body>
+</html>

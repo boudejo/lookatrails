@@ -1,0 +1,42 @@
+<% title "Error occurred" %>
+
+<p align="center">
+  <strong>An error has occurred while processing your request.</strong>
+</p>
+
+<p align="center">
+  <strong>If your getting this error repeatedly please contact your application support staff.</strong>
+</p>
+
+<% if !production? &&  controller.controller_name != 'application' && controller.action_name != 'error' %>
+  <% fieldset "Debug information" do %>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+          <td width="130">Controller:</td>
+          <td><strong><%= controller.controller_name %></strong></td>
+      </tr>
+      <tr>
+          <td>Action:</td>
+          <td><strong><%= controller.action_name %></strong></td>
+      </tr>
+      <tr>
+          <td>Request uri:</td>
+          <td><strong><%= request.request_uri %></strong></td>
+      </tr>
+      <tr>
+          <td style="vertical-align: top;">Request parameters:</td>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+               <% params.each do |key, val| -%>
+                  <tr>
+            	      <%= content_tag(:td, "#{key}:", :width => 130) %>
+            	      <%= content_tag(:td, "#{val}") %>
+            	    </tr>
+            	  <% end -%>
+            </table>
+          </td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
+

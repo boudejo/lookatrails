@@ -1,0 +1,92 @@
+// ------
+// FONTS:
+// ------
+
+!font_family = "\"Helvetica Neue\", Helvetica, Arial, sans-serif"
+!font_size = 0.8em
+
+// -------
+// COLORS:
+// -------
+
+!color = #000
+!bg_color = #FFF
+
+!link_color = #7f7f7f
+!link_hover_color = #A3221D
+
+!row_heading_bg_color = #FFF
+!row_even_bg_color = #DFDFDF
+!row_odd_bg_color = #FFF
+!row_hover_color = #FFE1DF
+
+!msg_color = #333
+
+!msg_notice_color = !msg_color
+!msg_notice_bg_color = #a3badc
+!msg_notice_border_color = #4C79BA
+
+!msg_info_color = !msg_color
+!msg_info_bg_color =  !msg_notice_bg_color
+!msg_info_border_color = !msg_notice_border_color
+
+!msg_success_color = !msg_color
+!msg_success_bg_color = #DEEE7B
+!msg_success_border_color = #ACC600
+
+!msg_error_color = !msg_color
+!msg_error_bg_color = #eda6a8
+!msg_error_border_color = #ee777a
+
+!msg_warning_color = !msg_color
+!msg_warning_bg_color = #FFDCBF
+!msg_warning_border_color = #FFDCBF
+
+// ------
+// MIXINS
+// ------
+
+=clearfix 
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  * html &
+    height: 1px
+    
+=app_msg
+  border:
+    width: 1px
+    style: solid
+	  
+=msg_notice
+  +app_msg
+  color = !msg_notice_color
+  background = !msg_notice_bg_color
+  border-color = !msg_notice_border_color
+
+=msg_info
+  +app_msg
+  color = !msg_info_color
+  background = !msg_info_bg_color
+  border-color = !msg_info_border_color
+  
+=msg_success
+  +app_msg
+  color = !msg_success_color
+  background = !msg_success_bg_color
+  border-color = !msg_success_border_color
+  
+=msg_error
+  +app_msg
+  color = !msg_error_color
+  background = !msg_error_bg_color
+  border-color = !msg_error_border_color
+  
+=msg_warning
+  +app_msg
+  color = !msg_warning_color
+  background = !msg_warning_bg_color
+  border-color = !msg_warning_border_color

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/naked/yml
+END
+accounts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/naked/yml/accounts.yml
+END
+courses.yml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/naked/yml/courses.yml
+END
+companies.yml
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/fixtures/naked/yml/companies.yml
+END

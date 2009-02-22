@@ -1,0 +1,18 @@
+<div id="login_container">
+  <% title "Login" %>
+
+  <%= display_flashes %>
+
+  <% form_tag session_path, :id => 'login_form' do -%>
+  	<%= text_field_tag 'login', @login, :label => {:partial => true}, :autocomplete => false %>
+  	<%= password_field_tag 'password', nil, :label => {:partial => true} %>
+  	<%= check_box_tag 'remember_me', '1', @remember_me, :label => {:after => true, :partial => true, :inline => true} %>
+  	<p align="right"><%= submit_tag 'Log in &raquo;', :id => 'login_button' %></p>
+  <% end -%>
+
+  <div class="links">
+  	<%= link_to("Sign up for a new account", signup_path)%> |
+  	<%= link_to "Having trouble logging in?", user_troubleshooting_path %>
+  	<!-- <a href="#">Use your OpenID</a>-->
+  </div>
+</div>

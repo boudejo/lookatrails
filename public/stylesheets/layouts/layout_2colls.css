@@ -1,0 +1,68 @@
+<!--
+/*-------------------------------------------------
+2 COLUMN LAYOUT: LARGE LEFT - SMALL RIGHT
+-------------------------------------------------*/
+div.layout_2colls {
+}
+div.layout_2colls table.layout {
+	clear: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+div.layout_2colls table.layout td.left,
+div.layout_2colls table.layout td.right {
+	vertical-align: top;
+	padding: 0;
+}
+div.layout_2colls table.layout td.left {
+	width: 70%;
+}
+div.layout_2colls table.layout td.right {
+	width: 30%;
+}
+div.layout_2colls div.leftcontainer {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	width: 70%;
+	float: left;
+}
+div.layout_2colls div.col {
+	padding: 0 20px;
+	text-align: left;
+}
+div.layout_2colls div.leftcontainer div.col {
+	padding: 0 8px 0 0;
+  	background: #fff url(/images/layout/right-bg.gif) right repeat-y;
+  	position: relative;
+}
+div.layout_2colls div.leftcontainer div.bottom {
+  	background: url(/images/layout/bottom-bg.gif) top right no-repeat;
+  	font-size: 8px;
+}
+div.layout_2colls div.leftcontainer div.innercol {
+	padding: 8px 30px 15px 23px;
+	font-size:12px;
+	margin-top: 0px;
+}
+div.layout_2colls div.rightcontainer {
+	margin: 0px 0 0 0;
+	padding: 0;
+	text-align: left;
+	float: left;
+	width: 30%;
+}
+div.layout_2colls div.rightcontainer div.col {
+	min-width: 200px;
+	padding: 0 0 0 9px;
+}
+div.layout_2colls table.layout td.left div.leftcontainer,
+div.layout_2colls table.layout td.right div.rightcontainer {
+  	width: auto;
+  	float: none;
+}
+div.layout_2colls div.rightcontainer div.innercol {
+	margin-left: 7px;
+	margin-top: -5px;
+}
+-->

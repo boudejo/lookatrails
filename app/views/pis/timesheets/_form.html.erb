@@ -1,0 +1,187 @@
+<table class="calendar">
+  <tr>
+    <td class="title">Timesheet <%= @year %>: <%= parent_object.fullname %></td>
+    <td class="refresh">
+      <a href="#" class="refresh_window">refresh</a>
+    </td>
+    <td class="close">
+      <a href="#" class="close_window">X</a>
+    </td>
+  </tr>
+  <tr>
+      <td colspan="3">
+        <% if @year.to_i != @timesheet.year %>
+          <div class="no_calendar">
+            <p>
+              There is no timesheet available for year: <%= @year %>.<br/>
+              The most current timesheet found is for year: <a href="<%= if is_edit? then edit_object_path(@timesheet.year) else object_path(@timesheet.year) end %>" class="current_timesheet"><%= @timesheet.year %></a>.
+            </p>
+            <p>Calendars will be automatically created 3 months before the end of the current year.</p>
+          </div>
+        <% else %>
+          <div class="timesheet_info">
+            <table class="info_table">
+                <tr>
+                  <td class="empty">&nbsp;</td>
+                  <td class="value">Available</td>
+                  <td class="value">Used</td>
+                  <td class="value">Rest</td>
+                </tr>
+                <tr>
+                  <td class="description">Default leave days</td>
+                  <td class="value"><%= @timesheet.default_leave_days %></td>
+                  <td class="value">#</td>
+                  <td class="value">#</td>
+                </tr>
+            </table>
+            <table class="info_table">
+              <tr>
+                <td class="empty">&nbsp;</td>
+                <td class="value">Available</td>
+                <td class="value">Used</td>
+                <td class="value">Rest</td>
+              </tr>
+              <tr>
+                <td class="description">Leave days for holidays</td>
+                <td class="value">#</td>
+                <td class="value">#</td>
+                <td class="value">#</td>
+              </tr>
+            </table>
+            <table class="info_table">
+              <tr>
+                <td class="empty">&nbsp;</td>
+                <td class="value">Available</td>
+                <td class="value">Used</td>
+                <td class="value">Rest</td>
+                <td rowspan="2" class="save_leave">SAVE</td>
+              </tr>
+              <tr>
+                <td class="description">Extra leave days</td>
+                <td class="value"><%= @timesheet.extra_leave_days %></td>
+                <td class="value">#</td>
+                <td class="value">#</td>
+              </tr>
+            </table>
+            <div class="clear">&nbsp;</div>
+          </div>
+          <%= timesheet_calendar({:table_id       => 'employee_timesheet_calendar',
+                                  :year           => @timesheet.year, 
+                                  :min_prev_year  => APP.setting('app.startyear'), 
+                                  :max_next_year  => (Date.today.year+1),
+                                  :year_nav_url   => (is_edit? ? edit_object_path('ID') : object_path('ID'))}) do |d, id, w|
+            
+            #day_dom_id = "pis_calendar_#{@year}_calendar-entrie_"+id.gsub(/_/, '-')
+            day_dom_id = ''
+            if w == true then
+              ['', {:id => day_dom_id}]
+            else
+              ['W', {:id => day_dom_id}]
+            end
+            
+            if w == true then
+              ['', {}] #[d.mday, {}]
+            else
+              ['W', {}]
+            end                        
+          end
+          %>
+          <div class="timesheet_legend">
+            <table>
+              <tr>
+                <td>
+                  <table class="legend_table">
+                    <tr>
+                      <td class="label"><strong>W</strong></td>
+                      <td class="description">Workday</td>
+                    </tr>                    
+                    <tr>
+                      <td class="label"><strong>L</strong></td>
+                      <td class="description">Leave (whole day)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>Lm</strong></td>
+                      <td class="description">Leave (morning)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>La</strong></td>
+                      <td class="description">Leave (afternoon)</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="legend_table">
+                    <tr>
+                      <td class="label"><strong>H</strong></td>
+                      <td class="description">Holiday (official)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>Hp</strong></td>
+                      <td class="description">Postponed holiday (official)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>O</strong></td>
+                      <td class="description">Leave for overtime (whole day)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>Om</strong></td>
+                      <td class="description">Leave for overtime (morning)</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="legend_table">
+                    <tr>
+                      <td class="label"><strong>Oa</strong></td>
+                      <td class="description">Leave for overtime (afternoon)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>Os</strong></td>
+                      <td class="description">Leave for overtime sat., sun. and holidays</td>
+                    </tr>                    
+                    <tr>
+                      <td class="label"><strong>Pl</strong></td>
+                      <td class="description">Parental leave (maternity, paternity, adoption)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>Sl</strong></td>
+                      <td class="description">Sick Leave for Family Care or Bereavement Purposes</td>
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table class="legend_table">
+                    <tr>
+                      <td class="label"><strong>S</strong></td>
+                      <td class="description">Sick (whole day)</td>
+                    </tr>
+                    <tr>
+                      <td class="label"><strong>Sm</strong></td>
+                      <td class="description">Sick (morning)</td>
+                    </tr>                    
+                    <tr>
+                      <td class="label"><strong>Sa</strong></td>
+                      <td class="description">Sick (afternoon)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+      </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+//<![CDATA[
+  $j(document).ready(function(){
+    <% if is_edit? || is_readonly? %>
+    	Timesheets.setup(<%= @timesheet.to_json %>);
+    <% end %>
+  });
+//]]>
+</script>

@@ -1,0 +1,16 @@
+<% title "Login troubleshooting" %>
+
+  <p>You have indicated you are having trouble logging in to . What seems to be the problem?</p>
+  
+  <ul class="topics">
+    <li><%= link_to("I don't remember my password", user_forgot_password_path) %></li>
+    <li><%= link_to("I forgot my login, but know my email", user_forgot_login_path) %></li>
+    <li><%= link_to("I don't remember my login, email or password", user_clueless_path) %></li>
+    <!-- <li><%= link_to("I didn't receive an activation code", '#') %></li> -->
+    <!-- <li><%= link_to("I have reset my password/email and cannot login anymore", '#') %></li> -->
+    <!-- <li><%= link_to("None of the above seem to solve it", '#') %></li>-->
+  </ul> 
+  
+  <div class="links" style="text-align: left;">
+  	<%= link_to("&laquo; Back", login_path)%>
+  </div>

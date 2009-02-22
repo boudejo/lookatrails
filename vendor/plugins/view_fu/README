@@ -1,0 +1,70 @@
+ViewFu
+======
+
+ViewFu is a Rails plugin that provides all the miscellaneous View tasks. It's a combination of the functionality of Styler, Javascripter, and Headline (from Patrick Crowley, the.railsi.st) - along with additional tweaks such as providing commonly used View Helpers Methods.
+
+
+Maintainer Info
+======
+
+Tyler Crocker
+NeoRails.com
+
+Looking for *the one* awesome rails developer to add to your project? I may be available to help out. Contact me at neorails@gmail.com. 
+
+
+ViewFu HTML Helpers
+=======
+ViewFu provides helpers for commonly used html elements
+
+br #=> <br />
+hr #=> <hr />
+anchor("posts") #=> <a name='posts'></a>
+clear #=> <div class="clear"></div>
+clear(:left) #=> <div class="clearleft"></div>
+clear_tag(:br) #=> <br class="clear" />
+lorem #=> Lorem ipsum dolor...
+
+
+ViewFu Helper Queries
+=======
+production? #=> returns true if Rails.env == "production"
+is_new? #=> returns true is we're on a "new" or "create" action
+is_edit? #=> returns true is we're on an "edit" or "update" action
+use_cache? #=> returns true if perform_caching is turned on
+
+
+ViewFu Misc Helpers
+=======
+paging(@array) #=> display a will_paginate paging links (only if the array is a valid paging collection)
+paging(@array, :sabros) #=> wrap the paging links with a class "sabros"
+
+
+Haml Specific Helpers
+=======
+Haml allows you to pash a hash of attributes. ViewFu assists this by providing a simple "hidden" helper that allows you to conditionally hide page elements.
+
+%div{hidden} #=> <div style="display:none">
+%div.posts{hidden_if(@posts.empty?)} #=> hide the .posts div if the array is empty
+%p.empty{hidden_unless(@posts.empty?)} #=> hide the empty posts message if the array has elements
+
+Page Titles
+=======
+ViewFu allows you to easily set the current page title from anywhere on your views
+
+title
+Displays the current page title
+
+title(new_title)
+Sets the page title
+
+See lib/headliner/README for more details
+
+More Plugins
+======
+
+If you like ViewFu, you'll *love* FormFu. It provides a beautiful way to generate tableless Rails html forms. Works just like form_for, except it'll generate the entire XHTML (label, wrapper, validation message, etc). 
+https://github.com/neorails/form_fu
+
+
+Copyright (c) 2008 NeoRails.com, released under the MIT license

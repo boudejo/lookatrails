@@ -1,0 +1,18 @@
+<%= error_messages_for :document, {:strip_object_name => true} %>
+
+<% tpl_form_for @document, :url => object_path, :readonly => is_readonly?, :html => { :multipart => true, :onsubmit => "APP.Utils.uploadBlockUI('document_document');return true;" } do |f| %>
+  <% f.fieldset "Upload new document" do %>
+    <%= f.file_field :document, :label => 'Document' %>
+    <%= f.text_area :notes, :label => 'Document description', :size => "80x2" %>
+  <% end %>
+  
+  <p class="formbuttons" align="right">
+    <% if is_new? || @editable then %>
+      <%= f.submit "Upload" %>
+    <% elsif is_edit? then %>
+    	<%= f.submit "Update" %> <% if !xhr? then %>- <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %><% end %>
+    <% else %>
+      <%= link_to 'Edit', edit_object_path %> | <%= link_to 'Back', collection_path %>
+    <% end %>
+  </p>
+<% end %>

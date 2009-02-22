@@ -1,0 +1,45 @@
+<% if is_edit? then %>
+  <%= render_app_partial "object/info", :locals => {:record => @car} %>
+<% end %>
+
+<%= error_messages_for :car, {:strip_object_name => true} %>
+
+<% tpl_form_for @car, :url => object_path, :readonly => is_readonly? do |f| %>
+ 	<% f.fieldset @title do %>
+    <% f.table do %>
+ 	    <%= f.text_field :license_plate %>
+ 	    <%= f.text_field :brand %>
+ 	    <%= f.text_field :budget %>
+ 	    <%= f.date_field :in_service_date, :label => 'In service since', :class => 'date' %>
+ 	    <% if !is_new? %>
+ 	      <%= f.enum_select :status, :readonly => true, :append_field => @car.to_s('status') %>
+ 	    <% end %>
+ 	    <%= f.text_area :notes, :size => "80x5", :textile => true %>
+    <% end %>
+ 	<% end %>
+  <p class="formbuttons">
+    <% if is_edit? then %>
+      <%= f.submit "Update" %> - <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %>
+    <% elsif is_new? then %>
+    	<%= f.submit "Create" %> - <%= link_to 'Back', collection_path %>
+    <% else %>
+      <%= link_to 'Edit', edit_object_path %> | <%= link_to 'Back', collection_path %>
+    <% end %>
+  </p>
+<% end %>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+    <% if !is_readonly? %>
+    $j(document).ready(function(){
+	    Cars.setup(<%= @car.to_json %>);
+       // DATE IN SERVICE
+       $j('#car_in_service_date').datepicker({
+         showOn: "both", firstDay: 1, dateFormat: "dd/mm/yy"
+       });
+    });
+    <% end %>
+	//]]>
+	</script>
+<% end %>

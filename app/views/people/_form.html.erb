@@ -1,0 +1,67 @@
+<%= error_messages_for :person, {:strip_object_name => true, :id => parent_type.to_s+'_person'} %>
+
+<% tpl_form_for :person, @person, :url => object_path, :readonly => is_readonly?, :html => {:id => 'edit_person_'+@person.person.id.to_s, :method => (is_edit?) ? :put : :post, :onsubmit => 'People.update(this); return false;'} do |f| %>
+ 	<table class="form_table">
+ 	  <tr>
+ 	      <td class="divider">
+ 	        <% f.fieldset "Personal", :html => {:class => "personal"} do %>
+         	  <% f.table do %>
+           	    <%= f.text_field :person_national_number, :label => 'Nat. number' %>
+                <%= f.date_field :person_date_of_birth, :label => 'Date of birth', :class => 'date' %>
+                <%= f.text_field :person_place_of_birth, :label => 'Place of birth' %>
+            <% end %>
+         	<% end %>
+ 	      </td>
+ 	      <td>&nbsp;</td>
+ 	      <td class="divider">
+          <% f.fieldset "Contactinfo", :html => {:class => "contactinfo"} do %>
+        	  <%= render :partial => 'communications/container', :locals => {:options => {:object => @person.person, :show_actions => false, :readonly => is_readonly?, :f => f}}%>
+        	<% end %>
+ 	      </td>
+ 	  </tr>
+ 	</table>
+ 	<table class="form_table">
+ 	  <tr>
+ 	      <td class="divider">
+           <% f.fieldset 'Family information', :html => {:class => "familyinfo"} do %>
+              <% f.table do %>
+               <%= f.enum_select :person_marital_status, :label => 'Marital status' %>
+               <%= f.text_field :person_partner, :label => 'Partner name' %>
+               <%= f.date_field :person_date_of_birth_partner, :label => 'Date of birth partner', :class => 'date' %>
+               <%= f.text_field :person_children_accounted, :label => 'Children accounted', :size => 3, :class => 'intvalue' %>
+              <% end %>
+           <% end %>
+ 	      </td>     
+ 	      <td>&nbsp;</td>	      
+ 	      <td class="divider">
+    	    <% f.fieldset @person.address.to_s('label'), :html => {:class => "addressinfo"} do %>
+         	  <% f.table do %>
+         	    <%= render :partial => 'addresses/container', :locals => {:options => {:object => @person.address, :subject => :address, :f => f}} %>
+    	      <% end %>
+    	    <% end %>
+ 	      </td>
+ 	  </tr>
+ 	</table>    	
+  <% f.fieldset "Extra" do %>
+ 	  <%= f.text_area :person_notes, :size => "80x5", :textile => true, :label => 'Notes' %>
+ 	<% end %>
+ 	<p align="right">
+    <% if is_edit? then %>
+      <%= f.submit "Update" %>
+		<% end %>
+  </p>
+<% end %>
+<%= object_identity_field(@person.person) %>
+
+<script type="text/javascript">
+  <% if !is_readonly? %>
+  $j(document).ready(function(){
+     <% if is_edit? || is_readonly? %>
+      People.setup(<%= @person.person.to_json %>);
+     <% end %>
+     $j('#person_person_date_of_birth,#person_person_date_of_birth_partner').datepicker({
+       showOn: "both", firstDay: 1, dateFormat: "dd/mm/yy", yearRange: "-100:0"
+     });
+  });
+  <% end %>
+</script>

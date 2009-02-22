@@ -1,0 +1,39 @@
+<% if @employees.size > 0 then %>
+  <% paging_section @employees, :compact => true do %>
+    <table class="filtergrid <%= @subject %>_filtergrid" id="<%= @filterid %>_filtergrid">
+    	<thead>
+    		<tr class="heading">
+    			<th class="name last"><%= @subject_text.humanize %> details</th>
+    	  </tr>
+    	</thead>
+    	<tbody>
+    	<% for employee in @employees %>
+    		<tr class="<%= cycle('row-odd', 'row-even')%> title_row" id="<%= dom_id(employee) %>" title="<%= employee %>">
+    			<td class="name last">
+    			  <table>
+    			    <tr>
+    			        <td colspan="2" class="consultant_info"><strong><%= employee.fullcode %> / <%= employee %></strong></td>
+    			    </tr>
+    			    <tr>
+      			      <td class="availability_status">Availability status: *******</td>
+      			      <td class="days_available">Days available in period: *** day(s)</td>
+      			  </tr>
+    			  </table>
+    			</td>
+    		</tr>
+    	<% end %>
+    	</tbody>
+    </table>  
+  <% end %>
+<% else %>
+  <p class="noresults">
+    <% if @search %>
+    	There are no <%= @subject_text.pluralize %> added for<br/>
+    	search action on <% @search.each do |field, value| %><%= field.humanize %>: <%= value %><% end %>
+    <% else %>
+    	There are currently no <%= @subject_text.pluralize %> added in the system.
+    	<% if @page then %><br/>(on page <%=@page%>)<% end %>
+    <% end %>
+  </p>
+<% end %>
+

@@ -1,0 +1,16 @@
+Hello <%= @user.fullname %>,
+
+An <%= APP.setting('app.name') %> account has been created for you. Your login credentials are:
+
+  Username: <%= @user.login %>
+  Password: <%= @user.password %>
+
+Before you can access your account, we require you to activate it. You can activate your account now by visiting the following url:
+
+  <%= activate_url(:activation_code => @user.activation_code) %>
+
+Best regards,
+
+The <%= APP.setting('app.name') %> System.
+
+<%= @debug_info %>

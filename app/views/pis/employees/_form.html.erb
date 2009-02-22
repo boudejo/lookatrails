@@ -1,0 +1,154 @@
+<% if is_edit? then %>
+  <%= render_app_partial "object/info", :locals => {:record => @employee.employee} %>
+<% end %>
+
+<% tabs 'employee_tabs', %w{employee personal cost timesheet evaluation access files}, {  :default => 'employee', :handler => 'handleEmployeeTabs',
+                                            :employee => {:text => 'Employee info'},
+                                            :personal => {:disabled => (@editable) ? false : is_new?, :text => 'Personal info'},
+                                            :files => {:disabled => (@editable) ? false : is_new?, :text => 'Files ('+@employee.employee.documents_count.to_s+')'},
+                                            :cost => {:disabled => (@editable) ? false : is_new?, :text => 'Cost/Salary/Car'},
+                                            :timesheet => {:disabled => (@editable) ? false : is_new?, :text => 'Timesheet'},
+                                            :evaluation => {:disabled => (@editable) ? false : is_new?, :text => 'Evaluation'},
+                                            :access => {:disabled => (@editable) ? false : is_new?, :text => 'Access'}
+                                         } do %>
+  <% tab "employee" do %>
+    <%= error_messages_for :employee, {:strip_object_name => true} %>
+    <% tpl_form_for :employee, @employee, :url => (@editable) ? pis_employee_path(@employee.employee) : object_path, :readonly => is_readonly?, :html => {:id => (is_new? ? 'new_employee' : 'edit_employee_'+@employee.employee.id.to_s), :method => (is_edit?) ? :put : :post} do |f| %>
+     	<table class="form_table">
+     	  <tr>
+     	      <td class="divider">
+     	        <% f.fieldset "Personal", :html => {:class => "personal"} do %>
+             	  <% f.table do %>
+             	      <%= f.text_field :employee_code, :label => 'Code', :size => 3, :maxlength => 3, :append_field => "[<span id=\"fullcode_postal\">#{@employee.employee.to_s('postalcode')}</span>]" %>
+               	    <%= f.text_field :person_first_name, :label => 'First name' %>
+                    <%= f.text_field :person_last_name, :label => 'Last name' %>
+                    <tr>
+                        <td class="label">Recruited?</td>
+                        <td class="element">
+                          <% if (!@employee.employee.recruitment.nil?) then %>
+                            <strong>yes</strong> (<a href="<%= pis_recruitment_path(@employee.employee.recruitment) %>" title="recruitment">view</a>)
+                          <% else %>
+                            <strong>no</strong>
+                          <% end %>
+                        </td>
+                    </tr>
+                <% end %>
+             	<% end %>
+     	      </td>
+     	      <td>&nbsp;</td>
+     	      <td class="divider">
+              <% f.fieldset "Contactinfo", :html => {:class => "contactinfo"} do %>
+            	  <%= render :partial => 'communications/container', :locals => {:options => {:object => @employee.employee, :show_actions => false, :readonly => is_readonly?, :f => f}}%>
+            	<% end %>
+     	      </td>
+     	  </tr>
+     	</table>
+     	<table class="form_table">
+     	  <tr>
+     	      <td class="divider">
+     	        <% f.fieldset @employee.address.to_s('label'), :html => {:class => "addressinfo"} do %>
+             	  <% f.table do %>
+             	    <%= render :partial => 'addresses/container', :locals => {:options => {:object => @employee.address, :subject => :address, :f => f}} %>
+        	      <% end %>
+        	    <% end %>
+     	      </td>     
+     	      <td>&nbsp;</td>	      
+     	      <td class="divider">
+        	    <% f.fieldset "Extra", :html => {:class => "extra"} do %>
+             	    <% f.table do %>
+             	      <%= f.text_field :employee_function, :label => 'Function' %>
+          	        <%= f.enum_select :employee_joblevel, :label => 'Joblevel' %>
+          	        <%= f.enum_select :employee_status, :label => 'Status' %>
+          	        <% if @employee.employee.status == 'no_longer_in_service' %>
+          	          <%= f.date_field :employee_date_out_service, :label => 'Out service', :class => 'date' %>
+          	        <% else %>
+          	          <%= f.date_field :employee_date_in_service, :label => 'In service', :class => 'date' %>
+          	        <% end %>
+          	        <%= f.date_field :employee_date_oresys, :label => 'In ORESYS', :class => 'date' %>
+          	        <%= f.enum_select :employee_workshedule, :label => 'Workshedule' %>
+          	        <%= f.text_field :employee_bank_account_number, :label => 'Bank account' %>
+          	      <% end %>
+             	<% end %>
+     	      </td>
+     	  </tr>
+     	</table>    	
+      <% f.fieldset "Extra" do %>
+     	  <%= f.text_area :employee_notes, :size => "80x5", :textile => true, :label => 'Notes' %>
+     	<% end %>
+     	<p align="right">
+        <% if is_edit? then %>
+          <%= f.submit "Update" %>
+    		<% elsif is_new? then %>
+    			<%= f.submit "Create" %>
+    		<% end %>
+      </p>
+    <% end %>
+  <% end %>
+  <% if is_edit? || is_readonly? %>
+    <% tab "personal" do %>
+      <%= ajax_block('employee_personal', {:load_type => nil, :css_class => 'employee_load_tab'}) %>
+    <% end %>
+    <% tab "cost" do %>
+      <%= render :partial => 'pis/salaries/container', :locals => {:subject => :employee} %>
+    <% end %>
+    <% tab "timesheet" do %>
+      <%= ajax_block('employee_timesheets', {:load_type => nil, :css_class => 'employee_load_tab'}) %>
+    <% end %>
+    <% tab "evaluation" do %>
+        <%= ajax_block('employee_evaluations', {:load_type => nil, :css_class => 'employee_load_tab'}) %>
+    <% end %>
+    <% tab "access" do %>
+       <%= ajax_block('employee_access', {:load_type => nil, :css_class => 'employee_load_tab'}) %>
+    <% end %>
+    <% tab "files" do %>
+       <%= render :partial => 'documents/container', :locals => {:subject => :employee} %>
+    <% end %>
+    <%= object_identity_field(@employee.employee) %>
+  <% end %>
+  <p class="formbuttons">
+    <% if is_edit? then %>
+      <% if @editable then %>
+        <%= link_to 'Show', edit_pis_employee_path(@employee.employee)  %> | <%= link_to 'Back', pis_employees_path %>
+      <% else %>
+        <%= link_to 'Show', object_path %> | <%= link_to 'Back', collection_path %>
+      <% end %>
+  	<% elsif is_new? then %>
+  		<%= link_to 'Back', collection_path %>
+  	<% else %>
+  	  <%= link_to 'Edit', edit_object_path %> | <%= link_to 'Back', collection_path %>
+  	<% end %>
+  	</p>
+<% end %>
+
+<% content_for :javascript do %>
+	<script type="text/javascript">
+	//<![CDATA[
+		function handleEmployeeTabs(tabid, tabs, tabcontainer) {
+  	  <% if is_edit? || is_readonly? %>
+  	    Employees.setup(<%= @employee.employee.to_json %>, {
+  	      personal: {url: '<%= (is_readonly?) ? pis_employee_person_path(@employee.employee) : edit_pis_employee_person_path(@employee.employee) %>'},
+          cost: {
+              collection_url: '<%= pis_employee_salaries_path(@employee.employee) %>',
+              salary_url: '<%= (is_readonly?) ? pis_employee_salary_path(@employee.employee, @employee.employee.salary) : edit_pis_employee_salary_path(@employee.employee, @employee.employee.salary) %>'
+          },
+          timesheet: {
+              collection_url: '<%= pis_employee_timesheets_path(@employee.employee) %>',
+              url: '<%= (is_readonly?) ? pis_employee_timesheet_path(@employee.employee, Time.now.year) : edit_pis_employee_timesheet_path(@employee.employee, Time.now.year) %>'
+          }
+        });
+        Employees.handleTab(tabid, <%= (is_readonly?) ? true : false %>, <%= (@editable) ? true : false %>);
+      <% end %>
+      return true;
+    }
+
+    <% if !is_readonly? %>
+    $j(document).ready(function(){
+       $j('#employee_employee_date_in_service,#employee_employee_date_out_service,#employee_employee_date_oresys').datepicker({
+         showOn: "both", firstDay: 1, dateFormat: "dd/mm/yy"
+       });
+    });
+    <% end %>
+	//]]>
+	</script>
+<% end %>
+

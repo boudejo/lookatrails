@@ -1,0 +1,65 @@
+<div id="left_column">
+	<h2>General</h2>
+
+	<ul class="left_menu single">
+		<li><%= link_to "Dashboard", pis_dashboard_path, :id => 'pis_dashboard' %></li>
+	</ul>
+	
+	<h2>CRM</h2>
+	
+	<ul class="left_menu">
+		<li>
+		  <%= link_to "Accounts", crm_accounts_path, :id => 'crm_accounts' %>
+		  <%= link_to "+", new_crm_account_path, :class => 'addshortcutbtn', :id => 'new_crm_account_shortcut' %>
+		</li>
+		<li>
+		  <%= link_to "Contacts", crm_contacts_path, :id => 'crm_contacts' %>
+		  <%= link_to "+", new_crm_contact_path, :class => 'addshortcutbtn', :id => 'new_crm_contact_shortcut' %>
+		</li>
+		<li>
+		  <%= link_to "Opportunities", crm_opportunities_path, :id => 'crm_opportunities' %>
+		  <%= link_to "+", new_crm_opportunity_path, :class => 'addshortcutbtn', :id => 'new_crm_opportunity_shortcut' %>
+		</li>
+	</ul>
+	
+	<h2>HR</h2>
+	
+	<ul class="left_menu">
+		<li>
+		  <%= link_to "Recruitments", pis_recruitments_path, :id => 'pis_recruitments' %>
+		  <%= link_to "+", new_pis_recruitment_path, :class => 'addshortcutbtn', :id => 'new_pis_recruitment_shortcut' %>
+		</li>
+		<li><%= link_to "Recruitment Forecast", forecast_pis_recruitments_path, :id => 'pis_recruitments_forecast' %></li>
+		<!-- <li><%= link_to "Consultants", "#" %></li> -->
+		<li>
+		  <%= link_to "Employees", pis_employees_path %>
+  		<%= link_to "+", new_pis_employee_path, :class => 'addshortcutbtn', :id => 'new_pis_employee_shortcut' %>
+		</li>
+	</ul>
+	
+	<h2>Projects</h2>
+	
+	<ul class="left_menu single">
+		<li>
+		  <%= link_to "Overview", pis_projects_path, :id => 'pis_projects' %>
+  		<%= link_to "+", new_pis_project_path, :class => 'addshortcutbtn', :id => 'new_pis_project' %>
+		</li>
+	</ul>
+	
+	<h2>Various ...</h2>
+	
+	<ul class="left_menu">
+		<li><%= link_to "Calendar", pis_calendars_path, :id => 'pis_calendar' %></li>
+		<li>
+		    <%= link_to "Cars", pis_cars_path, :id => 'pis_cars' %>
+		    <%= link_to "+", new_pis_car_path, :class => 'addshortcutbtn', :id => 'new_pis_car_shortcut' %>
+		</li>
+	</ul>
+	
+	<h2>Application</h2>
+	
+	<ul class="left_menu single">
+		<li><%= link_to "Changelog", changelog_path, :id => 'app_changelog' %></li>
+		<li><%= link_to "Administration", admin_root_path, :id => 'app_administration' %></li>
+	</ul>
+</div>

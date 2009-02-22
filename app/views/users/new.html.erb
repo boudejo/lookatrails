@@ -1,0 +1,27 @@
+<% title "Sign up" %>
+
+  <% @signup.user_password = @signup.user_password_confirmation = nil %>
+
+  <p>You are about to register a new account. Please fill out this simple form.</p>
+
+  <p>Already have an account? <%= link_to("Login here", login_url)%></p>
+
+  <%= error_messages_for :signup, {:strip_object_name => true} %>
+  
+  <% tpl_form_for :signup, @signup, :url => users_path, :opts => {:partial => 'NEWLINE'}, :html => {:id => 'signup_form'} do |f| %>
+    <% f.fieldset "Signup" do %>
+      <% f.list do %>
+        <%= f.text_field :profile_first_name, :label => 'Firstname' %>
+        <%= f.text_field :profile_last_name, :label => 'Lastname' %>
+      	<%= f.text_field :user_login, :label => 'Preferred login' %>
+      	<%= f.text_field :user_email, :label => 'Email' %>
+      	<%= f.password_field :user_password, :label => 'Password' %>
+      	<%= f.password_field :user_password_confirmation, :label => 'Confirm password' %>
+    	<% end %>
+    <% end %>
+    <p align="right"><%= submit_tag 'Sign up &raquo;' %></p>
+  <% end -%>
+
+  <div class="links" style="text-align: left;">
+  	<%= link_to("&laquo; Back", login_path)%>
+  </div>

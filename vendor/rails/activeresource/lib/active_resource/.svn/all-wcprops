@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource
+END
+custom_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/custom_methods.rb
+END
+validations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/validations.rb
+END
+connection.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/connection.rb
+END
+version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/version.rb
+END
+http_mock.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/http_mock.rb
+END
+base.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/base.rb
+END
+formats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/formats.rb
+END

@@ -1,0 +1,16 @@
+Hello <%= @user.fullname %>,
+
+You have indicated that you have forgotten your <%= APP.setting('app.name') %> account's login. 
+Your account login is:
+
+  Username: <%= @user.login %>
+
+You may login by visiting the following link:
+
+  <%= login_url %>
+
+Best regards,
+
+The <%= APP.setting('app.name') %> System.
+
+<%= @debug_info %>

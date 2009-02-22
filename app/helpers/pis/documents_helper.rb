@@ -1,0 +1,2 @@
+module Pis::DocumentsHelper
+end

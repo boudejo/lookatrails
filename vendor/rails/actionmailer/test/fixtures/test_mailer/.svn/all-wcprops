@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer
+END
+custom_templating_extension.text.plain.haml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/custom_templating_extension.text.plain.haml
+END
+_subtemplate.text.plain.erb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/_subtemplate.text.plain.erb
+END
+custom_templating_extension.text.html.haml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/custom_templating_extension.text.html.haml
+END
+signed_up_with_url.erb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/signed_up_with_url.erb
+END
+rxml_template.builder
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/rxml_template.builder
+END
+signed_up.erb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/signed_up.erb
+END
+implicitly_multipart_example.text.yaml.erb
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/implicitly_multipart_example.text.yaml.erb
+END
+implicitly_multipart_example.text.plain.erb
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/implicitly_multipart_example.text.plain.erb
+END
+implicitly_multipart_example.ignored.erb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/implicitly_multipart_example.ignored.erb
+END
+implicitly_multipart_example.text.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/implicitly_multipart_example.text.html.erb
+END
+included_subtemplate.text.plain.erb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/included_subtemplate.text.plain.erb
+END
+implicitly_multipart_example.rhtml.bak
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/implicitly_multipart_example.rhtml.bak
+END
+rxml_template.rxml
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/actionmailer/test/fixtures/test_mailer/rxml_template.rxml
+END

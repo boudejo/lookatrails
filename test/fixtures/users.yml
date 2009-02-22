@@ -1,0 +1,33 @@
+DEFAULTS: &DEFAULTS
+  salt:                     4137ee79797c3bde45ee6e6960f6b343d09121cb
+  crypted_password:         4d0b688bd7f3100d24253a9023d292c983058b7e # 'nonetw'
+  activated_at:             <%= 1.days.ago.to_s :db  %>
+  state:                    active
+  creator_id:               <%= Fixtures.identify(:system) %>
+  updater_id:               <%= Fixtures.identify(:system) %>
+
+system:
+  login:                    system
+  email:                    <%= APP.setting('mail.sender.address') %>
+  <<: *DEFAULTS
+  state:                    passive
+  
+butsjoh:
+  login:                    butsjoh
+  email:                    j.buts@thinkweb.be
+  <<: *DEFAULTS
+  
+boudejo:
+  login:                    boudejo
+  email:                    j.boudewijns@thinkweb.be
+  <<: *DEFAULTS
+  
+quasus:
+  login:                    quasus
+  email:                    info@quasus.be
+  salt:                     6e77353ddc63fca90077e87de10a6374bbe5689a
+  crypted_password:         6cd0a08fb04e7ca0bd3f3320cfc318ef7fa154a7  # 'quasuspis'
+  activated_at:             <%= 1.days.ago.to_s :db  %>
+  state:                    active
+  creator_id:               <%= Fixtures.identify(:system) %>
+  updater_id:               <%= Fixtures.identify(:system) %>

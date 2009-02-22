@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations
+END
+association_proxy.rb
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/association_proxy.rb
+END
+association_collection.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/association_collection.rb
+END
+belongs_to_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/belongs_to_association.rb
+END
+has_and_belongs_to_many_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/has_and_belongs_to_many_association.rb
+END
+has_one_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/has_one_association.rb
+END
+has_one_through_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/has_one_through_association.rb
+END
+has_many_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/has_many_association.rb
+END
+has_many_through_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/has_many_through_association.rb
+END
+belongs_to_polymorphic_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/lib/active_record/associations/belongs_to_polymorphic_association.rb
+END

@@ -1,0 +1,51 @@
+/*== FLASHES ==
+div
+  &.flash
+    width: 100%
+    font-weight: bold
+    p.message
+      margin: 0px
+      padding: 3px
+      clear: left
+    a.close
+      color: #000
+      text-decoration: none
+      float: right
+      margin: 5px
+      margin-top: 3px
+      
+div, span
+  &.flash_notice
+    +msg_notice
+  &.flash_info
+    +msg_info
+  &.flash_success
+    +msg_success
+  &.flash_error
+    +msg_error
+  &.flash_warning, &.flash_warn
+    +msg_warning
+    
+div
+  &.flashes, &.messages
+    color: #333 
+    background: #FFFFEE
+    padding: 3px
+  &.flashes
+    border: 1px solid #7F7F7F
+    a.close
+      color: #000
+      text-decoration: none
+      float: right
+      margin: 5px
+      margin-top: 3px
+    p.title
+      font-weight: bold
+    div.flash
+      background: transparent
+      border: none
+      margin-left: 5px
+      margin-right: 10px
+      span.flashtype
+        text-transform: capitalize
+        border: none

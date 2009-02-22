@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/inflections.rb
+END
+multibyte.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/multibyte.rb
+END
+callbacks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/callbacks.rb
+END
+clean_logger.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/clean_logger.rb
+END
+buffered_logger.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/buffered_logger.rb
+END
+time_with_zone.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/time_with_zone.rb
+END
+base64.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/base64.rb
+END
+memoizable.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/memoizable.rb
+END
+string_inquirer.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/string_inquirer.rb
+END
+inflector.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/inflector.rb
+END
+duration.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/duration.rb
+END
+version.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/version.rb
+END
+dependencies.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/dependencies.rb
+END
+ordered_hash.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/ordered_hash.rb
+END
+deprecation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/deprecation.rb
+END
+vendor.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/vendor.rb
+END
+ordered_options.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/ordered_options.rb
+END
+whiny_nil.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/whiny_nil.rb
+END
+cache.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/cache.rb
+END
+basic_object.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/basic_object.rb
+END
+core_ext.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/core_ext.rb
+END
+json.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/json.rb
+END
+option_merger.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/option_merger.rb
+END
+gzip.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/gzip.rb
+END
+test_case.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activesupport/lib/active_support/test_case.rb
+END

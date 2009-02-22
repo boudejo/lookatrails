@@ -1,0 +1,34 @@
+/* SECTION: COMMUNICATIONS */
+table.communications {
+  width: 100%;
+}
+table.communications tr th {
+  text-align: center;
+}
+table.communications tr td {
+  text-align: center;
+}
+table.communications tr td input {
+  width: 95%;
+  text-align: left;
+}
+table.communications tr td.type {
+  width: auto;
+}
+table.communications tr td.label {
+  width: 65px;
+}
+table.communications tr td.label input {
+  text-align: center;
+}
+table.communications tr td.value {
+  width: 155px;
+  text-align: right;
+}
+table.communications tr td.desc {
+  display: none;
+}
+table.communications tr td.actions {
+  text-align: center;
+  width: 50px;
+}

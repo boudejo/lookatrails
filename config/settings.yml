@@ -1,0 +1,130 @@
+defaults: &defaults
+    site:
+      url: 127.0.0.1
+      protocol: http
+    app:
+        name: Quasus P.I.S
+        info: informatiesysteem
+        version: 0.1
+        build: 4
+        build_date: 22/09/2008
+        sections: [pis, admin]
+        namespaces: ['pis', 'hr', 'crm', 'admin']
+        crumb_text: PIS Dashboard
+        crumb_url: /pis/dashboard
+        startyear: 2009
+    quasus:
+        contact:
+          phone: "+32 (0)2 712 96 50"
+          email: info@quasus.be
+        address:
+          address_line1: Excelsiorlaan
+          address_line2:
+          address_nr: 89
+          address_bus:
+          address_postal: 1930
+          address_place: Zaventem
+          address_country: Belgium
+          
+    support:
+        name: ThinkWeb
+        url: http://www.thinkweb.be
+        mail:
+          name: ThinkWeb
+          address: support@thinkweb.be
+    session:
+        timeout: 0
+    flash:
+        timeout: 5
+    error:
+        timeout: 0
+    mail:
+        subject_prefix: "[PIS]"
+        sender:
+            name: Quasus
+            address: system@quasus.be
+    debug:
+        mail:
+          enabled: false
+          name:
+          address:
+    meta:
+      http-equiv:
+        content-type: text/html; charset=utf-8
+        content-style-type: text/css
+        content-script-type: text/javascript
+        content-language: en
+        author: Quasus
+        generator: Thinkweb
+      name:
+        robots:
+        description:
+          lang: en
+          content: 
+        keywords:
+    roles:
+      application: [consultant, manager, hr_manager, hr_recruiter, business_developer, admin]
+      system: [system, support]
+    data:
+      calendar:
+        types: 
+          values: [:W, :Lg, :H, :Hp, :E]
+          text: ['Workday', 'General Leave', 'Holiday', 'Postponed Holiday', 'Event/Special day']
+          help: ['A normal workday.', 'Leave for the entire company.', 'Official holidays.', 'Official holidays (in a weekend) which can be recuperated on another day.', 'Special days that are not marked as leave or holiday.']
+        days_select_limit: 18
+      timesheet:
+        days_select_limit: 18
+      cost_centers: [unspecified, testing, validation, mapping]
+      countries: 
+        default: [Belgium, Netherlands, France, Germany]
+      leave:
+        default: {fulltime: 20, parttime: 10}
+      salaries:
+        default:
+          gross_salary: {unspecified: {min: 0, max: 0}, junior: {min: 1900, max: 2100}, consultant: {min: 2000, max: 5400}, senior: {min: 2500, max: 7500}}
+          rep_allowance: {unspecified: 0, junior: 50, consultant: 50, senior: 50}
+          group_insurance_perc: {unspecified: 4.5, junior: 4.5, consultant: 4.5, senior: 4.5}
+          car_budget: {unspecified: 0, junior: 0, consultant: 0, senior: 0}
+          dkv: 191
+        calculations:
+          order: [gross_salary, min, max, rp, ss, 13m, ss13m, dph, group_insurance_perc, gi, ssgi, dkv, wai, lv, subtotal, rep_allowance, subtotal_ra, car_budget, ssc, subtotal_car, grand_total, daily_cost]
+          values:
+            gross_salary: {label: 'Gross salary (GS)', param: true}
+            min: {label: 'Min. gross salary (Min)', calc: 'min_value'}
+            max: {label: 'Max. gross salary (Max)', calc: 'max_value'}
+            rp: {label: 'Range penetration % (RP)', calc: '( gross_salary - min_value ) / ( max_value - min_value )', calc_label: '(GS - Min) / (Max - Min)', as: 'percentage'}
+            ss: {value: 0.35, label: 'Social security 35% (SS)', calc: 'gross_salary * value', calc_label: 'GS * 35%'}
+            13m: {label: '13th month (13m)', calc: 'gross_salary / [12]', calc_label: 'GS / 12'}
+            ss13m: {label: 'Social security 35% - 13m (SS13M)', calc: '13m * ss_value', calc_label: '13M * SC'}
+            dph: {value: 0.92, label: 'Double paid holiday (DPH)', calc: '( gross_salary / [12] ) * value', calc_label: '(GS / 12) * 0.92'}
+            group_insurance_perc: {label: 'Group insurance % (GIP)', param: true, class: 'percentage'}
+            gi: {label: 'Group Insurance (GI)', calc: '( gross_salary + 13m + dph ) * ( group_insurance_perc / [100] )', calc_label: '(GS + 13M + DPH) * GIP'}
+            ssgi: {value: 0.0886, label: 'Social security GI (SGI)', calc: 'gi * value', calc_label: 'GS * 0.0886'}
+            dkv: {label: 'DKV (DKV)', param: true}
+            wai: {value: 0.008, label: 'Work accident insurace (WAI)', calc: 'gross_salary * value', calc_label: 'GS * 0.008'}
+            lv: {label: 'Lunch vouchers (LV)', calc: '[4.46] * [19.25]', calc_label: '4.46 * 19.25'}
+            subtotal: {class: 'total', label: 'Subtotal (ST)', calc: '( ss + 13m + ss13m + dph + gi + ssgi + dkv + wai + lv )', calc_label: 'SS + 13M + SS13m + DPH + GI + SSGI + WAI + LV'}
+            rep_allowance: {label: 'Rep. Allowance (RA)', param: true}
+            subtotal_ra: {class: 'total', label: 'Subtotal (STRA)', calc: '( subtotal + rep_allowance )', calc_label: 'ST + RA'}
+            car_budget: {label: 'Car budget (CB)', param: true}
+            ssc: {label: 'Social security 35% (SSC)', calc: '[130] * [0.33]', calc_label: '130 * 0.33'}
+            subtotal_car: {class: 'total', label: 'Subtotal (STC)', calc: '( ssc + subtotal_ra + car_budget )', calc_label: 'SSC + STRA + CB'}
+            grand_total: {class: 'total', label: 'Grandtotal (GT)', calc: '( gross_salary + subtotal_car )', calc_label: 'GS + STC', saveable: true}
+            daily_cost: {class: 'total', label: 'Daily cost (DC)', calc: '[1.1] * ( grand_total / [18] )', calc_label: '1.1 * (GT / 18)', saveable: true}
+          
+development: &non_production_settings
+    <<: *defaults
+    debug:
+        mail:
+          enabled: true
+          name: Thinkweb
+          address: quasus@webapp.dev
+        
+test:
+    <<: *non_production_settings
+  
+production:
+    <<: *defaults
+    site:
+      url: 81.83.6.40:3000
+      protocol: http

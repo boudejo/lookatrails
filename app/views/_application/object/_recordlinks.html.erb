@@ -1,0 +1,38 @@
+<%
+  # OPTIONS
+  options ||= {}
+  object = options.delete(:object) || nil
+  url = options.delete(:url) || '#' 
+  ns = options.delete(:ns) || ''
+  title = options.delete(:title) || ''
+  title_key = options.delete(:title_key) || 'full'
+  delete_url = options.delete(:delete_url) || nil
+  edit = options[:edit].nil? ? true : options[:edit]
+  show = options[:show].nil? ? true : options[:show]
+  delete = options[:delete].nil? ? true : options[:delete]
+%>
+<% if show then %>
+  <%= link_to 'Show', ((!object.nil?) ? object_path(object) : url), :class => 'show_link' %>
+<% end %>
+<% if show && edit then %>
+  |
+<% end %>
+<% if edit then %>
+  <%= link_to 'Edit', ((!object.nil?) ? edit_object_path(object) : url+'/edit'), :class => 'edit_link' %>
+<% end %>
+<% if (edit && delete) || (show && delete) then %>
+  |
+<% end %>
+<% if delete then 
+  if !delete_url.nil? || object.nil? then
+    delete_url = (!delete_url.nil?) ? delete_url : url+'/delete'
+  else
+    delete_url = url_for([:delete, ns, object])
+  end 
+
+  if title.blank?
+    title = (!object.nil?) ? object.to_s(title_key) : "<NO TITLE>"
+  end
+%>
+  <%= link_to 'Delete', nil, :href => delete_url, :class => 'delete_link', :title => title %>
+<% end %>

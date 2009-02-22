@@ -1,0 +1,11 @@
+Hello <%= @user.fullname %>,
+
+Your email address for your <%= APP.setting('app.name') %> account has been updated. Your newly registered email address is:
+
+  <%= @user.email %>
+
+Best regards,
+
+The <%= APP.setting('app.name') %> System.
+
+<%= @debug_info %>

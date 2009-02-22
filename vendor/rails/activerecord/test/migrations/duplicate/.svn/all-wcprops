@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/migrations/duplicate
+END
+1_people_have_last_names.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/migrations/duplicate/1_people_have_last_names.rb
+END
+2_we_need_reminders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/migrations/duplicate/2_we_need_reminders.rb
+END
+3_foo.rb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/migrations/duplicate/3_foo.rb
+END
+3_innocent_jointable.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/migrations/duplicate/3_innocent_jointable.rb
+END

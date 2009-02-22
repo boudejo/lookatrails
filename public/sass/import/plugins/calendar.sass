@@ -1,0 +1,99 @@
+/* CALENDAR
+
+div.calendar_container
+  min-height: 555px
+
+div
+  &.calendar_window
+    :display none
+    :position fixed
+    :top 5%
+    :left 0
+    :width 100%
+
+  &.calendar_window_content
+    :height auto
+    :width auto
+    :margin auto
+    :max-width 1050px
+    :padding 10px
+    :background #FFF
+    :border 2px solid #A3221D
+    
+    table.calendar
+      td
+        margin: 0px
+        padding: 0px
+        background-color: none
+        color: #000
+        &.title
+          text-align: left
+          font-size: 16px
+          font-weight: bold
+          text-transform: uppercase
+          width: 300px
+        &.links
+          text-align: center
+          width: 250px
+        &.close
+          text-align: center
+          vertical-align: middle
+          width: 20px
+          font-weight: bold
+          font-size: 14px
+          a
+            text-decoration: none
+
+div.no_calendar
+  margin-top: 150px
+  text-align: center
+  font-size: 13px
+  font-weight: bold
+
+/* TIMESHEET
+
+table.timesheet_calendar
+  width: 100%
+  border: 1px solid #000
+  border-collapse: collapse
+  th
+    text-align: center
+    margin: 0px
+    padding: 0px
+    border: 1px solid #000
+    border-bottom: 3px solid #000
+    border-collapse: collapse
+    &.year
+      width: auto
+      font-weight: bold
+    &.day
+      width: 30px
+      height: 30px
+      background-color: #EFEFEF
+  td
+    border: 1px solid #000
+    border-collapse: collapse
+    &.month
+      width: auto
+      font-weight: bold
+      text-transform: uppercase
+      text-align: center
+      background-color: #EFEFEF
+    &.day
+      width: 30px
+      height: 30px
+      text-align: center
+      cursor: pointer
+      cursor: hand
+    &.weekend
+      background-color: #BFBFBF
+    &.today
+      background-color: #FF948F
+    &.no_day
+      background-color: #000
+
+div.no_timesheet
+  margin-top: 150px
+  text-align: center
+  font-size: 13px
+  font-weight: bold

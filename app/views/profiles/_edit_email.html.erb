@@ -1,0 +1,15 @@
+<% tpl_form_for :user, @user, :url => update_email_profile_path(current_user), :html => {:method => :put} do |f| %>
+  <% f.fieldset "Change my email adres" do %>
+    <h4>Your new email address</h4>
+
+  	<p>Please enter your new email address below. Please double-check it, because you may need it later to retrieve your password.</p>
+
+  	<p><%= text_field_tag 'email', @user.email, :size => 45 %></p>
+
+    <h4>Your registered email address</h4>
+    
+    <p>Your current registered email address is: <strong><%= current_user.email %></strong></p>
+
+  <% end -%>
+  <%= submit_tag "Change my email address" %>
+<% end -%>

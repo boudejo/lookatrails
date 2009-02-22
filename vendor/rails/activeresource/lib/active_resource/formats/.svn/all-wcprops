@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/formats
+END
+json_format.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/formats/json_format.rb
+END
+xml_format.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activeresource/lib/active_resource/formats/xml_format.rb
+END

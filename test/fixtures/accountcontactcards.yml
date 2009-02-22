@@ -1,0 +1,7 @@
+account_selfnet:
+  first_name: 'SelfNET BVBA'
+  accountcontactable:  selfnet (Account)
+
+account_thinkweb:
+  first_name: 'ThinkWeb'
+  accountcontactable: thinkweb (Account)

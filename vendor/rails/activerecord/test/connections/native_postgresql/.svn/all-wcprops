@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/connections/native_postgresql
+END
+connection.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/source/selfnetactivity/!svn/ver/5/trunk/vendor/rails/activerecord/test/connections/native_postgresql/connection.rb
+END
